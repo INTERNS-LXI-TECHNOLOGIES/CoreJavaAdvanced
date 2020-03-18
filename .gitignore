@@ -1,0 +1,29 @@
+Code Issues 0 Pull requests 0 Projects 0 Actions Wiki Security Pulse Community
+EEJavaFoundational/.gitignore
+@muhammedashiq muhammedashiq .gitignore]
+45ddc2d on 6 Dec 2019
+23 lines (18 sloc)  278 Bytes
+ 
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
