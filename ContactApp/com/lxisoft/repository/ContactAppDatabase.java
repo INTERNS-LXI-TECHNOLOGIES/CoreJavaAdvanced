@@ -9,6 +9,7 @@ public class ContactAppDatabase
 	Statement stmt = null;
 	PreparedStatement ps = null;;
 	int row;
+	int id;
 	public void createDatabaseConnection()
 	{
 		try
@@ -26,7 +27,7 @@ public class ContactAppDatabase
 			e.printStackTrace();
 		}
 	}
-	public void addToDatabase(ContactModel model)
+	public int addToDatabase(ContactModel model)
 	{
 		createDatabaseConnection();
 		try
@@ -40,6 +41,28 @@ public class ContactAppDatabase
 		{
 			e.printStackTrace();
 		}
+		return row;
+	}
+	public int getIdFromDatabase()
+	{
+		createDatabaseConnection();
+		try
+		{
+			String sql = "select id from contactdb";
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next())
+			{
+				id = rs.getInt(1); 
+			}
+			stmt.close();
+			con.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return id;
 	}
 	// public void viewDatabase(model)
 	// {
