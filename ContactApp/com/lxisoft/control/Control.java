@@ -60,4 +60,69 @@ public void viewConatct()
 	System.out.println("Name\t:\t"+contacts.get(choise-1).getfirstname()+" "+contacts.get(choise-1).getlastname());
 	System.out.println("Number\t:\t"+contacts.get(choise-1).getnumber());
 }
+
+public void addContact()
+{
+	System.out.print("How Many contact You Want Add :");
+	int num=input.nextInt();	
+	for(int i=contacts.size();i<(contacts.size()+num);i++){
+	 contacts.add(new Contact());
+	 System.out.print("Enter the First Name :");
+	 String fname=input.nextLine();
+	 System.out.print("Enter the last Name :");
+	 String lname=input.nextLine();
+	 System.out.print("Enter the First Name :");
+	 int number=input.nextInt();
+		 contacts.get(i).setfirstname(fname);
+ 		 contacts.get(i).setlastname(lname);
+ 		 contacts.get(i).setnumber(number);
+ 		 data.delete();
+ 		 saveContact();
+	}
+
+}
+public void editContact()
+{
+	System.out.print("\n Press 1 to Change \n Press 2 To Delete ");
+	System.out.print("Select Your choise :");
+	int num=input.nextInt();
+	if(num==1)	
+	{
+		updateContact();
+	}
+	else if(num==2)
+	{
+		deleteContact();
+	}	
+	else
+	{
+		System.out.println("Please Select A Valid Choise....!!!!");
+	}
+}
+
+public void deleteContact()
+{
+	displayContacts();
+
+	System.out.print("Select The Contact :");
+	int num=input.nextInt();	
+	contacts.remove(num-1);
+	 data.delete();
+ 	 saveContact();
+}
+
+public void updateContact()
+{
+	System.out.print("Select The Contact :");
+	int num=input.nextInt();	
+	System.out.print("Enter the First Name :");
+	String fname=input.nextLine();
+	System.out.print("Enter the last Name :");
+	String lname=input.nextLine();
+	System.out.print("Enter the First Name :");
+	 int number=input.nextInt();
+		 contacts.get(num-1).setfirstname(fname);
+ 		 contacts.get(num-1).setlastname(lname);
+ 		 contacts.get(num-1).setnumber(number);
+}
 }	

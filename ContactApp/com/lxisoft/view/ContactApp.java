@@ -28,12 +28,12 @@ public int editContactList()
 		case 1:
 		control.viewConatct();
 		break;
-		// case 2:
-		// control.addcontact();
-		// break;
-		// case 3:
-		// control.editContact();
-		// break;
+		case 2:
+		control.addContact();
+		break;
+		case 3:
+		control.editContact();
+		break;
 		default:
 		if(choise!=0)
 			{	System.out.println("Please Select A Valid Choise.....!!!");}
