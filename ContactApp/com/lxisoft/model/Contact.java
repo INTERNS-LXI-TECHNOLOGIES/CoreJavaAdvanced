@@ -5,7 +5,7 @@ import java.util.*;
 public class Contact                        
 {
 private String firstname,lastname;
-private int number
+private int number;
 
 public void setfirstname(String firstname)                               
     { 

@@ -6,7 +6,7 @@ class Tdd
 public static void main(String args[])
 	{
 		ContactApp app=new ContactApp();
-		app.creatApp();
+		app.createApp();
 	}
  
 }
