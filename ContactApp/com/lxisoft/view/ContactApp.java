@@ -9,7 +9,7 @@ Control control=new Control();
 static Scanner input =new Scanner(System.in);
 public void createApp()
 {
-	int value=0;
+	int value=0;                                                              
 control.createContact();
 System.out.println("\tContact App");
 System.out.println("*********************");

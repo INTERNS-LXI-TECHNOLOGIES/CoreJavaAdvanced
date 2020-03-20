@@ -26,7 +26,7 @@ public void setDetail()
  contacts.get(1).setfirstname("rahul");
  contacts.get(1).setlastname("mp");
  contacts.get(1).setnumber(5634);
- contacts.get(2).setfirstname("ajay");
+ contacts.get(2).setfirstname("ajay");             
  contacts.get(2).setlastname("kumar");
  contacts.get(2).setnumber(1984);
 }
@@ -34,12 +34,12 @@ public void setDetail()
 public void saveContact()
 {
 	file.creatFile(data);
-	for (int i=0;i<contacts.size();i++)
+	for (int i=0;i<contacts.size();i++)                     
 	{
 	 String fname=contacts.get(i).getfirstname();
  	 String lname=contacts.get(i).getlastname();
  	 int number=contacts.get(i).getnumber();
-    file.writeTofile("Contacts.csv",fname);    
+    file.writeTofile("Contacts.csv",fname);                               
 	file.writeTofile("Contacts.csv",lname);   	
 	file.writeTofile("Contacts.csv",number);   	
 	}
@@ -120,7 +120,7 @@ public void updateContact()
 	System.out.print("Enter the last Name :");
 	String lname=input.nextLine();
 	System.out.print("Enter the First Name :");
-	 int number=input.nextInt();
+	 int number=input.nextInt();                     
 		 contacts.get(num-1).setfirstname(fname);
  		 contacts.get(num-1).setlastname(lname);
  		 contacts.get(num-1).setnumber(number);

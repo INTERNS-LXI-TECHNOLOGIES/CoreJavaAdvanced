@@ -24,7 +24,7 @@ public String getlastname()
 	{
 		return lastname;
 	}	
-public void setnumber(int number)
+public void setnumber(int number)                       
     {                          
         this.number=number;
     }
