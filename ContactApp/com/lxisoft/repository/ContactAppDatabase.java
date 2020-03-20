@@ -1,7 +1,9 @@
 package com.lxisoft.repository;
 import com.lxisoft.model.*;
+import com.lxisoft.controller.*;
 import java.io.*;
 import java.sql.*;
+import java.util.*;
 public class ContactAppDatabase
 {
 	Connection con = null;
@@ -9,7 +11,7 @@ public class ContactAppDatabase
 	Statement stmt = null;
 	PreparedStatement ps = null;;
 	int row;
-	int id;
+	
 	public void createDatabaseConnection()
 	{
 		try
@@ -43,7 +45,7 @@ public class ContactAppDatabase
 		}
 		return row;
 	}
-	public int getIdFromDatabase()
+	public ArrayList<Integer> getIdFromDatabase(ArrayList<Integer> idList)
 	{
 		createDatabaseConnection();
 		try
@@ -53,38 +55,78 @@ public class ContactAppDatabase
 			rs = stmt.executeQuery(sql);
 			while(rs.next())
 			{
-				id = rs.getInt(1); 
+				idList.add(rs.getInt(1)); 
 			}
-			stmt.close();
-			con.close();
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
 		}
-		return id;
+		return idList;
 	}
-	// public void viewDatabase(model)
-	// {
-	// 	createDatabaseConnection();
-	// 	try
-	// 	{
-	// 		String sql  = select * from contactdb;
-	// 		stmt = con.createStatement();
-	// 		rs = stmt.executeQuery(sql);
-	// 		while(rs.next())
-	// 		{
-	// 			model.	
-	// 		}
-
-	// 	}
-	// 	catch(SQLException e)
-	// 	{
-	// 		e.printStackTrace();
-	// 	}
-	// }
-	// public void deleteFromDatabase()
-	// {
-	// 	createDatabaseConnection();
-	// }
+	public ArrayList<ContactModel> viewDatabase(ArrayList<ContactModel> contactList)
+	{
+		createDatabaseConnection();
+		try
+		{
+			String sql  = "select * from contactdb" ;
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			int i = 0;
+			while(rs.next())
+			{
+				contactList.add(i,new ContactModel());
+				contactList.get(i).setId(rs.getInt("id"));
+				contactList.get(i).setName(rs.getString("name"));
+				contactList.get(i).setEmail(rs.getString("email"));
+				contactList.get(i).setAddress(rs.getString("address"));
+				contactList.get(i).setPhoneNum(rs.getString("phoneno"));
+				i++;		
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return contactList;
+	}
+	public ArrayList<ContactModel> searchDatabase(ArrayList<ContactModel> contactList,int searchId)
+	{
+		createDatabaseConnection();
+		try
+		{
+			String sql = "select * from contactdb where id = '"+searchId+"'";
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			int i = 0;
+			while(rs.next())
+			{
+				contactList.add(i,new ContactModel());
+				contactList.get(i).setId(rs.getInt("id"));
+				contactList.get(i).setName(rs.getString("name"));
+				contactList.get(i).setEmail(rs.getString("email"));
+				contactList.get(i).setAddress(rs.getString("address"));
+				contactList.get(i).setPhoneNum(rs.getString("phoneno"));
+			}
+		}catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+		return contactList;
+	}
+	public void deletRecord(int deleteId)
+	{
+		try
+		{
+			String sql = "delete from contactdb where id ='"+deleteId+"'";
+			stmt = con.createStatement();
+			stmt.executeUpdate(sql);
+			System.out.println("Record Sucessfully Deleted");
+			stmt.close();
+			con.close();
+		}catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+	}
 }

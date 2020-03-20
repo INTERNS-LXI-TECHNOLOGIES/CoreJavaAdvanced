@@ -1,11 +1,19 @@
 package com.lxisoft.model;
 public class  ContactModel
 {
+	private int id;
 	private String name;
 	private String email;
 	private String address;
 	private String phoneNum;
-	
+	public void setId(int id)
+	{
+		this.id = id;
+	}
+	public int getId()
+	{
+		return id;
+	}
 	public void setName(String name)
 	{
 		this.name = name;
