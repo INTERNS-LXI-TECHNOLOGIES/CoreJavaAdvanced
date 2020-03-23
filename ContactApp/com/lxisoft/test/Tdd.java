@@ -1,12 +1,13 @@
 package com.lxisoft.test;
-import com.lxisoft.view.*;
+import com.lxisoft.controller.*;
+
 class Tdd
 {
 	
 public static void main(String args[])
 	{
-		ContactApp app=new ContactApp();
-		app.createApp();
+		Control contactController =new Control();
+		contactController.start();
 	}
  
 }

@@ -4,8 +4,17 @@ import java.util.*;
 
 public class Contact                        
 {
-private String firstname,lastname;
-private int number;
+private String firstname,lastname,number;
+private int id;
+
+public void setId(int id)
+    {
+        this.id = id;
+    }
+    public int getId()
+    {
+        return id;
+    }
 
 public void setfirstname(String firstname)                               
     { 
@@ -24,11 +33,11 @@ public String getlastname()
 	{
 		return lastname;
 	}	
-public void setnumber(int number)                       
+public void setnumber(String number)                       
     {                          
         this.number=number;
     }
-public int getnumber()
+public String getnumber()
     {
         return number;
     }   
