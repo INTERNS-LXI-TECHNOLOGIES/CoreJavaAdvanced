@@ -7,7 +7,7 @@ import java.io.*;
 public class ContactView
 {
 	Scanner sc = new Scanner(System.in);
-	public int contactAppMenu(ContactModel model,ContactAppDatabase db)
+	public int contactAppMenu(ContactModel model)
 	{
 		int choice = 0;
 		try{
@@ -36,7 +36,7 @@ public class ContactView
 		System.out.println("---------------------");
 		System.out.println("Enter Name::");
 		String name = sc.nextLine();
-		name = sc.nextLine();
+		name = (name.equals(""))?sc.nextLine():name;
 		model.setName(name);
 		System.out.println("Enter Phone Number::");
 		String phno = sc.nextLine();
@@ -56,18 +56,19 @@ public class ContactView
 	{
 		System.out.println("\t\t\t*******CONTACT APP*********");
 		System.out.println("\t\t\t-----------------------------\n");
-
-		System.out.println("\tID\t\tNAME\t\tPHONENO\t\tEMAIL\t\tADDRESS");
-		System.out.println("----------------------------------------------------------------------------------");
+		System.out.println("\t+---------------+---------------------+----------------+---------------+----------------+");
+		System.out.println("\t| ID            |	 NAME         |  PHONENO       | EMAIL         | ADDRESS        |");
+		System.out.println("\t+---------------+---------------------+----------------+---------------+----------------+");
 		for (int i=0;i<contactList.size();i++) 
 		{
-			System.out.println("\t"+contactList.get(i).getId()+"\t\t"+contactList.get(i).getName()+"\t\t"+contactList.get(i).getPhoneNum()+"\t\t"+contactList.get(i).getEmail()+"\t\t"+contactList.get(i).getAddress());		
+			System.out.println("\t\t"+contactList.get(i).getId()+"\t\t"+contactList.get(i).getName()+"\t\t"+contactList.get(i).getPhoneNum()+"\t\t"+contactList.get(i).getEmail()+"\t\t"+contactList.get(i).getAddress());		
 		}
 	}
-	public int searchContact()
+	public String searchContact()
 	{
-		System.out.println("Enter The Contact ID To Search:: ");
-		int searchId = sc.nextInt();
+		System.out.println("Enter The Name Of Contact To Search:: ");
+		String searchId = sc.nextLine();
+		searchId = sc.nextLine();
 		return searchId;
 	}
 	public int editContact()
@@ -92,44 +93,61 @@ public class ContactView
 		}
 		return choice;
 	}
-	public int updateContact()
+	public String updateContact()
 	{
-		System.out.println("Enter The Contact ID To Update:: ");
-		int updateId = sc.nextInt();
-
+		System.out.println("Enter The Name of person whose Contact To Update:: ");
+		String updateId = sc.nextLine();
+		updateId = sc.nextLine();
 		return updateId;
 	}
-	public void updateConsole()
+	public ContactModel updateConsole(ContactModel model )
 	{
-		int choice = 0;
-		try{
-		System.out.println("*******UPDATE MENU********");
+		System.out.println("*******UPDATE CONTACT******");
 		System.out.println("---------------------");
-		System.out.println("How Many Attribute Do You Want To Update");
-		int attributeNo = sc.nextInt();
-		System.out.println("Which Attribute You Want To Edit");
-		System.out.println("1.ID");
-		System.out.println("2.NAME");
-		System.out.println("3.PHONENO");
-		System.out.println("4.EMAIL");
-		System.out.println("5.ADDRESS");
-		System.out.println("Select Any Of The Option::");
-		choice = sc.nextInt();
-			if(choice>5)
-			{
-				throw new  MyException("Not Valid Option!!!");
-			}
-		}
-		catch(MyException e)
-		{
-			System.out.println(e);
-		}
-		
+		System.out.println("Enter Name::");
+		String name = sc.nextLine();
+		name = (name.equals(""))?sc.nextLine():name;
+		model.setName(name);
+		System.out.println("Enter Phone Number::");
+		String phno = sc.nextLine();
+		phno = (phno.equals(""))?sc.nextLine():phno;
+		model.setPhoneNum(phno);
+		System.out.println("Enter Email::");
+		String email = sc.nextLine();
+		email = (email.equals(""))?sc.nextLine():email;
+		model.setEmail(email);
+		System.out.println("Enter Address::");
+		String adress = sc.nextLine();
+		adress = (adress.equals(""))?sc.nextLine():adress;
+		model.setAddress(adress);
+		return model;
 	}
-	public int deleteContact()
+	public String deleteContact()
 	{
-		System.out.println("Enter The Contact ID To delete:: ");
-		int deleteId = sc.nextInt();
+		System.out.println("Enter The Name Of Contact To delete:: ");
+		String deleteId = sc.nextLine();
+		deleteId = sc.nextLine();
 		return deleteId;
 	}
+	public void deleteMessage()
+	{
+		System.out.println("Record Deleted Successfully......");
+	}
+	public void updateMessage()
+	{
+		System.out.println("Record Updated Successfully......");	
+	}
+	public void duplicateRecordMsg()
+	{
+		System.out.println("The Given Record Is already In the Database,Please avoid Duplication .....");
+	}
+	public void deletePopup()
+	{
+		System.out.println("Enter The Id Of Contact To be Deleted ");	
+	}
+	public void updatePopup()
+	{
+		System.out.println("Enter The Id Of Contact To be Updated ");	
+	}
+
 }
