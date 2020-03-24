@@ -16,17 +16,16 @@ public class Control
 	public void start()
 	{
 		do{
-			choice= view.contactAppMenu(details,db);
+			contactList.clear();
+			contactList = db.viewDatabase(contactList);
+			choice= view.contactMenu(contactList);
 			switch(choice)
 			{
 			case 1:	details = view.addContact(details);
 					db.addToDatabase(details);
 					break;
-			case 2:	contactList.clear();
-					contactList = db.viewDatabase(contactList);
-					view.viewContact(contactList);
-					break;
-			case 3: contactList.clear();
+			
+			case 2: contactList.clear();
 					int searchId = view.searchContact();
 					id = db.getIdFromDatabase(id);
 					boolean b = search(id,searchId);
@@ -41,7 +40,7 @@ public class Control
 					}
 					view.viewContact(contactList);
 				    break;
-			case 4: int editId = view.editContact();
+			case 3: int editId = view.editContact();
 					switch(editId)
 					{
 						case 1:int updateId = view.updateContact();
@@ -50,7 +49,7 @@ public class Control
 						case 2: contactList.clear();
 								int deleteId = view.deleteContact();
 								id = db.getIdFromDatabase(id);
-								b = search(id,deleteId );
+								b = search(id,deleteId);
 								if(b == true)
 								{
 									db.deletRecord(deleteId);
@@ -68,7 +67,7 @@ public class Control
 					break;
 			default:System.out.println("Enter Valid Option");break;
 			}
-			System.out.println("Do You Eant To Continue?\nYES(Press 1)\nNO(Press 0)");
+			System.out.println("\nPress 1 to continue)\nPress 0 to Exit");
 			start = sc.nextInt();
 		}while(start == 1);
 	}

@@ -7,16 +7,18 @@ import java.io.*;
 public class ContactApp
 {
 	Scanner sc = new Scanner(System.in);
-	public int contactAppMenu(Contact model,ContactDatabase db)
+	public int contactMenu(ArrayList<Contact> contactList)
 	{
 		int choice = 0;
 		try{
-		System.out.println("*******ContactApp********");
-		System.out.println("---------------------");
-		System.out.println("1.Add Contacts\n2.View Contacts\n3.Search Contacts\n4.Edit Contacts");
+		// System.out.println("\n*******ContactApp********");
+		// System.out.println("---------------------");
+		 viewContact(contactList);
+		System.out.println("\n1.Add Contacts\n2.Search Contacts\n3.Edit Contacts");
+
 		System.out.print("Select An Option  :  ");
 		choice = sc.nextInt();
-			if(choice>4)
+			if(choice>3)
 			{
 				throw new  MyException("Not Valid Option!!!");
 			}
@@ -29,15 +31,15 @@ public class ContactApp
 	}
 	public Contact addContact(Contact model)
 	{
-		System.out.println("*******ADD CONTACT******");
-		System.out.println("---------------------");
+		System.out.println("\n\n*******ADD CONTACT******");
+		System.out.println("______________________________\n");
 		System.out.print("Enter First Name : ");
 		String fname = sc.nextLine();
-		fname = sc.nextLine();
+		//fname = sc.nextLine();
 		model.setfirstname(fname);
 		System.out.print("Enter Last Name :");
 		String lname = sc.nextLine();
-		lname = sc.nextLine();
+		//lname = sc.nextLine();
 		model.setlastname(lname);
 		System.out.print("Enter Phone Number :");
 		String phno = sc.nextLine();
@@ -48,14 +50,14 @@ public class ContactApp
 	}
 	public void viewContact(ArrayList<Contact> contactList)
 	{
-		System.out.println("\t\t\t*******CONTACT APP*********");
-		System.out.println("\t\t\t-----------------------------\n");
+		System.out.println("\n\t\t\t*******CONTACT APP*********");
+		System.out.println("\t\t\t_________________________________\n");
 
-		System.out.println("\tID\t\tFirst NAME\t\tLast Name\t\tPhone Number");
-		System.out.println("----------------------------------------------------------------------------------");
+		System.out.println("\tID\tFirst NAME\tLast Name\tPhone Number");
+		System.out.println("-----------------------------------------------------------------------");
 		for (int i=0;i<contactList.size();i++) 
 		{
-			System.out.println("\t"+contactList.get(i).getId()+"\t\t"+contactList.get(i).getfirstname()+"\t\t"+contactList.get(i).getlastname()+"\t\t"+contactList.get(i).getnumber());		
+			System.out.println("\t"+contactList.get(i).getId()+"\t"+contactList.get(i).getfirstname()+"\t"+contactList.get(i).getlastname()+"\t"+contactList.get(i).getnumber());		
 		}
 	}
 	public int searchContact()
@@ -68,12 +70,10 @@ public class ContactApp
 	{
 		int choice = 0;
 		try{
-		System.out.println("*******EDIT MENU********");
+		System.out.println("\n\n\tEdit Menu\t");
 		System.out.println("---------------------");
-		System.out.println("1.Update Contact");
-		System.out.println("2.Delete Contact");
-		System.out.println("3.Back");
-		System.out.println("Select An Option");
+		System.out.println("1.Update Contact\n2.Delete Contact\n3.Back");
+		System.out.print("\nSelect An Option  : ");
 		choice = sc.nextInt();
 			if(choice>3)
 			{
@@ -88,7 +88,7 @@ public class ContactApp
 	}
 	public int updateContact()
 	{
-		System.out.println("Enter The Contact ID To Update:: ");
+		System.out.print("\nEnter The Contact ID To Update  :  ");
 		int updateId = sc.nextInt();
 
 		return updateId;
@@ -97,16 +97,13 @@ public class ContactApp
 	{
 		int choice = 0;
 		try{
-		System.out.println("*******UPDATE MENU********");
-		System.out.println("---------------------");
+		System.out.println("\n\t\tUpdate Menu");
+		System.out.println("---------------------\n");
 		System.out.println("How Many Attribute Do You Want To Update");
 		int attributeNo = sc.nextInt();
 		System.out.println("Which Attribute You Want To Edit");
-		System.out.println("1.ID");
-		System.out.println("2.First NAME");
-		System.out.println("3.Last Name");
-		System.out.println("4.Ph Number");
-		System.out.print("Select Any Of The Option::");
+		System.out.println("1.ID\n2.First NAME\n3.Last Name\n4.Ph Number");
+		System.out.print("\nSelect Any Of The Option   :  ");
 		choice = sc.nextInt();
 			if(choice>4)
 			{

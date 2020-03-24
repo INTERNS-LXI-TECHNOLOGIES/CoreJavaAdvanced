@@ -20,9 +20,7 @@ public class ContactDatabase
 			try{
 				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/contactdb","root","root");	
 			}catch(SQLException e)
-			{
-				e.printStackTrace();		
-			}
+			{	e.printStackTrace();	}
 			
 		}catch(ClassNotFoundException e)
 		{
@@ -50,7 +48,7 @@ public class ContactDatabase
 		createDatabaseConnection();
 		try
 		{
-			String sql = "select id from contactdb";
+			String sql = "select id from contactapp";
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next())
@@ -69,7 +67,7 @@ public class ContactDatabase
 		createDatabaseConnection();
 		try
 		{
-			String sql  = "select * from contactdb" ;
+			String sql  = "select * from contactapp" ;
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			int i = 0;
@@ -84,9 +82,7 @@ public class ContactDatabase
 			}
 		}
 		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
+		{		e.printStackTrace();	}
 		return contactList;
 	}
 	public ArrayList<Contact> searchDatabase(ArrayList<Contact> contactList,int searchId)
@@ -94,7 +90,7 @@ public class ContactDatabase
 		createDatabaseConnection();
 		try
 		{
-			String sql = "select * from contactdb where id = '"+searchId+"'";
+			String sql = "select * from contactapp where id = '"+searchId+"'";
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			int i = 0;
@@ -116,7 +112,7 @@ public class ContactDatabase
 	{
 		try
 		{
-			String sql = "delete from contactdb where id ='"+deleteId+"'";
+			String sql = "delete from contactapp where id ='"+deleteId+"'";
 			stmt = con.createStatement();
 			stmt.executeUpdate(sql);
 			System.out.println("Record Sucessfully Deleted");
