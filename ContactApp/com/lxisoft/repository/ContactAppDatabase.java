@@ -70,6 +70,32 @@ public class ContactAppDatabase
 		}
 		return contactList;
 	}
+	public ArrayList<ContactModel> viewDatabaseById(ArrayList<ContactModel> contactList,int id)
+	{
+		createDatabaseConnection();
+		try
+		{
+			String sql  = "select * from contactdb where id = '"+id+"'";
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			int i = 0;
+			while(rs.next())
+			{
+				contactList.add(i,new ContactModel());
+				contactList.get(i).setId(rs.getInt("id"));
+				contactList.get(i).setName(rs.getString("name"));
+				contactList.get(i).setEmail(rs.getString("email"));
+				contactList.get(i).setAddress(rs.getString("address"));
+				contactList.get(i).setPhoneNum(rs.getString("phoneno"));		
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return contactList;
+	}
+
 	public void deleteRecordByName(String deleteId)
 	{
 		try
@@ -168,6 +194,25 @@ public class ContactAppDatabase
 			e.printStackTrace();
 		}
 		return idList;
+	}
+	public ArrayList<Integer> selectIdFromDb(ArrayList<Integer> keyId)
+	{
+		createDatabaseConnection();
+		try
+		{
+			String sql = "select id from contactdb";
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next())
+			{
+				keyId.add(rs.getInt("id"));
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return keyId;
 	}
 	// public ArrayList<String> searchByName(ArrayList<String> idList)
 	// {

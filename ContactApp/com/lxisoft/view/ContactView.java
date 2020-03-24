@@ -13,13 +13,12 @@ public class ContactView
 		try{
 		System.out.println("*******ContactApp********");
 		System.out.println("---------------------");
-		System.out.println("1.Add Contacts");
-		System.out.println("2.View Contacts");
-		System.out.println("3.Search Contacts");
-		System.out.println("4.Edit Contacts");
+		System.out.println("1.Add New Contact");
+		System.out.println("2.Select Contact");
+		System.out.println("3.Search Contact");
 		System.out.println("Select An Option");
 		choice = sc.nextInt();
-			if(choice>4)
+			if(choice>3)
 			{
 				throw new  MyException("Not Valid Option!!!");
 			}
@@ -71,33 +70,11 @@ public class ContactView
 		searchId = sc.nextLine();
 		return searchId;
 	}
-	public int editContact()
+	public int updateContact()
 	{
-		int choice = 0;
-		try{
-		System.out.println("*******EDIT MENU********");
-		System.out.println("---------------------");
-		System.out.println("1.Update Contact");
-		System.out.println("2.Delete Contact");
-		System.out.println("3.Back");
-		System.out.println("Select An Option");
-		choice = sc.nextInt();
-			if(choice>3)
-			{
-				throw new  MyException("Not Valid Option!!!");
-			}
-		}
-		catch(MyException e)
-		{
-			System.out.println(e);
-		}
-		return choice;
-	}
-	public String updateContact()
-	{
-		System.out.println("Enter The Name of person whose Contact To Update:: ");
-		String updateId = sc.nextLine();
-		updateId = sc.nextLine();
+		System.out.println("Enter The Id whose Contact To Update:: ");
+		int updateId = sc.nextInt();
+		updateId = sc.nextInt();
 		return updateId;
 	}
 	public ContactModel updateConsole(ContactModel model )
@@ -141,21 +118,55 @@ public class ContactView
 	{
 		System.out.println("The Given Record Is already In the Database,Please avoid Duplication .....");
 	}
-	public void deletePopup()
+	public int deletePopup()
 	{
-		System.out.println("Enter The Name Of Contact To be Deleted ");	
-	}
-	public void updatePopup()
-	{
-		System.out.println("Enter The Name Of Contact To be Updated ");	
+		System.out.println("Do You Really Want To delete\nYES(Press 1)\nNo(Press 2)");
+		int ch = sc.nextInt();
+		return ch;	
 	}
 	public void noContactPopup()
 	{
 		System.out.println("No Contact To Dispaly......");	
 	}
+	public void noContactIdPopup()
+	{
+		System.out.println("No Contact Is Found For this ID......");	
+	}
+	public void deleteContactPopup()
+	{
+		System.out.println("Record Deleted Successfully");	
+	}
 	public void noRecordMsg()
 	{
 		System.out.println("No Record Found");
+	}
+	public int contactSelect()
+	{
+		System.out.println("Enter Id OF Contact To Select");
+		int id = sc.nextInt();
+		return id;
+	}
+	public int selectMenu()
+	{
+		int choice = 0;
+		try{
+		System.out.println("*******EDIT MENU********");
+		System.out.println("---------------------");
+		System.out.println("1.Update Contact");
+		System.out.println("2.Delete Contact");
+		System.out.println("3.Back");
+		System.out.println("Select An Option");
+		choice = sc.nextInt();
+			if(choice>3)
+			{
+				throw new  MyException("Not Valid Option!!!");
+			}
+		}
+		catch(MyException e)
+		{
+			System.out.println(e);
+		}
+		return choice;
 	}
 
 }

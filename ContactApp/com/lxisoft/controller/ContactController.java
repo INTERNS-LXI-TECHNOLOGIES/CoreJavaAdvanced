@@ -11,27 +11,20 @@ public class ContactController
 	private ContactAppDatabase db = new ContactAppDatabase();
 	ArrayList<ContactModel> contactList = new ArrayList<ContactModel>();
 	ArrayList<String> idList = new ArrayList<String>();
+	ArrayList<Integer> keyId = new ArrayList<Integer>();
 	int choice;
 	int start;
 	public void start()
 	{
 		do{
+			viewAllContacts();
 			choice= view.contactAppMenu(model);
 			switch(choice)
 			{
-			case 1:	newContact();break;
-			case 2:	viewAllContacts();break;
-			case 3: searchContactt();break;
-			case 4: int editId = view.editContact();
-					switch(editId)
-					{
-						case 1:updateContactt();break;
-						case 2:deleteContactt();break;
-						case 3:start();break;
-						default:System.out.println("Enter Valid Option");break;
-					}
-					break;
-			default:System.out.println("Enter Valid Option");break;
+				case 1:	newContact();break;
+				case 2:	selectContact();break;
+				case 3: searchContactt();break;
+				default:System.out.println("Enter Valid Option");
 			}
 			System.out.println("Do You Want To Continue?\nYES(Press 1)\nNO(Press 0)");
 			start = sc.nextInt();
@@ -50,7 +43,30 @@ public class ContactController
 			model = controllDuplicateRecord(contactList,model);	
 			db.addToDatabase(model);
 		}
-		
+	}
+	public void selectContact()
+	{
+		contactList.clear();
+		int id = view.contactSelect();
+		keyId = db.selectIdFromDb(keyId);
+		boolean b = keyId.contains(id);
+		if(b == true)
+		{
+			contactList = db.viewDatabaseById(contactList,id);
+			view.viewContact(contactList);	
+			int choice  = view.selectMenu();
+			switch(choice)
+			{
+				case 1:updateContactt(id);break;
+				case 2:deleteContactt(id);break;
+				case 3:start();break;
+				default:System.out.println("Enter Valid Option");
+			}
+		}
+		else
+		{
+			view.noContactIdPopup();
+		}
 	}
 	public void viewAllContacts()
 	{
@@ -77,7 +93,6 @@ public class ContactController
 		{
 			String searchId = view.searchContact();
 			idList = db.searchByName(idList,searchId);
-			System.out.println(idList);
 			boolean b = idList.contains(searchId);
 			contactList.clear();
 			if(b == true)
@@ -91,86 +106,20 @@ public class ContactController
 			}
 		}
 	}
-	public void deleteContactt()
+	public void deleteContactt(int id)
 	{
-		contactList.clear();idList.clear();
-		contactList = db.viewDatabase(contactList);
-		if(contactList.size() ==0)
+		int ch = view.deletePopup();
+		if(ch==1)
 		{
-			view.noContactPopup();	
-		}
-		else
-		{
-			delete();
-		}
-	}
-	public void delete()
-	{
-		idList.clear();
-		String deleteId  = view.deleteContact();
-		idList = db.searchByName(idList,deleteId);
-		boolean b = idList.contains(deleteId);
-		if(b == true){
-		contactList.clear();
-		contactList = db.searchDatabaseByName(contactList,deleteId);
-		view.viewContact(contactList);
-		view.deletePopup();
-		String name = sc.next();
-		db.deleteRecordByName(name);
-		contactList.clear();
-		contactList = db.viewDatabase(contactList);
-		view.viewContact(contactList);
+			db.deleteRecordById(id);
+			view.deleteContactPopup();	
 		}
 	}	
-
-	public void updateContactt()
+	public void updateContactt(int updateId)
 	{
-		contactList.clear();idList.clear();
-		contactList = db.viewDatabase(contactList);
-		if(contactList.size() ==0)
-		{
-			view.noContactPopup();	
-		}
-		else
-		{
-			update();
-		}
-	}
-	public void update()
-	{
-		contactList.clear();idList.clear();
-		String updateId  = view. updateContact();
-		idList = db.searchByName(idList,updateId);
-		boolean b = idList.contains(updateId);
-		if(b == true){
-		contactList = db.searchDatabaseByName(contactList,updateId);
-		view.viewContact(contactList);
-		view.updatePopup();
-		String name = sc.next();
 		model = view.updateConsole(model);
-		db.updateRecordByName(model);
-		contactList.clear();
-		contactList = db.viewDatabase(contactList);
-		view.viewContact(contactList);
-		}
+		db.updateRecordById(model,updateId);
 	}
-	// public void updateCondition(String updateId)
-	// {
-	// 	boolean b = idList.contains(updateId);
-	// 	if(b == true)
-	// 	{
-	// 		contactList = db.searchDatabaseByName(contactList,updateId);
-	// 		view.viewContact(contactList);
-	// 		model = view.updateConsole(model);
-	// 		db.updateRecordByName(model);
-	// 		view.updateMessage();
-	// 		viewAllContacts();
-	// 	}
-	// 	else
-	// 	{
-	// 		view.updateMsg();
-	// 	}
-	// }
 	public ContactModel controllDuplicateRecord(ArrayList<ContactModel> contactList,ContactModel model)
 	{
 		for (int i=0;i<contactList.size();i++) 
