@@ -33,7 +33,7 @@ public class ContactController
 					break;
 			default:System.out.println("Enter Valid Option");break;
 			}
-			System.out.println("Do You Eant To Continue?\nYES(Press 1)\nNO(Press 0)");
+			System.out.println("Do You Want To Continue?\nYES(Press 1)\nNO(Press 0)");
 			start = sc.nextInt();
 		}while(start == 1);
 	}	
@@ -56,105 +56,121 @@ public class ContactController
 	{
 		contactList.clear();
 		contactList = db.viewDatabase(contactList);
-		view.viewContact(contactList);
-	}
-	public void searchContactt()
-	{
-		contactList.clear();
-		String searchId = view.searchContact();
-		idList = db.getIdFromDatabase(idList);
-		boolean b = idList.contains(searchId);
-		if(b == true)
+		if(contactList.size() == 0)
 		{
-			 contactList = db.searchDatabaseByName(contactList,searchId);
-			 view.viewContact(contactList);
+			view.noContactPopup();
 		}
 		else
 		{
-			System.out.println("No Record Found For this Phone Number");
+			view.viewContact(contactList);	
+		}
+	}
+	public void searchContactt()
+	{
+		contactList.clear();idList.clear();
+		contactList = db.viewDatabase(contactList);
+		if(contactList.size()==0)
+		{
+			view.noContactPopup();
+		}
+		else 
+		{
+			String searchId = view.searchContact();
+			idList = db.searchByName(idList,searchId);
+			System.out.println(idList);
+			boolean b = idList.contains(searchId);
+			contactList.clear();
+			if(b == true)
+			{
+				contactList = db.searchDatabaseByName(contactList,searchId);
+			 	view.viewContact(contactList);
+			}
+			else
+			{
+				System.out.println("No Record Found For this Name");
+			}
 		}
 	}
 	public void deleteContactt()
 	{
-		contactList.clear();
-		idList.clear();
-		String deleteId = view.deleteContact();
-		idList = db.getIdFromDatabase(idList);
-		System.out.println(idList);
-		if(idList.size()>1)
+		contactList.clear();idList.clear();
+		contactList = db.viewDatabase(contactList);
+		if(contactList.size() ==0)
 		{
-			contactList = db.searchDatabaseByName(contactList,deleteId);
-			view.viewContact(contactList);
-			view.deletePopup();
-			int id = sc.nextInt();
-			db.deleteRecordById(id);
-			view.deleteMessage();
-			contactList.clear();
-			contactList = db.viewDatabase(contactList);
-			view.viewContact(contactList);	 
-		}
-		else 
-		{
-			deleteCondition(deleteId);	
-		}
-	}
-	public void deleteCondition(String deleteId)
-	{
-		boolean b = idList.contains(deleteId);
-		if(b == true)
-		{
-			db.deleteRecord(deleteId);
-			view.deleteMessage();
-			contactList = db.viewDatabase(contactList);
-			view.viewContact(contactList);
+			view.noContactPopup();	
 		}
 		else
 		{
-			System.out.println("No Record Found For this Phone number");
+			delete();
 		}
 	}
-	public void updateContactt()
+	public void delete()
 	{
-		contactList.clear();
 		idList.clear();
-		String	updateId = view.updateContact();
-		idList = db.searchByName(idList);
-		if(idList.size()>1)
-		{
-			contactList = db.searchDatabaseByName(contactList,updateId);
-			view.viewContact(contactList);
-			view.updatePopup();
-			int id = sc.nextInt();
-			model = view.updateConsole(model);
-			db.updateRecordById(model,id);
-			view.updateMessage();
-			contactList.clear();
-			contactList = db.viewDatabase(contactList);
-			view.viewContact(contactList);	 
-		}
-		else 
-		{
-			updateCondition(updateId);	
+		String deleteId  = view.deleteContact();
+		idList = db.searchByName(idList,deleteId);
+		boolean b = idList.contains(deleteId);
+		if(b == true){
+		contactList.clear();
+		contactList = db.searchDatabaseByName(contactList,deleteId);
+		view.viewContact(contactList);
+		view.deletePopup();
+		String name = sc.next();
+		db.deleteRecordByName(name);
+		contactList.clear();
+		contactList = db.viewDatabase(contactList);
+		view.viewContact(contactList);
 		}
 	}	
-	public void updateCondition(String updateId)
+
+	public void updateContactt()
 	{
-		boolean b = idList.contains(updateId);
-		if(b == true)
+		contactList.clear();idList.clear();
+		contactList = db.viewDatabase(contactList);
+		if(contactList.size() ==0)
 		{
-			contactList = db.searchDatabaseByName(contactList,updateId);
-			view.viewContact(contactList);
-			model = view.updateConsole(model);
-			db.updateRecord(model);
-			view.updateMessage();
-			viewAllContacts();
+			view.noContactPopup();	
 		}
 		else
 		{
-			System.out.println("No Record Found For this name number");
+			update();
 		}
 	}
-
+	public void update()
+	{
+		contactList.clear();idList.clear();
+		String updateId  = view. updateContact();
+		idList = db.searchByName(idList,updateId);
+		boolean b = idList.contains(updateId);
+		if(b == true){
+		contactList = db.searchDatabaseByName(contactList,updateId);
+		view.viewContact(contactList);
+		view.updatePopup();
+		String name = sc.next();
+		model = view.updateConsole(model);
+		db.updateRecordByName(model);
+		contactList.clear();
+		contactList = db.viewDatabase(contactList);
+		view.viewContact(contactList);
+		}
+	}
+	// public void updateCondition(String updateId)
+	// {
+	// 	boolean b = idList.contains(updateId);
+	// 	if(b == true)
+	// 	{
+	// 		contactList = db.searchDatabaseByName(contactList,updateId);
+	// 		view.viewContact(contactList);
+	// 		model = view.updateConsole(model);
+	// 		db.updateRecordByName(model);
+	// 		view.updateMessage();
+	// 		viewAllContacts();
+	// 	}
+	// 	else
+	// 	{
+	// 		view.updateMsg();
+	// 	}
+	// }
 	public ContactModel controllDuplicateRecord(ArrayList<ContactModel> contactList,ContactModel model)
 	{
 		for (int i=0;i<contactList.size();i++) 

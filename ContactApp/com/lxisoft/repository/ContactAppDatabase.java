@@ -11,7 +11,6 @@ public class ContactAppDatabase
 	Statement stmt = null;
 	PreparedStatement ps = null;;
 	int row;
-	
 	public void createDatabaseConnection()
 	{
 		try
@@ -71,7 +70,7 @@ public class ContactAppDatabase
 		}
 		return contactList;
 	}
-	public void deleteRecord(String deleteId)
+	public void deleteRecordByName(String deleteId)
 	{
 		try
 		{
@@ -99,7 +98,7 @@ public class ContactAppDatabase
 			e.printStackTrace();
 		}
 	}
-	public void updateRecord(ContactModel model)
+	public void updateRecordByName(ContactModel model)
 	{
 		createDatabaseConnection();
 		try
@@ -124,50 +123,6 @@ public class ContactAppDatabase
 		{
 			e.printStackTrace();
 		}
-	} 
-	public ArrayList<String> getIdFromDatabase(ArrayList<String> idList)
-	{
-		createDatabaseConnection();
-		try
-		{
-			String sql = "select name from contactdb";
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
-			while(rs.next())
-			{
-				idList.add(rs.getString("name")); 
-			}
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
-		return idList;
-	}
-	
-	public ArrayList<ContactModel> searchDatabase(ArrayList<ContactModel> contactList,String searchId)
-	{
-		createDatabaseConnection();
-		try
-		{
-			String sql = "select * from contactdb where phoneno = '"+searchId+"'";
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
-			int i = 0;
-			while(rs.next())
-			{
-				contactList.add(i,new ContactModel());
-				contactList.get(i).setId(rs.getInt("id"));
-				contactList.get(i).setName(rs.getString("name"));
-				contactList.get(i).setEmail(rs.getString("email"));
-				contactList.get(i).setAddress(rs.getString("address"));
-				contactList.get(i).setPhoneNum(rs.getString("phoneno"));
-			}
-		}catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
-		return contactList;
 	}
 	public ArrayList<ContactModel> searchDatabaseByName(ArrayList<ContactModel> contactList,String searchId)
 	{
@@ -175,7 +130,7 @@ public class ContactAppDatabase
 		try
 		{
 
-			String sql = "select * from contactdb where name like  '%"+searchId.charAt(0)+"%'";
+			String sql = "select * from contactdb where name like  '"+searchId.charAt(0)+"%'";
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			int i = 0;
@@ -194,31 +149,51 @@ public class ContactAppDatabase
 		}
 		return contactList;
 	}
-	public ArrayList<String> searchByName(ArrayList<String> idList)
+	public ArrayList<String> searchByName(ArrayList<String> idList,String searchId)
 	{
 		createDatabaseConnection();
 		try
 		{
-			String sql = "select name from contactdb";
+
+			String sql = "select name from contactdb where name like  '"+searchId.charAt(0)+"%'";
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
+			int i = 0;
 			while(rs.next())
 			{
 				idList.add(rs.getString("name"));
 			}
-		}
-		catch(SQLException e)
+		}catch(SQLException e)
 		{
 			e.printStackTrace();
 		}
 		return idList;
 	}
+	// public ArrayList<String> searchByName(ArrayList<String> idList)
+	// {
+	// 	createDatabaseConnection();
+	// 	try
+	// 	{
+	// 		String sql = "select name from contactdb";
+	// 		stmt = con.createStatement();
+	// 		rs = stmt.executeQuery(sql);
+	// 		while(rs.next())
+	// 		{
+	// 			idList.add(rs.getString("name"));
+	// 		}
+	// 	}
+	// 	catch(SQLException e)
+	// 	{
+	// 		e.printStackTrace();
+	// 	}
+	// 	return idList;
+	// }
 	public void searchById(String id)
 	{
 		createDatabaseConnection();
 		try
 		{
-			String sql = "select * from where id = '"+ id+"' ";
+			String sql = "select * from contactdb where id = '"+ id+"' ";
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next())
@@ -249,4 +224,49 @@ public class ContactAppDatabase
 			e.printStackTrace();
 		}
 	}
+	// public ArrayList<String> getNameFromDatabase(ArrayList<String> idList)
+	// {
+	// 	createDatabaseConnection();
+	// 	try
+	// 	{
+	// 		String sql = "select name from contactdb";
+	// 		stmt = con.createStatement();
+	// 		rs = stmt.executeQuery(sql);
+	// 		while(rs.next())
+	// 		{
+	// 			idList.add(rs.getString("name")); 
+	// 		}
+	// 	}
+	// 	catch(SQLException e)
+	// 	{
+	// 		e.printStackTrace();
+	// 	}
+	// 	return idList;
+	// }
+	
+	// public ArrayList<ContactModel> searchDatabase(ArrayList<ContactModel> contactList,String searchId)
+	// {
+	// 	createDatabaseConnection();
+	// 	try
+	// 	{
+	// 		String sql = "select * from contactdb where phoneno = '"+searchId+"'";
+	// 		stmt = con.createStatement();
+	// 		rs = stmt.executeQuery(sql);
+	// 		int i = 0;
+	// 		while(rs.next())
+	// 		{
+	// 			contactList.add(i,new ContactModel());
+	// 			contactList.get(i).setId(rs.getInt("id"));
+	// 			contactList.get(i).setName(rs.getString("name"));
+	// 			contactList.get(i).setEmail(rs.getString("email"));
+	// 			contactList.get(i).setAddress(rs.getString("address"));
+	// 			contactList.get(i).setPhoneNum(rs.getString("phoneno"));
+	// 		}
+	// 	}catch(SQLException e)
+	// 	{
+	// 		e.printStackTrace();
+	// 	}
+	// 	return contactList;
+	// }
+
 }

@@ -143,11 +143,19 @@ public class ContactView
 	}
 	public void deletePopup()
 	{
-		System.out.println("Enter The Id Of Contact To be Deleted ");	
+		System.out.println("Enter The Name Of Contact To be Deleted ");	
 	}
 	public void updatePopup()
 	{
-		System.out.println("Enter The Id Of Contact To be Updated ");	
+		System.out.println("Enter The Name Of Contact To be Updated ");	
+	}
+	public void noContactPopup()
+	{
+		System.out.println("No Contact To Dispaly......");	
+	}
+	public void noRecordMsg()
+	{
+		System.out.println("No Record Found");
 	}
 
 }
