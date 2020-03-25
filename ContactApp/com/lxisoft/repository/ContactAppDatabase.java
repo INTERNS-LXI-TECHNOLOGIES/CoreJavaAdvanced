@@ -34,7 +34,7 @@ public class ContactAppDatabase
 		try
 		{
 			ps = con.prepareStatement("insert into contactdb(name,email,address,phoneno) values('"+model.getName()+"','"+model.getEmail()+"','"+model.getAddress()+"','"+model.getPhoneNum()+"')");
-			row = ps.executeUpdate();
+			ps.executeUpdate();
 			ps.close();
 			con.close();
 		}
@@ -269,49 +269,49 @@ public class ContactAppDatabase
 			e.printStackTrace();
 		}
 	}
-	// public ArrayList<String> getNameFromDatabase(ArrayList<String> idList)
-	// {
-	// 	createDatabaseConnection();
-	// 	try
-	// 	{
-	// 		String sql = "select name from contactdb";
-	// 		stmt = con.createStatement();
-	// 		rs = stmt.executeQuery(sql);
-	// 		while(rs.next())
-	// 		{
-	// 			idList.add(rs.getString("name")); 
-	// 		}
-	// 	}
-	// 	catch(SQLException e)
-	// 	{
-	// 		e.printStackTrace();
-	// 	}
-	// 	return idList;
-	// }
+	public ArrayList<String> getNameFromDatabase(ArrayList<String> idList)
+	{
+		createDatabaseConnection();
+		try
+		{
+			String sql = "select name from contactdb";
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next())
+			{
+				idList.add(rs.getString("name")); 
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return idList;
+	}
 	
-	// public ArrayList<ContactModel> searchDatabase(ArrayList<ContactModel> contactList,String searchId)
-	// {
-	// 	createDatabaseConnection();
-	// 	try
-	// 	{
-	// 		String sql = "select * from contactdb where phoneno = '"+searchId+"'";
-	// 		stmt = con.createStatement();
-	// 		rs = stmt.executeQuery(sql);
-	// 		int i = 0;
-	// 		while(rs.next())
-	// 		{
-	// 			contactList.add(i,new ContactModel());
-	// 			contactList.get(i).setId(rs.getInt("id"));
-	// 			contactList.get(i).setName(rs.getString("name"));
-	// 			contactList.get(i).setEmail(rs.getString("email"));
-	// 			contactList.get(i).setAddress(rs.getString("address"));
-	// 			contactList.get(i).setPhoneNum(rs.getString("phoneno"));
-	// 		}
-	// 	}catch(SQLException e)
-	// 	{
-	// 		e.printStackTrace();
-	// 	}
-	// 	return contactList;
-	// }
+	public ArrayList<ContactModel> searchDatabase(ArrayList<ContactModel> contactList,String searchId)
+	{
+		createDatabaseConnection();
+		try
+		{
+			String sql = "select * from contactdb where phoneno = '"+searchId+"'";
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			int i = 0;
+			while(rs.next())
+			{
+				contactList.add(i,new ContactModel());
+				contactList.get(i).setId(rs.getInt("id"));
+				contactList.get(i).setName(rs.getString("name"));
+				contactList.get(i).setEmail(rs.getString("email"));
+				contactList.get(i).setAddress(rs.getString("address"));
+				contactList.get(i).setPhoneNum(rs.getString("phoneno"));
+			}
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return contactList;
+	}
 
 }

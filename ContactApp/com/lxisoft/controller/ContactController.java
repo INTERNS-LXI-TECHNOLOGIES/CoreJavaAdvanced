@@ -41,6 +41,7 @@ public class ContactController
 		else 
 		{
 			model = controllDuplicateRecord(contactList,model);	
+			view.updateMessage();
 			db.addToDatabase(model);
 		}
 	}
