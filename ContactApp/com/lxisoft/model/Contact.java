@@ -11,32 +11,33 @@ public void setId(int id)
     {
         this.id = id;
     }
-    public int getId()
-    {
-        return id;
-    }
 
 public void setfirstname(String firstname)                               
     { 
         this.firstname = firstname; 
     } 
-
-public String getfirstname()  
-    { 
-        return firstname; 
-    }                          
+                      
 public void setlastname(String lastname)
     {
     	this.lastname=lastname;
 	}
-public String getlastname()
-	{
-		return lastname;
-	}	
 public void setnumber(String number)                       
     {                          
         this.number=number;
     }
+
+public int getId()
+    {
+        return id;
+    }
+public String getfirstname()  
+    { 
+        return firstname; 
+    }    
+public String getlastname()
+    {
+        return lastname;
+    }   
 public String getnumber()
     {
         return number;

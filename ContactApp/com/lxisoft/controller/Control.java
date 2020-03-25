@@ -23,8 +23,7 @@ public class Control
 			{
 			case 1:	details = view.addContact(details);
 					db.addToDatabase(details);
-					break;
-			
+			break;			
 			case 2: contactList.clear();
 					int searchId = view.searchContact();
 					id = db.getIdFromDatabase(id);
@@ -34,37 +33,35 @@ public class Control
 					 contactList = db.searchDatabase(contactList,searchId);
 					}
 					else
-					{
-						System.out.println("No Record Found For this ID");
-						break;
-					}
+					{	System.out.println("No Record Found For this ID");
+			break;	}
+
 					view.viewContact(contactList);
 				    break;
 			case 3: int editId = view.editContact();
 					switch(editId)
 					{
-						case 1:int updateId = view.updateContact();
+					case 1:int updateId = view.updateContact();
+			 		break;
 
-						 		break;
-						case 2: contactList.clear();
-								int deleteId = view.deleteContact();
-								id = db.getIdFromDatabase(id);
-								b = search(id,deleteId);
-								if(b == true)
-								{
-									db.deletRecord(deleteId);
-									view.viewContact(contactList);
-								}
-								else
-								{
-								System.out.println("No Record Found For this ID");
-								break;
-								}
-								break;
-						case 3:start();break;
+					case 2: contactList.clear();
+						int deleteId = view.deleteContact();
+						id = db.getIdFromDatabase(id);
+						b = search(id,deleteId);
+						if(b == true)
+						 {	db.deletRecord(deleteId);
+							view.viewContact(contactList);
+						 }
+						else
+						 {	System.out.println("No Record Found For this ID");
+					     break;	}
+  					break;
+					
+					case 3:start();break;
+					
 						default:System.out.println("Enter Valid Option");break;
 					}
-					break;
+			break;
 			default:System.out.println("Enter Valid Option");break;
 			}
 			System.out.println("\nPress 1 to continue)\nPress 0 to Exit");

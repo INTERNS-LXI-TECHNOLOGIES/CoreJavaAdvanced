@@ -37,20 +37,20 @@ public class ContactDatabase
 			ps.close();
 			con.close();
 		}
-		catch(SQLException e)
+		catch(SQLException e)                                                                                    
 		{
 			e.printStackTrace();
 		}
-		return row;
+		return row;                                                                   
 	}
 	public ArrayList<Integer> getIdFromDatabase(ArrayList<Integer> idList)
-	{
+	{                                                                
 		createDatabaseConnection();
 		try
 		{
 			String sql = "select id from contactapp";
 			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
+			rs = stmt.executeQuery(sql);                                             
 			while(rs.next())
 			{
 				idList.add(rs.getInt(1)); 
@@ -62,29 +62,7 @@ public class ContactDatabase
 		}
 		return idList;
 	}
-	public ArrayList<Contact> viewDatabase(ArrayList<Contact> contactList)
-	{
-		createDatabaseConnection();
-		try
-		{
-			String sql  = "select * from contactapp" ;
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
-			int i = 0;
-			while(rs.next())
-			{
-				contactList.add(i,new Contact());
-				contactList.get(i).setId(rs.getInt("id"));
-				contactList.get(i).setfirstname(rs.getString("FirstName"));
-				contactList.get(i).setlastname(rs.getString("LastName"));
-				contactList.get(i). setnumber(rs.getString("number"));
-				i++;		
-			}
-		}
-		catch(SQLException e)
-		{		e.printStackTrace();	}
-		return contactList;
-	}
+	
 	public ArrayList<Contact> searchDatabase(ArrayList<Contact> contactList,int searchId)
 	{
 		createDatabaseConnection();
@@ -122,5 +100,31 @@ public class ContactDatabase
 		{
 			System.out.println(e);
 		}
+	}
+
+
+
+	public ArrayList<Contact> viewDatabase(ArrayList<Contact> contactList)
+	{
+		createDatabaseConnection();
+		try
+		{
+			String sql  = "select * from contactapp" ;
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			int i = 0;
+			while(rs.next())
+			{
+				contactList.add(i,new Contact());
+				contactList.get(i).setId(rs.getInt("id"));
+				contactList.get(i).setfirstname(rs.getString("FirstName"));
+				contactList.get(i).setlastname(rs.getString("LastName"));
+				contactList.get(i). setnumber(rs.getString("number"));
+				i++;		
+			}
+		}
+		catch(SQLException e)
+		{		e.printStackTrace();	}
+		return contactList;
 	}
 }

@@ -11,8 +11,7 @@ public class ContactApp
 	{
 		int choice = 0;
 		try{
-		// System.out.println("\n*******ContactApp********");
-		// System.out.println("---------------------");
+		
 		 viewContact(contactList);
 		System.out.println("\n1.Add Contacts\n2.Search Contacts\n3.Edit Contacts");
 
@@ -50,7 +49,7 @@ public class ContactApp
 	}
 	public void viewContact(ArrayList<Contact> contactList)
 	{
-		System.out.println("\n\t\t\t*******CONTACT APP*********");
+		System.out.println("\n\t\t\t*******Contact  App*********");
 		System.out.println("\t\t\t_________________________________\n");
 
 		System.out.println("\tID\tFirst NAME\tLast Name\tPhone Number");
