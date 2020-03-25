@@ -55,12 +55,12 @@ public class ContactView
 	{
 		System.out.println("\t\t\t*******CONTACT APP*********");
 		System.out.println("\t\t\t-----------------------------\n");
-		System.out.println("\t+---------------+---------------------+----------------+---------------+----------------+");
-		System.out.println("\t| ID            |	 NAME         |  PHONENO       | EMAIL         | ADDRESS        |");
-		System.out.println("\t+---------------+---------------------+----------------+---------------+----------------+");
+		System.out.println("\t+--------+------------+---------------------+----------------+---------------+----------------+");
+		System.out.println("\t|  SL.NO |   ID       |	 NAME               |  PHONENO       | EMAIL         | ADDRESS        |");
+		System.out.println("\t+--------+------------+---------------------+----------------+---------------+----------------+");
 		for (int i=0;i<contactList.size();i++) 
 		{
-			System.out.println("\t\t"+contactList.get(i).getId()+"\t\t"+contactList.get(i).getName()+"\t\t"+contactList.get(i).getPhoneNum()+"\t\t"+contactList.get(i).getEmail()+"\t\t"+contactList.get(i).getAddress());		
+			System.out.println("\t"+(i+1)+"\t\t"+contactList.get(i).getId()+"\t\t"+contactList.get(i).getName()+"\t\t"+contactList.get(i).getPhoneNum()+"\t\t"+contactList.get(i).getEmail()+"\t\t"+contactList.get(i).getAddress());		
 		}
 	}
 	public String searchContact()
@@ -143,6 +143,12 @@ public class ContactView
 	public int contactSelect()
 	{
 		System.out.println("Enter Id OF Contact To Select");
+		int id = sc.nextInt();
+		return id;
+	}
+	public int contactSelectBySlNo()
+	{
+		System.out.println("Enter SL.NO OF Contact To Select");
 		int id = sc.nextInt();
 		return id;
 	}

@@ -12,10 +12,9 @@ public class ContactController
 	ArrayList<ContactModel> contactList = new ArrayList<ContactModel>();
 	ArrayList<String> idList = new ArrayList<String>();
 	ArrayList<Integer> keyId = new ArrayList<Integer>();
-	int choice;
-	int start;
 	public void start()
 	{
+		int choice = 0;int startt = 0;
 		do{
 			viewAllContacts();
 			choice= view.contactAppMenu(model);
@@ -27,8 +26,8 @@ public class ContactController
 				default:System.out.println("Enter Valid Option");
 			}
 			System.out.println("Do You Want To Continue?\nYES(Press 1)\nNO(Press 0)");
-			start = sc.nextInt();
-		}while(start == 1);
+			startt = sc.nextInt();
+		}while(startt == 1);
 	}	
 	public void newContact()
 	{
@@ -47,15 +46,16 @@ public class ContactController
 	}
 	public void selectContact()
 	{
+		int choice;
 		contactList.clear();
-		int id = view.contactSelect();
+		int id = view.contactSelectBySlNo();
 		keyId = db.selectIdFromDb(keyId);
 		boolean b = keyId.contains(id);
 		if(b == true)
 		{
 			contactList = db.viewDatabaseById(contactList,id);
 			view.viewContact(contactList);	
-			int choice  = view.selectMenu();
+			choice  = view.selectMenu();
 			switch(choice)
 			{
 				case 1:updateContactt(id);break;
