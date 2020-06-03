@@ -12,16 +12,16 @@ public void setId(int id)
         this.id = id;
     }
 
-public void setfirstname(String firstname)                               
+public void setFirstname(String firstname)                               
     { 
         this.firstname = firstname; 
     } 
                       
-public void setlastname(String lastname)
+public void setLastname(String lastname)
     {
     	this.lastname=lastname;
 	}
-public void setnumber(String number)                       
+public void setNumber(String number)                       
     {                          
         this.number=number;
     }
@@ -30,15 +30,15 @@ public int getId()
     {
         return id;
     }
-public String getfirstname()  
+public String getFirstname()  
     { 
         return firstname; 
     }    
-public String getlastname()
+public String getLastname()
     { 
         return lastname;
     }   
-public String getnumber()
+public String getNumber()
     {
         return number;
     }   

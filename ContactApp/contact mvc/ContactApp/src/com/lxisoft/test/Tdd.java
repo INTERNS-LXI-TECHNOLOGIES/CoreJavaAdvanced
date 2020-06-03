@@ -1,5 +1,5 @@
 package com.lxisoft.test;
-import com.lxisoft.controller.*;
+import com.lxisoft.control.*;
 
 class Tdd
 {
