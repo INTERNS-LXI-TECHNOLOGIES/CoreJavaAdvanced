@@ -72,4 +72,29 @@ public class ContactDatabase
 		}
 		return contactList;
 	}
+
+	public ArrayList<ContactModel> searchDatabase(ArrayList<Contact> contactList,String searchname)
+	{
+		createDatabaseConnection();
+		try
+		{
+			String sql = "select * from contactdb where FirstName = '"+searchname+"'";
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			int i = 0;
+			while(rs.next())
+			{
+				contactList.add(i,new ContactModel());
+				contactList.get(i).setId(rs.getInt("id"));
+				contactList.get(i).setName(rs.getString("name"));
+				contactList.get(i).setEmail(rs.getString("email"));
+				contactList.get(i).setAddress(rs.getString("address"));
+				contactList.get(i).setPhoneNum(rs.getString("phoneno"));
+			}
+		}catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+		return contactList;
+	}
 }

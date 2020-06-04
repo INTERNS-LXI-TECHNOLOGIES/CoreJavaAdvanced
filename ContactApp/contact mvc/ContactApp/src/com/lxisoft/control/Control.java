@@ -24,49 +24,40 @@ public class Control
 					break;
 			case 2:	contactList.clear();
 					contactList = db.viewDatabase(contactList);
+					Collections.sort(contactList, new Sortbyname());
 					view.viewContact(contactList);
 					break;
-			// case 3: contactList.clear();
-			// 		int searchId = view.searchContact();
-			// 		idList = db.getIdFromDatabase(idList);
-			// 		boolean b = search(idList,searchId);
-			// 		if(b == true)
-			// 		{
-			// 		 contactList = db.searchDatabase(contactList,searchId);
-			// 		}
-			// 		else
-			// 		{
-			// 			System.out.println("No Record Found For this ID");
-			// 			break;
-			// 		}
-			// 		view.viewContact(contactList);
-			// 	    break;
-			// case 4: int editId = view.editContact();
-			// 		switch(editId)
-			// 		{
-			// 			case 1: updateId = view.updateContact();
+			case 3: contactList.clear();
+					String searchname = view.searchContact();
+					contactList = db.searchDatabase(contactList,searchname);
+					view.viewContact(contactList);
+				    break;
+			case 4: int editId = view.editContact();
+					switch(editId)
+					{
+						case 1: updateId = view.updateContact();
 
-			// 			 		break;
-			// 			case 2: contactList.clear();
-			// 					int deleteId = view.deleteContact();
-			// 					idList = db.getIdFromDatabase(idList);
-			// 					b = search(idList,deleteId );
-			// 					if(b == true)
-			// 					{
-			// 						db.deletRecord(deleteId);
-			// 						view.viewContact(contactList);
-			// 						System.out.println("Contact Deleted Secussfully");
-			// 					}
-			// 					else
-			// 					{
-			// 					System.out.println("No Record Found For this ID");
-			// 					break;
-			// 					}
-			// 					break;
-			// 			case 3:start();break;
-			// 			default:System.out.println("Enter Valid Option");break;
-			// 		}
-			// 		break;
+						 		break;
+						case 2: contactList.clear();
+								int deleteId = view.deleteContact();
+								idList = db.getIdFromDatabase(idList);
+								b = search(idList,deleteId );
+								if(b == true)
+								{
+									db.deletRecord(deleteId);
+									view.viewContact(contactList);
+									System.out.println("Contact Deleted Secussfully");
+								}
+								else
+								{
+								System.out.println("No Record Found For this ID");
+								break;
+								}
+								break;
+						case 3:start();break;
+						default:System.out.println("Enter Valid Option");break;
+					}
+					break;
 			default:System.out.println("Enter Valid Option");break;
 			}
 			System.out.println("Do You Eant To Continue?\nYES(Press 1)\nNO(Press 0)");
