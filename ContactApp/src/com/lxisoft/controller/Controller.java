@@ -31,19 +31,19 @@ public class Controller
 	{
 		switch(menuChoice)
 		{
-			case 1 :	showAllContacts() ; 
+			case 1  :	showAllContacts() ; 
 						break ;
 
-			case 2 :	addNewContact() ;
+			case 2  :	addNewContact() ;
 						break ;
 
-			case 3 :	editContactInfo() ;
+			case 3  :	editContactInfo() ;
 						break ;
 
-			case 4 :	deleteContact() ;
+			case 4  :	deleteContact() ;
 						break ;
 
-			case 5 :	View.printThankYouMessage() ;
+			case 5  :	View.printThankYouMessage() ;
 						System.exit(0) ;
 
 			default :	System.out.print("\n\n\t Invalid Choice!\n") ;
@@ -95,11 +95,13 @@ public class Controller
 
 			switch(menuChoice)
 			{
-				case 1 :	editContactName() ;
+				case 1  :	editContactName() ;
 							break ;
 
-				case 2 :	editContactPhoneNumber() ;
+				case 2  :	editContactPhoneNumber() ;
 							break ;
+
+				case 3  :	return ;
 
 				default :	System.out.print("\n\n\t Invalid Choice!\n") ;
 			}

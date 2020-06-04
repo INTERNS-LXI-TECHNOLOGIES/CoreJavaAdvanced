@@ -26,7 +26,7 @@ public class View
 	{
 		ConsoleElements.clearScreen() ;
 
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     CONTACT APP\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t   ALL CONTACTS\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
 		System.out.print("\n\t   NAME \t\t PH.NO\n\t   ~~~~ \t\t ~~~~~\n");
 
 			for(ContactModel contactModel : contactList)
@@ -41,13 +41,15 @@ public class View
 	{
 		ConsoleElements.clearScreen() ;
 
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     CONTACT APP\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t    NEW CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
 
 		System.out.print("\n\t     NAME : ");
 		contactModel = Controller.getNewContactName(contactModel) ;
 
 		System.out.print("\n\t     PH.NO : ");
 		contactModel = Controller.getNewContactPhoneNumber(contactModel) ;
+		
+		System.out.print("\n\n\t CONTACT SUCCESSFULLY ADDED.") ;
 
 		return contactModel ;
 	}
@@ -56,8 +58,8 @@ public class View
 	{	
 		ConsoleElements.clearScreen() ;
 
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     CONTACT APP\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
-		System.out.print("\n\t    [1] EDIT NAME\n\n\t    [2] EDIT PHONE NUMBER\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+   \n\t  : ") ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     EDIT CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
+		System.out.print("\n\t    [1] EDIT NAME\n\n\t    [2] EDIT PHONE NUMBER\n\n\t    [3] GO BACK\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+   \n\t  : ") ;
 
 		int menuChoice = input.nextInt() ;
 		input.nextLine() ;
@@ -69,7 +71,7 @@ public class View
 	{
 		ConsoleElements.clearScreen() ;
 
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     CONTACT APP\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     EDIT CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
 		System.out.print("\n\t     NAME TO BE EDITED : ");
 
 		String name = input.nextLine() ;
@@ -100,7 +102,7 @@ public class View
 	{
 		ConsoleElements.clearScreen() ;
 
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     CONTACT APP\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     EDIT CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
 		System.out.print("\n\t     PHONE NUMBER TO BE EDITED : ");
 
 		long phoneNumber = input.nextLong() ;
@@ -131,7 +133,7 @@ public class View
 	{
 		ConsoleElements.clearScreen() ;
 
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     CONTACT APP\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t    DELETE CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
 		System.out.print("\n\t     NAME TO BE DELETED : ");
 
 		String name = input.nextLine() ;
