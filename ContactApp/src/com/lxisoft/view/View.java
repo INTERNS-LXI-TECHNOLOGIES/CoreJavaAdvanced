@@ -34,6 +34,8 @@ public class View
 				System.out.format("\n\t  %-20s%d%n",contactModel.getName(),contactModel.getPhoneNumber()) ;
 			}
 
+		System.out.print("\n\n\t Number of Contacts : " + contactList.get(0).getNumberOfContacts());	
+
 		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
 	}
 

@@ -33,7 +33,7 @@ public class ContactManager
 
 		File contactData = fetchFile() ;
 
-		ContactModel contactModel ;
+		ContactModel.setNumberOfContacts(0);
 		ArrayList<ContactModel> contactList = new ArrayList<ContactModel>() ;
 
 		boolean isTitleRow = true ;
@@ -55,7 +55,7 @@ public class ContactManager
 			   }
 
 			    String[] rowDetailsSplit = rowDetails.split(",") ;
-				contactModel = new ContactModel(rowDetailsSplit[0],(Long.parseLong(rowDetailsSplit[1]))) ;
+				ContactModel contactModel = new ContactModel(rowDetailsSplit[0],(Long.parseLong(rowDetailsSplit[1]))) ;
 				contactList.add(contactModel) ;
 			}
 		}

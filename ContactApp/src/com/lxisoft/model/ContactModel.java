@@ -7,17 +7,18 @@ public class ContactModel
 	private String[] address = new String[3] ;
 	private long phoneNumber ;
 	private String emailId ;
+	private static int numberOfContacts ;
 
 	public ContactModel(String name,long phoneNumber)
 	{
+		numberOfContacts++ ;
 		this.name = name ;
 		this.phoneNumber = phoneNumber ;
 	}
 
 	public ContactModel()
 	{
-		name = "" ;
-		phoneNumber = 0 ;
+		
 	}
 	
 	public String getName()
@@ -37,4 +38,14 @@ public class ContactModel
 	{
 		phoneNumber = pNo ;
 	}
+
+	public static int getNumberOfContacts()
+	{ 
+		return numberOfContacts ;
+	}
+	public static void setNumberOfContacts(int n)
+	{
+		numberOfContacts = n;
+	}
+
 }
