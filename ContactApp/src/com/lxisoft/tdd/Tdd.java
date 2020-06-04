@@ -2,7 +2,7 @@ package com.lxisoft.tdd ;
 
 import com.lxisoft.controller.Controller ;
 
-public class tdd
+public class Tdd
 {
 	public static void main(String[] args)
 	{

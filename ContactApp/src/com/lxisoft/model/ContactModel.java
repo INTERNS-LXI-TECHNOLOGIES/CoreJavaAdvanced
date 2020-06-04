@@ -4,9 +4,21 @@ public class ContactModel
 {
 
 	private String name ;
-	private String[] address = new String[3]() ;
-	private double phoneNumber ;
+	private String[] address = new String[3] ;
+	private long phoneNumber ;
 	private String emailId ;
+
+	public ContactModel(String name,long phoneNumber)
+	{
+		this.name = name ;
+		this.phoneNumber = phoneNumber ;
+	}
+
+	public ContactModel()
+	{
+		name = "" ;
+		phoneNumber = 0 ;
+	}
 	
 	public String getName()
 	{
@@ -17,33 +29,12 @@ public class ContactModel
 		name = n ;
 	}
 
-	public String[] getAddress()
-	{
-		return address ;
-	}
-	public void setAddress(String[] a)
-	{
-		address = a ;
-	}
-
-	public double getPhoneNumber()
+	public long getPhoneNumber()
 	{
 		return phoneNumber ;
 	}
-	public void setPhoneNumber(double pNo)
+	public void setPhoneNumber(long pNo)
 	{
 		phoneNumber = pNo ;
 	}
-
-	public String getEmailId()
-	{
-		return emailId ; 
-	}
-	public void setEmailId(String eId)
-	{
-		emailId = eId ;
-	}
-
-
-
 }
