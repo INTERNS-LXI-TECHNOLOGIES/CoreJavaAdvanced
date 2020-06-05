@@ -74,7 +74,7 @@ public class View
 		ConsoleElements.clearScreen() ;
 
 		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     EDIT CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
-		System.out.print("\n\t     NAME TO BE EDITED : ");
+		System.out.print("\n\t    NAME TO BE EDITED : ");
 
 		String name = input.nextLine() ;
 
