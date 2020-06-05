@@ -71,4 +71,43 @@ public class ContactList
 		String searchname = sc.nextLine();
 		return searchname;
 	}
+
+	public int editContact()
+	{
+		int choice = 0;
+		try{
+		System.out.println("\t\tEDIT MENU");
+		System.out.println("---------------------");
+		System.out.println("1.Update Contact");
+		System.out.println("2.Delete Contact");
+		System.out.println("3.Back");
+		System.out.println("Select An Option");
+		choice = sc.nextInt();
+			if(choice>3)
+			{
+				throw new  MyException("Not Valid Option!!!");
+			}
+		}
+		catch(MyException e)
+		{
+			System.out.println(e);
+		}
+		return choice;
+	}
+
+	public int updateContact()
+	{
+		System.out.println("Enter The Contact ID To Update\t: ");
+		int updateId = sc.nextInt();
+
+		return updateId;
+	}
+
+	public int deleteContact()
+	{
+		System.out.println("Enter The Contact ID To Delete\t: ");
+		int updateId = sc.nextInt();
+
+		return updateId;
+	}
 }

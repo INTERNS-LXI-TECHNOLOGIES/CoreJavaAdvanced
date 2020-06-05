@@ -97,4 +97,20 @@ public class ContactDatabase
 		}
 		return contactList;
 	}
+
+	public void deletRecord(int deleteId)
+	{
+		createDatabaseConnection();
+		try
+		{
+			String sql = "delete from contactdb where id ='"+deleteId+"'";
+			stmt = con.createStatement();
+			stmt.executeUpdate(sql);
+			stmt.close();
+			con.close();
+		}catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+	}
 }

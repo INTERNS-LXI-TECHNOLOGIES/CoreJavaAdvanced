@@ -32,32 +32,12 @@ public class Control
 					contactList = db.searchDatabase(contactList,searchname);
 					view.viewContact(contactList);
 				    break;
-			case 4: int editId = view.editContact();
-					switch(editId)
-					{
-						case 1: updateId = view.updateContact();
-
-						 		break;
-						case 2: contactList.clear();
-								int deleteId = view.deleteContact();
-								idList = db.getIdFromDatabase(idList);
-								b = search(idList,deleteId );
-								if(b == true)
-								{
-									db.deletRecord(deleteId);
-									view.viewContact(contactList);
-									System.out.println("Contact Deleted Secussfully");
-								}
-								else
-								{
-								System.out.println("No Record Found For this ID");
-								break;
-								}
-								break;
-						case 3:start();break;
-						default:System.out.println("Enter Valid Option");break;
-					}
-					break;
+			case 4: contactList.clear();
+					contactList = db.viewDatabase(contactList);
+					Collections.sort(contactList, new Sortbyname());
+					view.viewContact(contactList);
+			 		edit();
+			  break;
 			default:System.out.println("Enter Valid Option");break;
 			}
 			System.out.println("Do You Eant To Continue?\nYES(Press 1)\nNO(Press 0)");
@@ -65,4 +45,27 @@ public class Control
 		}while(start == 1);
 	}
 	
+
+	public void edit()
+		{
+			int editId = view.editContact();
+					switch(editId)
+					{
+						case 1:
+								int updateId = view.updateContact();
+								db.deletRecord(updateId);
+								model = view.addContact(model);
+								db.addToDatabase(model);
+
+						break;
+						case 2:	
+							int deleteid =view.deleteContact()
+							db.deletRecord(deleteid);
+							System.out.println("Record Sucessfully Deleted");											
+						break;
+						case 3:start();break;
+						default:System.out.println("Enter Valid Option");break;
+					}
+
+		}
 }
