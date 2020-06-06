@@ -73,23 +73,22 @@ public class ContactDatabase
 		return contactList;
 	}
 
-	public ArrayList<ContactModel> searchDatabase(ArrayList<Contact> contactList,String searchname)
+	public ArrayList<Contact> searchDatabase(ArrayList<Contact> contactList,String searchname)
 	{
 		createDatabaseConnection();
 		try
 		{
-			String sql = "select * from contactdb where FirstName = '"+searchname+"'";
+			String sql = "select * from contactapp where FirstName = '"+searchname+"'";
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			int i = 0;
 			while(rs.next())
 			{
-				contactList.add(i,new ContactModel());
+				contactList.add(i,new Contact());
 				contactList.get(i).setId(rs.getInt("id"));
-				contactList.get(i).setName(rs.getString("name"));
-				contactList.get(i).setEmail(rs.getString("email"));
-				contactList.get(i).setAddress(rs.getString("address"));
-				contactList.get(i).setPhoneNum(rs.getString("phoneno"));
+				contactList.get(i).setFirstname(rs.getString("FirstName"));
+				contactList.get(i).setLastname(rs.getString("LastName"));
+				contactList.get(i).setNumber(rs.getString("Number"));
 			}
 		}catch(SQLException e)
 		{
@@ -103,7 +102,7 @@ public class ContactDatabase
 		createDatabaseConnection();
 		try
 		{
-			String sql = "delete from contactdb where id ='"+deleteId+"'";
+			String sql = "delete from contactapp where id ='"+deleteId+"'";
 			stmt = con.createStatement();
 			stmt.executeUpdate(sql);
 			stmt.close();

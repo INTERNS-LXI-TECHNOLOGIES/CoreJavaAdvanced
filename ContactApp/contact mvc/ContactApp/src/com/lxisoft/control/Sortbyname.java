@@ -1,5 +1,6 @@
 package com.lxisoft.control;
 import java.util.*;
+import com.lxisoft.model.*;
 
 public class Sortbyname implements Comparator<Contact>
 {

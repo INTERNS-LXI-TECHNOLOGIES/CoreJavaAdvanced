@@ -15,12 +15,26 @@ public class Control
 	int start;
 	public void start()
 	{
+		boolean flag=false;
 		do{
 			choice= view.contactAppMenu(model,db);
 			switch(choice)
 			{
-			case 1:	model = view.addContact(model);
-					db.addToDatabase(model);
+			case 1:	contactList.clear();
+					contactList = db.viewDatabase(contactList);
+					model = view.addContact(model);
+						for(int j=0;j<contactList.size();j++)
+							{
+								if(model.getFirstname().equals(contactList.get(j).getFirstname()))
+									{	flag=true;	}
+								else
+									{	flag=false;	}
+							}
+		 			 if(flag==true)
+		 				 {	System.out.print("\nThe Enterd Name is Already used \n Please Choose Another one ");  }	
+
+					 else
+		  				{ db.addToDatabase(model); }
 					break;
 			case 2:	contactList.clear();
 					contactList = db.viewDatabase(contactList);
@@ -54,12 +68,12 @@ public class Control
 						case 1:
 								int updateId = view.updateContact();
 								db.deletRecord(updateId);
-								model = view.addContact(model);
+								model = view.editContact(model);
 								db.addToDatabase(model);
 
 						break;
 						case 2:	
-							int deleteid =view.deleteContact()
+							int deleteid =view.deleteContact();
 							db.deletRecord(deleteid);
 							System.out.println("Record Sucessfully Deleted");											
 						break;

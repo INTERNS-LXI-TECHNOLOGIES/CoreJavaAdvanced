@@ -11,7 +11,7 @@ public class ContactList
 	{
 		int choice = 0;
 		try{
-		System.out.println("*******ContactApp********");
+		System.out.println("\n*******ContactApp********");
 		System.out.println("---------------------");
 		System.out.println("1.Add Contacts");
 		System.out.println("2.View Contacts");
@@ -65,7 +65,7 @@ public class ContactList
 		}
 	}
 
-	public int searchContact()
+	public String searchContact()
 	{
 		System.out.print("Enter The Contact Name To Search\t: ");
 		String searchname = sc.nextLine();
@@ -76,7 +76,7 @@ public class ContactList
 	{
 		int choice = 0;
 		try{
-		System.out.println("\t\tEDIT MENU");
+		System.out.println("\n\n\t\tEDIT MENU");
 		System.out.println("---------------------");
 		System.out.println("1.Update Contact");
 		System.out.println("2.Delete Contact");
@@ -110,4 +110,26 @@ public class ContactList
 
 		return updateId;
 	}
+
+	public Contact editContact(Contact model)
+	{
+		System.out.println("\n\n*******EDIT CONTACT******");
+		System.out.println("---------------------");
+		System.out.println("New FirstName\t:");
+		String name = sc.nextLine();
+		name = sc.nextLine();
+		model.setFirstname(name);
+		System.out.println("New LastName\t:");
+		String lname = sc.nextLine();
+		lname = (lname.equals(""))?sc.nextLine():lname;
+		model.setLastname(lname);
+		System.out.println("Enter The New  Phone Number :");
+		String phno = sc.nextLine();
+		phno = (phno.equals(""))?sc.nextLine():phno;
+		model.setNumber(phno);
+		
+		
+		return model;
+	}
+
 }
