@@ -187,7 +187,7 @@ public class View
 
 	public void printThankYouMessage()
 	{
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     THANK YOU!\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\n");
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     THANK YOU!\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\n");
 	}
 
 	public char printGoBackToMainPrompt()

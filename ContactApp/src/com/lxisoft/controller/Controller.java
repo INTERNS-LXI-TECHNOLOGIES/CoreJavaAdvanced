@@ -46,7 +46,7 @@ public class Controller
 						System.exit(0) ;
 		}
 
-		if(Character.isDigit(menuChoice))
+		if(Character.isDigit(menuChoice) && Character.getNumericValue(menuChoice)<contactList.size())
 		{
 			selectContact(Character.getNumericValue(menuChoice)) ;
 		}
