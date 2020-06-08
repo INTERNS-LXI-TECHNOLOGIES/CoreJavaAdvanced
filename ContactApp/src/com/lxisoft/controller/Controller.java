@@ -8,9 +8,11 @@ import com.lxisoft.view.* ;
 public class Controller
 {
 
-	private ArrayList<ContactModel> contactList = ContactManager.readDataFromFile() ;
+	private View view = new View() ;
+	private ContactManager contactManager = new ContactManager() ;
+	private ArrayList<ContactModel> contactList = contactManager.readDataFromFile() ;
 
-	private static Scanner input = new Scanner(System.in) ;
+	private Scanner input = new Scanner(System.in) ;
 
 	public void startApp()
 	{
@@ -18,35 +20,97 @@ public class Controller
 
 		do
 		{
-			int menuChoice = View.showMainMenu() ;
+			char menuChoice = view.showMainMenu(contactList) ;
 
 			chooseMenuOption(menuChoice) ;
 
-			again = View.printGoBackToMainPrompt() ;
+			again = view.printGoBackToMainPrompt() ;
 
 		} while(again == 'y' || again == 'Y') ;
 	}
 
-	private void chooseMenuOption(int menuChoice)
+	private void chooseMenuOption(char menuChoice)
 	{
 		switch(menuChoice)
 		{
-			case 1  :	showAllContacts() ; 
-						break ;
+			case 'S'  :
+			case 's'  :	searchContacts() ; 
+						return ;
 
-			case 2  :	addNewContact() ;
-						break ;
+			case 'A'  :
+			case 'a'  :	addNewContact() ;
+						return ;
 
-			case 3  :	editContactInfo() ;
-						break ;
-
-			case 4  :	deleteContact() ;
-						break ;
-
-			case 5  :	View.printThankYouMessage() ;
+			case 'E'  :
+			case 'e'  :	view.printThankYouMessage() ;
 						System.exit(0) ;
+		}
 
-			default :	System.out.print("\n\n\t Invalid Choice!\n") ;
+		if(Character.isDigit(menuChoice))
+		{
+			selectContact(Character.getNumericValue(menuChoice)) ;
+		}
+		else
+		{
+			System.out.print("\n\n\t INVALID OPTION CHOSEN!") ;
+		}
+	}
+
+// ----------------------------------- SEARCH CONTACT --------------------------------------------//
+
+	private void searchContacts()
+	{
+		String partialName ;
+
+		ArrayList<ContactModel> searchList = new ArrayList<ContactModel>() ;
+
+		view.showSearchTermInputPrompt() ;
+		partialName = input.nextLine() ;
+
+		view.printTitleBar() ;
+		view.showSearchTerm(partialName) ;
+
+		int numberOfResults = 0 ;
+			
+			for(ContactModel c : contactList)
+			{
+				if(c.getFirstName().contains(partialName))
+				{
+					numberOfResults++;
+					view.showSearchInfo(c) ;
+				}
+			}
+
+		view.printResultInfo(numberOfResults) ;
+
+		if(numberOfResults==0)
+		{
+			view.printNameNotFoundMessage(partialName) ;
+		}
+	}
+
+
+// ----------------------------------- SELECT CONTACT --------------------------------------------//
+
+	private void selectContact(int index)
+	{
+		view.showContactInfo(contactList.get(index-1)) ;
+		char menuChoice = view.showContactOptions() ;
+
+		switch(menuChoice)
+		{
+			case 'E'  :
+			case 'e'  : editContactInfo(contactList.get(index-1)) ; 
+						return ;
+
+			case 'D'  :
+			case 'd'  :	deleteContact(contactList.get(index-1)) ;
+						return ;
+
+			case 'B'  :
+			case 'b'  :	return ;
+
+			default   : System.out.print("\n\n\t INVALID CHOICE! ");
 		}
 	}
 
@@ -54,124 +118,101 @@ public class Controller
 
 	private void showAllContacts()
 	{
-		contactList = ContactManager.readDataFromFile() ;
+		contactList = contactManager.readDataFromFile() ;
 
-		View.displayAllContacts(contactList) ;
+		view.displayAllContacts(contactList) ;
 	}
 
 // ---------------------------------- ADD NEW CONTACT ---------------------------------------------//
 
 	private void addNewContact()
 	{
-		contactList.add(View.showAddNewContactMenu(new ContactModel())) ;
-		ContactManager.writeDataToFile(contactList) ;
+		contactList.add(view.showAddNewContactMenu(new ContactModel())) ;
+		contactManager.writeDataToFile(contactList) ;
 	}
-
-	public static ContactModel getNewContactName(ContactModel contactModel)
-	{
-		String name = input.nextLine() ;
-
-		contactModel.setName(name) ;
-
-		return contactModel ;
-	}
-
-	public static ContactModel getNewContactPhoneNumber(ContactModel contactModel)
-	{
-		long phoneNumber = input.nextLong() ;
-		input.nextLine() ;
-
-		contactModel.setPhoneNumber(phoneNumber) ;
-
-		return contactModel ;
-	}
-
 
 //-------------------------------- EDIT CONTACT ---------------------------------------------//
 
-	private void editContactInfo()
+	private void editContactInfo(ContactModel c)
 	{
-		int menuChoice = View.showEditContactInfoMenu() ;
+		view.showContactInfo(c) ;
+		char menuChoice = view.showEditContactOptions() ;
 
 			switch(menuChoice)
 			{
-				case 1  :	editContactName() ;
+				case '1'  :	editContactName(c) ;
 							break ;
 
-				case 2  :	editContactPhoneNumber() ;
+				case '2'  :	editContactPhoneNumber(c) ;
 							break ;
 
-				case 3  :	return ;
+				case '3'  :	return ;
 
 				default :	System.out.print("\n\n\t Invalid Choice!\n") ;
 			}
 
-		ContactManager.writeDataToFile(contactList) ;
+		contactManager.writeDataToFile(contactList) ;
 	}
 
-	private void editContactName()
+	private void editContactName(ContactModel c)
 	{
-		String name = View.showSearchNameEditPrompt() ;
+		view.showContactInfo(c) ;
 
-			for(ContactModel contactModel : contactList)
-			{
-				if(name.equals(contactModel.getName()))
-				{
-					String newName = View.showNewNamePrompt() ;
-					contactModel.setName(newName) ;
+		String newFirstName = view.showNewFirstNamePrompt() ;
+		c.setFirstName(newFirstName) ;
+		String newLastName = view.showNewLastNamePrompt() ;
+		c.setLastName(newLastName) ;
 
-					View.showNameEditSuccessMessage(name,contactModel.getName()) ;
-					
-					return ;
-				}
-			}
-
-		View.printNameNotFoundMessage(name) ;
+		view.showNameEditSuccessMessage() ;
 	}
 
-	private void editContactPhoneNumber()
+	private void editContactPhoneNumber(ContactModel c)
 	{
-		long phoneNumber = View.showSearchPhoneNumberPrompt() ;
+		long newPhoneNumber = view.showNewPhoneNumberPrompt() ;
+		c.setPhoneNumber(newPhoneNumber) ;
 
-			for(ContactModel contactModel : contactList)
-			{
-				if(phoneNumber == contactModel.getPhoneNumber())
-				{
-					long newPhoneNumber = View.showNewPhoneNumberPrompt() ;
-					contactModel.setPhoneNumber(newPhoneNumber) ;
-
-					View.showPhoneNumberEditSuccessMessage(phoneNumber,contactModel.getPhoneNumber()) ;
-				
-					return ;
-				}
-			}
-
-		View.printPhoneNumberNotFoundMessage(phoneNumber) ;
+		view.showPhoneNumberEditSuccessMessage() ;
 	}
 
 //--------------------------------------------- DELETE CONTACT ------------------------------------------//
 
-	private void deleteContact()
+	private void deleteContact(ContactModel c)
 	{
-		String name = View.showSearchNameDeletePrompt() ;
-		Iterator<ContactModel> iterator = contactList.iterator() ;
+		char delete = view.showDeleteContactPrompt() ;
+		
+		if(delete=='Y' || delete=='y')
+		{
+			Iterator<ContactModel> iterator = contactList.iterator() ;
 
 			while(iterator.hasNext())
 			{
 				ContactModel contactModel = iterator.next() ;
 
-				if(name.equals(contactModel.getName()))
+				if(contactModel==c)
 				{
 					iterator.remove() ;
-					View.showContactDeleteSuccessMessage() ;
-					ContactManager.writeDataToFile(contactList) ;
-					return ;
+					view.showContactDeleteSuccessMessage() ;
+					contactManager.writeDataToFile(contactList) ;
 				}
 			}
-
-		View.printNameNotFoundMessage(name) ;
+		}
 	}
-	
+
+//--------------------------------------------- SORT CONTACT ------------------------------------------//
+
+	public static ArrayList<ContactModel> sortContactList(ArrayList<ContactModel> contactList)
+	{
+		Collections.sort(contactList, new Comparator<ContactModel>()
+		{
+			public int compare(ContactModel c1,ContactModel c2)
+			{
+				return c1.getFirstName().compareTo(c2.getFirstName()) ;
+			}
+
+		}) ;
+
+		return contactList ;
+	}	
 
 
 

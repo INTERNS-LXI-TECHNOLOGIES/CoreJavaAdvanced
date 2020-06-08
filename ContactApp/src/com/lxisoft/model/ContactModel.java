@@ -3,16 +3,15 @@ package com.lxisoft.model ;
 public class ContactModel
 {
 
-	private String name ;
+	private String firstName,lastName ;
 	private String[] address = new String[3] ;
 	private long phoneNumber ;
 	private String emailId ;
-	private static int numberOfContacts ;
 
-	public ContactModel(String name,long phoneNumber)
+	public ContactModel(String firstName,String lastName,long phoneNumber)
 	{
-		numberOfContacts++ ;
-		this.name = name ;
+		this.firstName = firstName ;
+		this.lastName = lastName ;
 		this.phoneNumber = phoneNumber ;
 	}
 
@@ -21,13 +20,22 @@ public class ContactModel
 		
 	}
 	
-	public String getName()
+	public String getFirstName()
 	{
-		return name ;
+		return firstName ;
 	}
-	public void setName(String n)
+	public void setFirstName(String fn)
 	{
-		name = n ;
+		firstName = fn ;
+	}
+
+	public String getLastName()
+	{
+		return lastName ;
+	}
+	public void setLastName(String ln)
+	{
+		lastName = ln ;
 	}
 
 	public long getPhoneNumber()
@@ -38,14 +46,4 @@ public class ContactModel
 	{
 		phoneNumber = pNo ;
 	}
-
-	public static int getNumberOfContacts()
-	{ 
-		return numberOfContacts ;
-	}
-	public static void setNumberOfContacts(int n)
-	{
-		numberOfContacts = n;
-	}
-
 }

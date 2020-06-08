@@ -6,154 +6,191 @@ import com.lxisoft.controller.Controller ;
 
 public class View
 {
-	private static Scanner input = new Scanner(System.in) ;
+	private Scanner input = new Scanner(System.in) ;
+	
+//-------------------------------- MAIN MENU ---------------------------------------------//
 
-
-	public static int showMainMenu()
+	public void printTitleBar()
 	{
+
 		ConsoleElements.clearScreen() ;
 
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     CONTACT APP\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
-		System.out.print("\n\t    [1] SHOW ALL CONTACTS\n\n\t    [2] ADD CONTACT\n\n\t    [3] EDIT CONTACT\n\n\t    [4] DELETE CONTACT\n\n\t    [5] EXIT\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+   \n\t  : ") ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     CONTACT APP\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
+	}	
 
-		int menuChoice = input.nextInt() ;
+	public char showMainMenu(ArrayList<ContactModel> contactList)
+	{
+		printTitleBar() ;
+
+		System.out.print("\n\t    [S] SEARCH CONTACTS\n\n\t    [A] ADD CONTACT") ;
+
+		displayAllContacts(contactList) ;
+
+		System.out.print("\n\t     [E] EXIT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+   \n\t  : " );
+	
+
+		char menuChoice = input.next().charAt(0) ;
 		input.nextLine() ;
 
 		return menuChoice ;
 	}
 
-	public static void displayAllContacts(ArrayList<ContactModel> contactList)
+//------------------------------ CONTACTS & OPTIONS ----------------------------------------//
+
+	public void displayAllContacts(ArrayList<ContactModel> contactList)
 	{
-		ConsoleElements.clearScreen() ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t    ALL CONTACTS\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
 
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t   ALL CONTACTS\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
-		System.out.print("\n\t   NAME \t\t PH.NO\n\t   ~~~~ \t\t ~~~~~\n");
+		contactList = Controller.sortContactList(contactList) ;
 
-			for(ContactModel contactModel : contactList)
-			{
-				System.out.format("\n\t  %-20s%d%n",contactModel.getName(),contactModel.getPhoneNumber()) ;
-			}
+		int index = 0 ;
+		for(ContactModel contactModel : contactList)
+		{
+			index++ ;
+			System.out.format("\n\t\t [%d]\t%-20s",index,contactModel.getFirstName()) ;
+		}
 
-		System.out.print("\n\n\t Number of Contacts : " + contactList.get(0).getNumberOfContacts());	
-
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+") ;
 	}
 
-	public static ContactModel showAddNewContactMenu(ContactModel contactModel)
+	public void showContactInfo(ContactModel c)
+	{
+		printTitleBar() ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\tFIRST NAME : " + c.getFirstName() + "\n\t\tLAST  NAME : " + c.getLastName() + "\n\t\tPHONE NUM : " + c.getPhoneNumber() + "\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+");
+	}
+
+	public char showContactOptions()
+	{
+		System.out.print("\n\n\t    [E] EDIT CONTACT\n\n\t    [D] DELETE CONTACT\n\n\t    [B] GO BACK\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\n\t     :") ;
+	
+		char menuChoice = input.next().charAt(0) ;
+		input.nextLine() ;
+
+		return menuChoice ;
+	}
+
+//-------------------------------- EDIT CONTACTS ---------------------------------------------//
+	
+
+	public char showEditContactOptions() 
+	{	
+		System.out.print("\n\n\t    [1] EDIT NAME\n\n\t    [2] EDIT PHONE NUMBER\n\n\t    [3] GO BACK\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+   \n\t  : ") ;
+
+		char menuChoice = input.next().charAt(0) ;
+		input.nextLine() ;
+
+		return menuChoice ;
+	}	
+
+	public String showNewFirstNamePrompt()
+	{
+		System.out.print("\n\n\t      FIRST NAME : ");
+
+		String name = input.nextLine() ;
+
+		return name ;
+	}
+	public String showNewLastNamePrompt()
+	{
+		System.out.print("\n\n\t      LAST NAME : ");
+
+		String name = input.nextLine() ;
+
+		return name ;
+	}
+	public void showNameEditSuccessMessage()
+	{
+		System.out.print("\n\n\t\t NAME SUCCESSFULLY CHANGED!") ;
+	}
+
+	public long showNewPhoneNumberPrompt()
+	{
+		System.out.print("\n\t     PHONE NUMBER : ");
+
+		long phoneNumber = input.nextLong() ;
+
+		return phoneNumber ;
+	}
+	public void showPhoneNumberEditSuccessMessage()
+	{
+		System.out.print("\n\n\t   PHONE NUMBER SUCCESSFULLY CHANGED!") ;
+	}
+
+//-------------------------------- DELETE CONTACT ---------------------------------------------//
+
+
+	public char showDeleteContactPrompt()
+	{
+		System.out.print("\n\t     DELETE CONTACT? (Y/N) : ") ;
+		char confirmation = input.next().charAt(0) ;
+		return confirmation ;
+	}
+
+	public void showContactDeleteSuccessMessage()
+	{
+		System.out.print("\n\n\t CONTACT SUCCESSFULLY DELETED.") ;
+	}
+
+//-------------------------------- SEARCH CONTACTS ---------------------------------------------//
+
+	public void showSearchTermInputPrompt()
 	{
 		ConsoleElements.clearScreen() ;
 
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t    NEW CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t  SEARCH CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
 
-		System.out.print("\n\t     NAME : ");
-		contactModel = Controller.getNewContactName(contactModel) ;
+		System.out.print("\n\n\t SEARCH TERM : ");
+	}
 
-		System.out.print("\n\t     PH.NO : ");
-		contactModel = Controller.getNewContactPhoneNumber(contactModel) ;
+	public void showSearchTerm(String searchTerm)
+	{
+		System.out.print("\n\t\t SEARCH TERM : '" + searchTerm + "'");
+	}
+
+	public void showSearchInfo(ContactModel c)
+	{
+		System.out.print("\n\n\t\tFIRST NAME : " + c.getFirstName() + "\n\t\tLAST  NAME : " + c.getLastName() + "\n\t\tPHONE NUM : " + c.getPhoneNumber() + "\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+");
+	}
+
+	public void printResultInfo(int numberOfResults)
+	{
+		System.out.print("\n\t\t\t" + numberOfResults + " RESULTS.");
+	}
+
+	public void printNameNotFoundMessage(String name)
+	{
+		System.out.print("\n\n\t '" + name + "' NOT FOUND IN CONTACT DATABASE.\n") ;
+	}
+	
+//-------------------------------- ADD CONTACT ---------------------------------------------//
+
+	public ContactModel showAddNewContactMenu(ContactModel contactModel)
+	{
+		ConsoleElements.clearScreen() ;
+
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t    NEW CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
+
+		String firstName = showNewFirstNamePrompt() ;
+		contactModel.setFirstName(firstName) ;
+		String lastName = showNewLastNamePrompt() ;
+		contactModel.setLastName(lastName) ;
+		
+		long phoneNumber = showNewPhoneNumberPrompt() ;
+		contactModel.setPhoneNumber(phoneNumber) ;
 		
 		System.out.print("\n\n\t CONTACT SUCCESSFULLY ADDED.") ;
 
 		return contactModel ;
 	}
 
-	public static int showEditContactInfoMenu() 
-	{	
-		ConsoleElements.clearScreen() ;
+//-------------------------------- OTHERS  ---------------------------------------------//
 
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     EDIT CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
-		System.out.print("\n\t    [1] EDIT NAME\n\n\t    [2] EDIT PHONE NUMBER\n\n\t    [3] GO BACK\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+   \n\t  : ") ;
-
-		int menuChoice = input.nextInt() ;
-		input.nextLine() ;
-
-		return menuChoice ;
-	}
-
-	public static String showSearchNameEditPrompt()
+	public void printThankYouMessage()
 	{
-		ConsoleElements.clearScreen() ;
-
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     EDIT CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
-		System.out.print("\n\t    NAME TO BE EDITED : ");
-
-		String name = input.nextLine() ;
-
-		return name ;
+		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     THANK YOU!\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\n");
 	}
 
-	public static String showNewNamePrompt()
-	{
-		System.out.print("\n\t     NEW NAME : ");
-
-		String name = input.nextLine() ;
-
-		return name ;
-	}
-
-	public static void showNameEditSuccessMessage(String oldName,String newName)
-	{
-		System.out.print("\n\n\t NAME SUCCESSFULLY CHANGED FROM '" + oldName + "' TO '" + newName + "' \n") ;
-	}
-
-	public static void printNameNotFoundMessage(String name)
-	{
-		System.out.print("\n\n\t '" + name + "' NOT FOUND IN CONTACT DATABASE.\n") ;
-	}
-
-	public static long showSearchPhoneNumberPrompt()
-	{
-		ConsoleElements.clearScreen() ;
-
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     EDIT CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
-		System.out.print("\n\t     PHONE NUMBER TO BE EDITED : ");
-
-		long phoneNumber = input.nextLong() ;
-
-		return phoneNumber ;
-	}
-
-	public static long showNewPhoneNumberPrompt()
-	{
-		System.out.print("\n\t     NEW PHONE NUMBER : ");
-
-		long phoneNumber = input.nextLong() ;
-
-		return phoneNumber ;
-	}
-
-	public static void showPhoneNumberEditSuccessMessage(long oldPhoneNumber,long newPhoneNumber)
-	{
-		System.out.print("\n\n\t PHONE NUMBER SUCCESSFULLY CHANGED FROM '" + oldPhoneNumber + "' TO '" + newPhoneNumber + "' \n") ;
-	}
-
-	public static void printPhoneNumberNotFoundMessage(long phoneNumber)
-	{
-		System.out.print("\n\n\t '" + phoneNumber + "' NOT FOUND IN CONTACT DATABASE.\n") ;
-	}
-
-	public static String showSearchNameDeletePrompt()
-	{
-		ConsoleElements.clearScreen() ;
-
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t    DELETE CONTACT\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n") ;
-		System.out.print("\n\t     NAME TO BE DELETED : ");
-
-		String name = input.nextLine() ;
-
-		return name ;
-	}
-
-	public static void showContactDeleteSuccessMessage()
-	{
-		System.out.print("\n\n\t CONTACT SUCCESSFULLY DELETED.") ;
-	}
-
-	public static void printThankYouMessage()
-	{
-		System.out.print("\n\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\t\t     THANK YOU!\n\t+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+\n\n");
-	}
-
-	public static char printGoBackToMainPrompt()
+	public char printGoBackToMainPrompt()
 	{
 		System.out.print("\n\n\t GO BACK TO MAIN MENU? (Y/N) : ");
 

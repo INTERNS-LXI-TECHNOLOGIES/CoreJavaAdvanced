@@ -6,9 +6,9 @@ import com.lxisoft.model.ContactModel ;
 
 public class ContactManager
 {
-	public static String filePath = "C:\\Users\\mradw\\Documents\\Internship-Lxi\\Java\\Projects\\ContactApp\\src\\com\\lxisoft\\fileoperations\\ContactData.csv" ;	
+	public String filePath = "C:\\Users\\mradw\\Documents\\Internship-Lxi\\Java\\Projects\\ContactApp\\v1.0\\src\\com\\lxisoft\\fileoperations\\ContactData.csv" ;	
 
-	public static File fetchFile()
+	public File fetchFile()
 	{
 		
 		File file = new File(filePath) ;
@@ -22,18 +22,18 @@ public class ContactManager
 		}
 		catch(Exception e)
 		{
+			System.out.println("Problems in finding the file!") ;
 			e.printStackTrace() ;
 		}
 
 		return file ;
 	}
 
-	public static ArrayList<ContactModel> readDataFromFile()
+	public ArrayList<ContactModel> readDataFromFile()
 	{
 
 		File contactData = fetchFile() ;
 
-		ContactModel.setNumberOfContacts(0);
 		ArrayList<ContactModel> contactList = new ArrayList<ContactModel>() ;
 
 		boolean isTitleRow = true ;
@@ -55,7 +55,7 @@ public class ContactManager
 			   }
 
 			    String[] rowDetailsSplit = rowDetails.split(",") ;
-				ContactModel contactModel = new ContactModel(rowDetailsSplit[0],(Long.parseLong(rowDetailsSplit[1]))) ;
+				ContactModel contactModel = new ContactModel(rowDetailsSplit[0],rowDetailsSplit[1],(Long.parseLong(rowDetailsSplit[2]))) ;
 				contactList.add(contactModel) ;
 			}
 		}
@@ -67,13 +67,13 @@ public class ContactManager
 		return contactList ;
 	}
 
-	public static void writeDataToFile(ArrayList<ContactModel> contactList)
+	public void writeDataToFile(ArrayList<ContactModel> contactList)
 	{
 		File contactData = fetchFile() ;
 
 		boolean isTitleRow = true ;
 
-		String titleRowData = "NAME,PH.NO" ;
+		String titleRowData = "FIRSTNAME,LASTNAME,PH.NO" ;
 
 		try
 		{
@@ -90,7 +90,7 @@ public class ContactManager
 		for(ContactModel contactModel : contactList)
 		{
 			
-			String rowData = contactModel.getName() + "," + Long.toString(contactModel.getPhoneNumber()) ;
+			String rowData = contactModel.getFirstName() + "," + contactModel.getLastName() + "," + Long.toString(contactModel.getPhoneNumber()) ;
 	
 			try
 			{
