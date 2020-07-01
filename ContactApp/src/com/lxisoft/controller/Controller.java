@@ -16,6 +16,9 @@ public class Controller
 		switch(choice)
 		{
 			case 1 : view.displayAllContact(mycontacts);
+					 boolean ch = view.printGoBack();
+					 if(ch)
+						 runApp();
 					 break;
 			case 2 : addNewContact();
 					 break;
@@ -28,9 +31,13 @@ public class Controller
 
 	public void addNewContact()
 	{
-		contact = view.showAddMenu(contact);
-		mycontacts.add(contact);
-		runApp();
+		ContactModel c = new ContactModel();
+		c = view.showAddMenu(c);
+		mycontacts.add(c);
+		boolean choice = view.printGoBack();
+		if(choice)
+			runApp();
+
 	}
 
 	public void searchContact()

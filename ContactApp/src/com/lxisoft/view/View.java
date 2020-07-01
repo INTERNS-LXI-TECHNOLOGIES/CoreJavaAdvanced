@@ -2,6 +2,7 @@ package com.lxisoft.view;
 import java.util.*;
 import com.lxisoft.controller.*;
 import com.lxisoft.model.*;
+import java.lang.*;
 public class View
 {
 	public void printMainMenu()
@@ -13,16 +14,16 @@ public class View
 	}
 	public void displayAllContact(ArrayList<ContactModel> mycontacts)
 	{
+		System.out.println("\t    First Name \t\t   Last Name \t\tPhone Number ");
 		for (ContactModel c : mycontacts)
 			printContactDetails(c);
+
 
 	}
 
 	public void printContactDetails(ContactModel c)
 	{
-		System.out.println("=> First Name => "+ c.getFirstName());
-		System.out.println("=> Last Name => "+ c.getLastName());
-		System.out.println("=> Phone Number => "+ c.getPhoneNumber()+ "\n\n");
+		System.out.format("%20s %25s %20d\n" ,c.getFirstName(),c.getFirstName(),c.getPhoneNumber() );
 	}
 
 	public ContactModel showAddMenu( ContactModel contact)
@@ -40,6 +41,19 @@ public class View
 		contact.setLastName(ln);
 		contact.setPhoneNumber(phnNo);
 		return contact;
+
+	}
+
+	public boolean printGoBack()
+	{
+		String ch;
+		Scanner in = new Scanner(System.in);
+		System.out.println(" => Go Back(y/n) ");
+		ch = in.nextLine();
+		if(ch.equals("y") ||ch.equals("Y"))
+			return true;
+		else
+			return false;
 
 	}
 }
