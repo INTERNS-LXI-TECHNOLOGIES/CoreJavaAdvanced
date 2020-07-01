@@ -7,10 +7,10 @@ public class ContactModel
 	private long phoneNumber ;
 	private String email ;
 
-	public ContactModel()
-	{
-		System.out.println(" => SET <= ");
-	}
+	// public ContactModel()
+	// {
+		
+	// }
 	public String getFirstName()
 	{
 		return firstName ;
