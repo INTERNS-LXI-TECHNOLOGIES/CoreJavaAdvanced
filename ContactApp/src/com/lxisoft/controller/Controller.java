@@ -1,4 +1,5 @@
 package com.lxisoft.controller;
+import com.lxisoft.filerepo.*;
 import com.lxisoft.view.*;
 import com.lxisoft.model.*;
 import java.util.*;
@@ -7,8 +8,11 @@ public class Controller
 	private View view = new View();
 	private ContactModel contact = new ContactModel();
 	private ArrayList<ContactModel> mycontacts = new ArrayList<ContactModel>();
+	private FileManager file = new FileManager();
 	public void runApp()
 	{
+		mycontacts.clear();
+		mycontacts=file.readFromFile();
 		Clear.cls();
 		view.printTitle("Contact App");
 		int choice=0;
@@ -39,6 +43,7 @@ public class Controller
 		ContactModel c = new ContactModel();
 		c = view.showAddMenu(c);
 		mycontacts.add(c);
+		file.storeToFile(mycontacts);
 		boolean choice = view.printGoBack();
 		if(choice)
 			runApp();
