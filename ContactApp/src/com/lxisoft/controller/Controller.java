@@ -52,7 +52,22 @@ public class Controller
 
 	public void searchContact()
 	{
-
+		int choice;
+		String toSearch = view.printSearchMenu();
+		for(ContactModel c : mycontacts)
+		{
+			if(c.getFirstName().equals(toSearch))
+			{
+				choice=view.displaySearchOption();
+				
+				//break;
+			}
+			else 
+			{
+				System.out.println(" =>Contact unavailable ");	
+				runApp();
+			}
+		}
 
 	}
 

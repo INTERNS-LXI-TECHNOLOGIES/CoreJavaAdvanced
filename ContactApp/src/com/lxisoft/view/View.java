@@ -67,4 +67,24 @@ public class View
 		System.out.println("\t\t "+ s );
 		System.out.println("\t ***********************************\n\n\n");
 	}
+
+	public String printSearchMenu()
+	{
+		Scanner in =new Scanner(System.in);
+		System.out.print("Enter the name to search : ");
+		String search = in.nextLine();
+		return search;
+
+	}
+
+	public int displaySearchOption()
+	{
+		Scanner in =new Scanner(System.in);
+		int choice;
+		System.out.println(" =>Contact present ");
+		System.out.println("=> What action did you need to perform \n\t=> 1. Edit Contact \n\t=> 2.Delete Contact => 3.Go Back ");
+		choice = in.nextInt();
+		return choice;
+
+	}
 }

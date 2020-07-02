@@ -8,6 +8,17 @@ public class FileManager
 	public void storeToFile(ArrayList<ContactModel> myContacts)
 	{
 		//File file = loadFile();
+		try
+		{
+			FileWriter f = new FileWriter("E:\\prgmfiles\\CoreJavaAdvanced\\ContactApp\\src\\com\\lxisoft\\filerepo\\data.csv",false);
+			BufferedWriter b = new BufferedWriter(f);
+			b.flush();
+			b.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		for(ContactModel c : myContacts)
 		{
 			String fn = c.getFirstName();
@@ -15,7 +26,7 @@ public class FileManager
 			long phn = c.getPhoneNumber();
 			try
 			{
-				FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaAdvanced\\ContactApp\\src\\com\\lxisoft\\filerepo\\data.csv",false);
+				FileWriter fw = new FileWriter("E:\\prgmfiles\\CoreJavaAdvanced\\ContactApp\\src\\com\\lxisoft\\filerepo\\data.csv",true);
 				BufferedWriter bw = new BufferedWriter(fw);
 				bw.write(fn);bw.write(',');bw.write(ln);bw.write(',');bw.write(String.valueOf(phn));bw.newLine();
 				bw.flush();
