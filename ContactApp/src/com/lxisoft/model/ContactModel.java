@@ -6,11 +6,6 @@ public class ContactModel
 	private String firstName,lastName ;
 	private long phoneNumber ;
 	private String email ;
-
-	// public ContactModel()
-	// {
-		
-	// }
 	public String getFirstName()
 	{
 		return firstName ;

@@ -9,13 +9,16 @@ public class Controller
 	private ArrayList<ContactModel> mycontacts = new ArrayList<ContactModel>();
 	public void runApp()
 	{
+		Clear.cls();
+		view.printTitle("Contact App");
 		int choice=0;
 		Scanner in = new Scanner(System.in);
 		view.printMainMenu();
 		choice = in.nextInt();
 		switch(choice)
 		{
-			case 1 : view.displayAllContact(mycontacts);
+			case 1 : view.printTitle("Displaying All Contacts");
+					 view.displayAllContact(mycontacts);
 					 boolean ch = view.printGoBack();
 					 if(ch)
 						 runApp();
@@ -31,6 +34,8 @@ public class Controller
 
 	public void addNewContact()
 	{
+		Clear.cls();
+		view.printTitle("Add New Contact");
 		ContactModel c = new ContactModel();
 		c = view.showAddMenu(c);
 		mycontacts.add(c);

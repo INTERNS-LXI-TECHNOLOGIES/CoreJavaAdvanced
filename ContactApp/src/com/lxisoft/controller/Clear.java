@@ -1,4 +1,4 @@
-package com.lxisoft.Person;
+package com.lxisoft.controller;
 public class Clear
 {
 	public static void cls()
