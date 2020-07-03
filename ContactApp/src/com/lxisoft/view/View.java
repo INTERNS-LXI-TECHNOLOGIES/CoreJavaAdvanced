@@ -83,7 +83,7 @@ public class View
 		int choice;
 		//System.out.println(" =>Contact present ");
 
-		System.out.println("=> What action did you need to perform \n\t=> 1. Edit Contact \n\t=> 2.Delete Contact => 3.Go Back ");
+		System.out.println("=> What action did you need to perform \n\t=> 1. Edit Contact \n\t=> 2.Delete Contact \n\t=> 3.Go Back ");
 		choice = in.nextInt();
 		in.nextLine();
 		return choice;
@@ -94,5 +94,21 @@ public class View
 	{
 		System.out.println( "=> Name : " +c.getFirstName()+" "+c.getLastName());
 		System.out.println( "=> Phone Number  : " + c.getPhoneNumber());
+	}
+	public int printEditMenu()
+	{
+		Scanner in =new Scanner(System.in);
+		int choice;
+		System.out.println(" 1. Edit Name : ");
+		System.out.println(" 2. Edit Number : ");
+		System.out.print("Select one => ");
+		choice = in.nextInt();
+		in.nextLine();
+		return choice;
+	}
+
+	public void printDeleteMenu()
+	{
+
 	}
 }

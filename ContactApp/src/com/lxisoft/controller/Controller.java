@@ -55,20 +55,34 @@ public class Controller
 	public void searchContact()
 	{
 		Scanner in = new Scanner(System.in);
-		int choice;
+		int choice,option,index=0;
 		boolean contactPresent=false;
 		String toSearch = view.printSearchMenu();
 		for(ContactModel c : mycontacts)
 		{
 			if(c.getFirstName().contains(toSearch))
 			{
-				view.printContact(c);
-				choice=view.displaySearchOption();
 				contactPresent=true;
+				view.printContact(c);
+				System.ou.println("Index = " + index);
+				chooseOperation(index);
+				break;
+				// choice=view.displaySearchOption();
 				//break;
+				// switch(choice)
+				// {
+				// 	case 1 : option =view.printEditMenu();
+				// 			 break;
+				// 	case 2 : view.printDeleteMenu();
+				// 			 break;
+				// 	case 3 : runApp();
+				// 			 break;
+				// }
+				
 			}
 			else
 				contactPresent=false;
+			index++;
 		}
 		if(!contactPresent)
 		{
@@ -83,6 +97,30 @@ public class Controller
 	{
 		Comparator<ContactModel> compareByFirstName = Comparator.comparing( ContactModel::getFirstName);
         Collections.sort(mycontacts, compareByFirstName);
+	}
+	public void deleteContact()
+	{
+
+	}
+	public void chooseOperation(int index)
+	{
+		choice=view.displaySearchOption();
+		switch(choice)
+				{
+					case 1 : option =view.printEditMenu();
+							 chooseEditOperation(option,index);
+							 break;
+					case 2 : view.printDeleteMenu();
+							 break;
+					case 3 : runApp();
+							 break;
+				}
+
+	}
+	public void chooseEditOperation(int option , int index)
+	{
+		
+
 	}
 
 	
