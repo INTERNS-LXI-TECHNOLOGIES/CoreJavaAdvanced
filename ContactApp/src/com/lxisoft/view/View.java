@@ -109,6 +109,35 @@ public class View
 
 	public void printDeleteMenu()
 	{
+		Scanner in = new Scanner(System.in);
+		System.out.println("\t\t  Press Enter to Delete");
+		in.nextLine();
+		System.out.println("Contact Deleted");
 
 	}
+	public String printEditContactFirstName()
+	{
+		Scanner in = new Scanner(System.in);
+		String fName;
+		System.out.print("\t Enter First Name : ");
+		fName = in.nextLine();
+		return fName;
+	}
+	public String printEditContactLastName()
+	{
+		Scanner in = new Scanner(System.in);
+		String lName;
+		System.out.print("\t Enter Last Name : ");
+		lName = in.nextLine();
+		return lName;
+	}
+	public long printEditContactNumber()
+	{
+		Scanner in = new Scanner(System.in);
+		long num;
+		System.out.print("\t Enter Phone Number : ");
+		num = in.nextLong();
+		return num;
+	}
+
 }

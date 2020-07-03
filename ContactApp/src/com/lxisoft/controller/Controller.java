@@ -64,7 +64,7 @@ public class Controller
 			{
 				contactPresent=true;
 				view.printContact(c);
-				System.ou.println("Index = " + index);
+				System.out.println("Index = " + index);
 				chooseOperation(index);
 				break;
 				// choice=view.displaySearchOption();
@@ -98,12 +98,15 @@ public class Controller
 		Comparator<ContactModel> compareByFirstName = Comparator.comparing( ContactModel::getFirstName);
         Collections.sort(mycontacts, compareByFirstName);
 	}
-	public void deleteContact()
+	public void deleteContact(int index)
 	{
+		mycontacts.remove(index);
+		file.storeToFile(mycontacts);
 
 	}
 	public void chooseOperation(int index)
 	{
+		int choice,option;
 		choice=view.displaySearchOption();
 		switch(choice)
 				{
@@ -111,6 +114,7 @@ public class Controller
 							 chooseEditOperation(option,index);
 							 break;
 					case 2 : view.printDeleteMenu();
+							 deleteContact(index);
 							 break;
 					case 3 : runApp();
 							 break;
@@ -119,7 +123,53 @@ public class Controller
 	}
 	public void chooseEditOperation(int option , int index)
 	{
-		
+		switch(option)
+		{
+			case 1: editContactName(index);
+					runApp();
+					break;
+			case 2: editContactNumber(index);
+					runApp();
+					break;
+			default : break;
+		}
+
+	}
+
+	public void editContactName(int index)
+	{
+		Scanner in = new Scanner(System.in);
+		String fName,lName;
+		System.out.println("Before Editing : ");
+		view.printContact(mycontacts.get(index));
+		fName = view.printEditContactFirstName();
+		lName = view.printEditContactLastName();
+		mycontacts.get(index).setFirstName(fName);
+		mycontacts.get(index).setLastName(lName);
+		System.out.println("Successfull : ");
+		System.out.println("After  Editing : ");
+		view.printContact(mycontacts.get(index));
+		file.storeToFile(mycontacts);
+		System.out.println("\t\t  Press Enter to continue");
+		in.nextLine();
+
+
+	}
+	public void editContactNumber(int index)
+	{
+		Scanner in = new Scanner(System.in);
+		long num;
+		System.out.println("Before Editing : ");
+		view.printContact(mycontacts.get(index));
+		num = view.printEditContactNumber();
+		mycontacts.get(index).setPhoneNumber(num);
+		System.out.println("Successfull : ");
+		System.out.println("After  Editing : ");
+		view.printContact(mycontacts.get(index));
+		file.storeToFile(mycontacts);
+		System.out.println("\t\t  Press Enter to continue");
+		in.nextLine();
+
 
 	}
 
