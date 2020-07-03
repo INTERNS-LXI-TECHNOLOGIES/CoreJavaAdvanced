@@ -81,10 +81,18 @@ public class View
 	{
 		Scanner in =new Scanner(System.in);
 		int choice;
-		System.out.println(" =>Contact present ");
+		//System.out.println(" =>Contact present ");
+
 		System.out.println("=> What action did you need to perform \n\t=> 1. Edit Contact \n\t=> 2.Delete Contact => 3.Go Back ");
 		choice = in.nextInt();
+		in.nextLine();
 		return choice;
 
+	}
+
+	public void printContact(ContactModel c)
+	{
+		System.out.println( "=> Name : " +c.getFirstName()+" "+c.getLastName());
+		System.out.println( "=> Phone Number  : " + c.getPhoneNumber());
 	}
 }

@@ -13,7 +13,9 @@ public class Controller
 	{
 		mycontacts.clear();
 		mycontacts=file.readFromFile();
-		Clear.cls();
+		sortContact(mycontacts);
+		file.storeToFile(mycontacts);
+		//Clear.cls();
 		view.printTitle("Contact App");
 		int choice=0;
 		Scanner in = new Scanner(System.in);
@@ -52,23 +54,35 @@ public class Controller
 
 	public void searchContact()
 	{
+		Scanner in = new Scanner(System.in);
 		int choice;
+		boolean contactPresent=false;
 		String toSearch = view.printSearchMenu();
 		for(ContactModel c : mycontacts)
 		{
-			if(c.getFirstName().equals(toSearch))
+			if(c.getFirstName().contains(toSearch))
 			{
+				view.printContact(c);
 				choice=view.displaySearchOption();
-				
+				contactPresent=true;
 				//break;
 			}
-			else 
-			{
-				System.out.println(" =>Contact unavailable ");	
-				runApp();
-			}
+			else
+				contactPresent=false;
+		}
+		if(!contactPresent)
+		{
+			System.out.println("\t\t => Contact Unavailable : Press Enter ");
+			in.nextLine();
+			runApp();
 		}
 
+	}
+
+	public void sortContact(ArrayList<ContactModel> mycontacts)
+	{
+		Comparator<ContactModel> compareByFirstName = Comparator.comparing( ContactModel::getFirstName);
+        Collections.sort(mycontacts, compareByFirstName);
 	}
 
 	
