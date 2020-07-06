@@ -7,6 +7,7 @@ public class View
 {
 	public void printMainMenu()
 	{
+		printTitle("     SETTINGS  ");
 		
 		System.out.println("\n\n\t1 : Detailed View \n\t2 : Add Contact\n\t3 : Search Contact \n\t4 : Exit ");
 
@@ -79,7 +80,7 @@ public class View
 
 	public int displaySearchOption()
 	{
-		
+		// printTitle("Choose An Option");
 		Scanner in =new Scanner(System.in);
 		int choice;
 		System.out.println("\n\n=> What action did you need to perform \n\t=> 1. Edit Contact \n\t=> 2. Delete Contact \n\t=> 3. Go Back ");
@@ -160,6 +161,10 @@ public class View
 		contactId = in.nextInt();
 		return contactId;
 
+	}
+	public void printSetting()
+	{
+		System.out.println("\t\t\t\t\t\t\t=-> SETTINGS(0)");
 	}
 
 }

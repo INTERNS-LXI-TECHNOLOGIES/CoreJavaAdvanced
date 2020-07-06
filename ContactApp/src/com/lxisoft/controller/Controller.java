@@ -15,31 +15,14 @@ public class Controller
 		mycontacts=file.readFromFile();
 		sortContact(mycontacts);
 		file.storeToFile(mycontacts);
-
-		//Clear.cls();
 		view.printTitle("Contact App");
 		view.printMyContacts(mycontacts);
+		view.printSetting();
 		int contactId = view.printSelectContact();
-		selectContact(contactId);
-		int choice=0;
-		Scanner in = new Scanner(System.in);
-		view.printMainMenu();
-		choice = in.nextInt();
-		// switch(choice)
-		// {
-		// 	case 1 : view.printTitle("Displaying All Contacts");
-		// 			 view.displayAllContact(mycontacts);
-		// 			 boolean ch = view.printGoBack();
-		// 			 if(ch)
-		// 				 runApp();
-		// 			 break;
-		// 	case 2 : addNewContact();
-		// 			 break;
-		// 	case 3 : searchContact();
-		// 			 break;
-		// 	case 4 : break;
-		// }
-
+		if(contactId==0)
+			settingsMenu();
+		else
+			selectContact(contactId);
 	}
 
 	public void addNewContact()
@@ -53,7 +36,6 @@ public class Controller
 		boolean choice = view.printGoBack();
 		if(choice)
 			runApp();
-
 	}
 
 	public void searchContact()
@@ -127,9 +109,7 @@ public class Controller
 					break;
 			default : break;
 		}
-
 	}
-
 	public void editContactName(int index)
 	{
 		Scanner in = new Scanner(System.in);
@@ -146,8 +126,6 @@ public class Controller
 		file.storeToFile(mycontacts);
 		System.out.println("\t\t  Press Enter to continue");
 		in.nextLine();
-
-
 	}
 	public void editContactNumber(int index)
 	{
@@ -163,17 +141,36 @@ public class Controller
 		file.storeToFile(mycontacts);
 		System.out.println("\t\t  Press Enter to continue");
 		in.nextLine();
-
-
 	}
 	public void selectContact(int id)
-	{Scanner in = new Scanner(System.in);
-		System.out.println(mycontacts.get(id-1).getFirstName() + " "+ mycontacts.get(id-1).getLastName() + " Is SELECTED");
-		in.nextLine();
+	{
+		view.printTitle("Choose An Option");
+		Scanner in = new Scanner(System.in);
+		view.printContact(mycontacts.get(id-1));
+		//System.out.println(mycontacts.get(id-1).getFirstName() + " "+ mycontacts.get(id-1).getLastName() + " Is SELECTED");
+		//in.nextLine();
+		chooseOperation(id-1);
 		runApp();
-
 	}
-
-	
-
+	public void settingsMenu()
+	{
+		Scanner in = new Scanner(System.in);
+		int choice;
+		view.printMainMenu();
+		choice = in.nextInt();
+		switch(choice)
+		{
+			case 1 : view.printTitle("Displaying All Contacts");
+					 view.displayAllContact(mycontacts);
+					 boolean ch = view.printGoBack();
+					 if(ch)
+						 runApp();
+					 break;
+			case 2 : addNewContact();
+					 break;
+			case 3 : searchContact();
+					 break;
+			case 4 : break;
+		}
+	}
 }
