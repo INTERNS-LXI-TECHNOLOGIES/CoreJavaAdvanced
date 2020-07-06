@@ -15,8 +15,10 @@ public class Controller
 		mycontacts=file.readFromFile();
 		sortContact(mycontacts);
 		file.storeToFile(mycontacts);
+
 		//Clear.cls();
 		view.printTitle("Contact App");
+		view.printMyContacts(mycontacts);
 		int choice=0;
 		Scanner in = new Scanner(System.in);
 		view.printMainMenu();
@@ -63,22 +65,10 @@ public class Controller
 			if(c.getFirstName().contains(toSearch))
 			{
 				contactPresent=true;
+				view.printTitle("   SEARCH CONTACT  ");
 				view.printContact(c);
-				System.out.println("Index = " + index);
 				chooseOperation(index);
 				break;
-				// choice=view.displaySearchOption();
-				//break;
-				// switch(choice)
-				// {
-				// 	case 1 : option =view.printEditMenu();
-				// 			 break;
-				// 	case 2 : view.printDeleteMenu();
-				// 			 break;
-				// 	case 3 : runApp();
-				// 			 break;
-				// }
-				
 			}
 			else
 				contactPresent=false;
@@ -102,6 +92,7 @@ public class Controller
 	{
 		mycontacts.remove(index);
 		file.storeToFile(mycontacts);
+		runApp();
 
 	}
 	public void chooseOperation(int index)

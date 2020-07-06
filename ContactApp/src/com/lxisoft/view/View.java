@@ -8,7 +8,7 @@ public class View
 	public void printMainMenu()
 	{
 		
-		System.out.println("\t1 : My Contacts \n\t2 : Add Contact\n\t3 : Search Contact \n\t4 : Exit ");
+		System.out.println("\n\n\t1 : Detailed View \n\t2 : Add Contact\n\t3 : Search Contact \n\t4 : Exit ");
 
 
 	}
@@ -79,11 +79,10 @@ public class View
 
 	public int displaySearchOption()
 	{
+		
 		Scanner in =new Scanner(System.in);
 		int choice;
-		//System.out.println(" =>Contact present ");
-
-		System.out.println("=> What action did you need to perform \n\t=> 1. Edit Contact \n\t=> 2.Delete Contact \n\t=> 3.Go Back ");
+		System.out.println("\n\n=> What action did you need to perform \n\t=> 1. Edit Contact \n\t=> 2. Delete Contact \n\t=> 3. Go Back ");
 		choice = in.nextInt();
 		in.nextLine();
 		return choice;
@@ -92,11 +91,12 @@ public class View
 
 	public void printContact(ContactModel c)
 	{
-		System.out.println( "=> Name : " +c.getFirstName()+" "+c.getLastName());
-		System.out.println( "=> Phone Number  : " + c.getPhoneNumber());
+		System.out.println( "\t\t--> Name : " +c.getFirstName()+" "+c.getLastName());
+		System.out.println( "\t\t--> Phone Number  : " + c.getPhoneNumber());
 	}
 	public int printEditMenu()
 	{
+		printTitle("     EDIT CONTACT  ");
 		Scanner in =new Scanner(System.in);
 		int choice;
 		System.out.println(" 1. Edit Name : ");
@@ -138,6 +138,15 @@ public class View
 		System.out.print("\t Enter Phone Number : ");
 		num = in.nextLong();
 		return num;
+	}
+	public void printMyContacts(ArrayList<ContactModel> mycontacts)
+	{
+		System.out.println("\t\t      My Contacts");
+		System.out.println("\t-------------------------------------------------");
+		for(ContactModel c : mycontacts)
+			System.out.println("\t\t      -> "+ c.getFirstName() + " "+ c.getLastName());
+		System.out.println("\t-------------------------------------------------");
+
 	}
 
 }
