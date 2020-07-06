@@ -141,11 +141,24 @@ public class View
 	}
 	public void printMyContacts(ArrayList<ContactModel> mycontacts)
 	{
+		int contactId=1;
 		System.out.println("\t\t      My Contacts");
 		System.out.println("\t-------------------------------------------------");
 		for(ContactModel c : mycontacts)
-			System.out.println("\t\t      -> "+ c.getFirstName() + " "+ c.getLastName());
+			{
+				System.out.println("\t\t      -> "+contactId +" : " + c.getFirstName() + " "+ c.getLastName());
+				contactId++;
+			}
 		System.out.println("\t-------------------------------------------------");
+
+	}
+	public int printSelectContact()
+	{
+		Scanner in = new Scanner(System.in);
+		int contactId;
+		System.out.print(" => Select a CONTACT : ");
+		contactId = in.nextInt();
+		return contactId;
 
 	}
 
