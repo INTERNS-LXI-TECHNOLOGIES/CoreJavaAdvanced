@@ -8,15 +8,17 @@ public class Comedian extends Actors
 public ArrayList<String> comediDialogue= new ArrayList<String>();
 	Random random=new Random();
 
-private String comedyDialogue;
+private String comedianDialogue;
+
 public void setComedyDialogue(String a)
 {
-	this.comedyDialogue=a;
+	this.comedianDialogue=a;
 }	
 public String getComedyDialogue()
 {
 	return comedyDialogue;
 }
+
 
 public void writeComedyDialogue()
 	{
