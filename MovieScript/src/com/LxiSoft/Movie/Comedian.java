@@ -5,12 +5,11 @@ import java.io.File;
 import java.io.IOException;
 public class Comedian extends Actors 
 {
-//public ArrayList<String> comediDialogue= new ArrayList<String>();
-	//Random random=new Random();
+public ArrayList<String> comediDialogue= new ArrayList<String>();
+	Random random=new Random();
 
-//private String comedyDialogue;
-
-/*public void setComedyDialogue(String a)
+private String comedyDialogue;
+public void setComedyDialogue(String a)
 {
 	this.comedyDialogue=a;
 }	
@@ -18,7 +17,7 @@ public String getComedyDialogue()
 {
 	return comedyDialogue;
 }
-*/
+
 public void writeComedyDialogue()
 	{
 		try
