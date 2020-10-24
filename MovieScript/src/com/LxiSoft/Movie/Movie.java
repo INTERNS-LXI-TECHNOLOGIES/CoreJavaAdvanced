@@ -5,7 +5,7 @@ public class Movie
 	Comedian comedy=new Comedian();
  	Villain villan=new Villain();
    Hero actor=new Hero();
-   CreateFile files=new CreateFile();
+ CreateFile files=new CreateFile();
 	Scanner scnr=new Scanner(System.in);
 	public void begining()
 	{
@@ -17,7 +17,7 @@ public class Movie
     System.out.println("       *                      by Writer Koshy                                 *");
     System.out.println("       *                                                                      *");
     System.out.println("       ************************************************************************");
-  // files.fileMake();
+   
     this.dialoguSelection();
 	}
 	public void dialoguSelection()
@@ -33,17 +33,20 @@ public class Movie
         choice=scnr.nextInt();
         if(choice==1)
         {
+        	files.villainFileMake();
            villan.writeHarshDialogue();
         }
         if(choice==2)
         {
-             
-          comedy.writeComedyDialogue();
+        	
+        	files.comdeyFileMake();
+            comedy.writeComedyDialogue();
 
          
         }
         if (choice==3)
 		{
+			files.heroFileMake();
 			actor.writeMainDialogue();
 
 		}

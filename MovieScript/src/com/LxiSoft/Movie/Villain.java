@@ -4,57 +4,17 @@ import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
 public class Villain extends Actors 
-
 {
-	File villainFile = new File("C:\\home\\Desktop\\lxi_works1\\EEJavaFoundational\\MovieScript\\Files\\villainFile.txt");
-
-	public void villainFileMake()
-	{
-		try
-		{
-	
-	if(villainFile.createNewFile())
-	{
-		System.out.println("File created"+villainFile.getName());
-	}
-	else
-	{
-		System.out.println("File Already Created");
-	}
-
-}
-catch(IOException e)
-{
-	System.out.println("An error occured");
-   e.printStackTrace();
-   }
-   this.VillainFileInfo();
-  }
-  public void VillanFileInfo()
-  {
-  	if(villainFile.exists())
-  	{
-  		System.out.println("File name: "+villainFile.getName());
-  		System.out.println("File path: "+villainFile.getAbsolutePath());
-  			System.out.println("File Writable: "+villainFile.canWrite());
-  		System.out.println("File readable: "+villainFile.canRead());
-  		System.out.println("File size in bytes: "+villainFile.length());
-  		
-  	}
-  	else
-{
-	System.out.println("File Doesnt excist;");  		
-}
-  }
 	public void writeHarshDialogue()
 	{
-		this.villainFileMake();
 		try
 		{
 
-FileWriter myWriter= new FileWriter("C:\\home\\Desktop\\lxi_works1\\EEJavaFoundational\\MovieScript\\Files\\villainFile.txt"); 
+FileWriter myWriter= new FileWriter("C:\\home\\Desktop\\lxi_works1\\EEJavaFoundational\\MovieScript\\classes\\villaindialogues.txt"); 
 
-		myWriter.write("Are you the Villain?");
+		myWriter.write("\nAre you the Villain?");
+
+		myWriter.write("\n NO you made me the villain");
 		myWriter.close();
 }
 
@@ -73,7 +33,7 @@ catch(IOException e)
 	{
 
 		
-			File myDialogue= new File ("C:\\home\\Desktop\\lxi_works1\\EEJavaFoundational\\MovieScript\\Files\\dialogues.txt");
+			File myDialogue= new File ("C:\\home\\Desktop\\lxi_works1\\EEJavaFoundational\\MovieScript\\classes\\villaindialogues.txt");
 
 	try
 	{

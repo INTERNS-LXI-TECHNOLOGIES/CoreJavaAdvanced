@@ -8,8 +8,7 @@ public class Comedian extends Actors
 //public ArrayList<String> comediDialogue= new ArrayList<String>();
 	//Random random=new Random();
 
-
-private String comedyDialogue;
+//private String comedyDialogue;
 
 /*public void setComedyDialogue(String a)
 {
@@ -20,58 +19,18 @@ public String getComedyDialogue()
 	return comedyDialogue;
 }
 */
-File comedyFile = new comedyFile("C:\\home\\Desktop\\lxi_works1\\EEJavaFoundational\\MovieScript\\classes\\comedyFile.txt");
-
-	public void comedyFileMake()
-	{
-		try
-		{
-	
-	if(comedyFile.createNewFile())
-	{
-		System.out.println("File created"+comedyFile.getName());
-	}
-	else
-	{
-		System.out.println("File Already Created");
-	}
-
-}
-catch(IOException e)
-{
-	System.out.println("An error occured");
-   e.printStackTrace();
-   }
-   this.ComedyFileInfo();
-  }
-  public void comedyFileInfo()
-  {
-  	if(comedyFile.exists())
-  	{
-  		System.out.println("File name: "+comedyFile.getName());
-  		System.out.println("File path: "+comedyFile.getAbsolutePath());
-  			System.out.println("File Writable: "+comedyFile.canWrite());
-  		System.out.println("File readable: "+comedyFile.canRead());
-  		System.out.println("File size in bytes: "+comedyFile.length());
-  		
-  	}
-  	else
-{
-	System.out.println("File Doesnt excist;");  		
-}
-  }
 public void writeComedyDialogue()
 	{
-		this.comedyFileMake();
 		try
 		{
 
-FileWriter myWriter= new FileWriter("C:\\home\\Desktop\\lxi_works1\\EEJavaFoundational\\MovieScript\\classes\\comedyFile.txt"); 
+FileWriter myWriter= new FileWriter("C:\\home\\Desktop\\lxi_works1\\EEJavaFoundational\\MovieScript\\classes\\comedydialogues.txt"); 
 
-		myWriter.write("Trainer: If an old man and a child come near your car, what will you hit?\nGirl: Old man.\nTrainer: Idiot. You should hit the BRAKE.");
-		myWriter.close();
-		//myWriter.write("Boy: Hey, you look so beautiful\n\nGirl: Aww. Thank you. I don’t know what to say.\nBoy: Just lie something, like I did.");							
-	
+		myWriter.write("comedian: haha i am so funny");
+		
+	myWriter.write("Comedian: yaya me tooo.");	
+	myWriter.write("Comedian: what are the new jokes you have");							
+	myWriter.close();
 }
 
 catch(IOException e)
@@ -88,7 +47,7 @@ catch(IOException e)
 	{
 
 		
-			File myDialogue= new File ("C:\\home\\Desktop\\lxi_works1\\EEJavaFoundational\\MovieScript\\classes\\comedyFile.txt");
+			File myDialogue= new File ("C:\\home\\Desktop\\lxi_works1\\EEJavaFoundational\\MovieScript\\classes\\comedydialogues.txt");
 
 	try
 	{
@@ -102,7 +61,7 @@ catch(IOException e)
 	}
 	catch (Exception e)
 	{
-		System.out.println("An error happends");
+		System.out.println("An erroro happends");
 		e.printStackTrace();
 	}
 }
