@@ -7,7 +7,7 @@ public class Comedian extends Actors
 {
 	//try
 	//{
-public ArrayList<String> comediDialogue= new ArrayList<String>(/*Files.readAllLines(Paths.get(comedydialoguestxt))*/);
+public ArrayList<String> comediDialogue= new ArrayList<String>(/*Files.readAllLines(Paths.get(comedydialogues.txt))*/);
 //}
 //catch (IOException e) {
     // Handle a potential exception
@@ -72,5 +72,19 @@ public void readComedyDialogue()
 		System.out.println("An erroro happends");
 		e.printStackTrace();
 	}
+}
+public void addComedianDialogue(FileWriter myWriter)
+{
+	 comediDialogue.add("SCENE 1");
+   comediDialogue.add(" comedian: WOW");
+
+   comediDialogue.add("SCENE 1 :CORAL Mmm.");
+
+ comediDialogue.add("SCENE 1:MARLIN Wow.");
+
+ comediDialogue.add("SCENE 1:CORAL Mmm-hmm.");
+
+ comediDialogue.add("SCENE 1:MARLIN Wow.");
+
 }
 }
