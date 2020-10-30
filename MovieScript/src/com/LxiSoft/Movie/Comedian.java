@@ -5,30 +5,30 @@ import java.io.File;
 import java.io.IOException;
 public class Comedian extends Actors 
 {
-	try
-	{
-public ArrayList<String> comediDialogue= new ArrayList<String>(Files.readAllLines(Paths.get(comedydialoguestxt)));
-}
-catch (IOException e) {
+	//try
+	//{
+public ArrayList<String> comediDialogue= new ArrayList<String>(/*Files.readAllLines(Paths.get(comedydialoguestxt))*/);
+//}
+//catch (IOException e) {
     // Handle a potential exception
-}
+//}
 	Random random=new Random();
 
 private String comedianDialogue;
 
-public void setComedyDialogue(String a)
+public void setComedianDialogue(String a)
 {
 	this.comedianDialogue=a;
 }	
-public String getComedyDialogue()
+public String getComedianDialogue()
 {
-	return comedyDialogue;
+	return comedianDialogue;
 }
 
 
 public void writeComedyDialogue()
 	{
-		/*try
+		try
 		{
 
 FileWriter myWriter= new FileWriter("C:\\home\\Desktop\\lxi_works1\\EEJavaFoundational\\MovieScript\\classes\\comedydialogues.txt"); 
@@ -46,8 +46,8 @@ catch(IOException e)
    e.printStackTrace();
    }
 	
-	//System.out.println(comediDialogue.get(random.nextInt(comediDialogue.size())));
-*/	this.readComedyDialogue();
+	System.out.println(comediDialogue.get(random.nextInt(comediDialogue.size())));
+	this.readComedyDialogue();
 	}
 
 
