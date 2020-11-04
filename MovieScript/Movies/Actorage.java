@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.io.*; 
 import java.util.*; 
 
-public class Ageinfo implements Comparator<movieInfo>
+public class Actorage implements Comparator<movieInfo>
 {
  public int compare(movieInfo m1,movieInfo m2)
  {

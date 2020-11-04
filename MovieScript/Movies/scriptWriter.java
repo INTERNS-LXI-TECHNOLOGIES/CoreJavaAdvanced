@@ -5,15 +5,15 @@ import java.util.Collections;
 import java.io.Serializable;
 
 
-public  class Script implements Serializable
+public  class scriptWriter implements Serializable
 {
 	public String name;
 
-	 Script(){
+	 scriptWriter(){
     
     }
     
-    Script(String name){
+    scriptWriter(String name){
     
         setName(name);
     }

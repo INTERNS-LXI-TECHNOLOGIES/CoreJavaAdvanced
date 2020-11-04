@@ -10,11 +10,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Scene
+public class Director
 {
 
 ArrayList<String> script=new ArrayList<String>();
-	public void scenePrint()
+	public void script()
 	{
 		script.add("Stop right there sid you have no where to go.");			
 		script.add("Hang on there jessie	we will rescue you.");		
@@ -139,7 +139,7 @@ public void menu()
          int choice=0;
         do
         {
-
+            System.out.println("\n--------------------------Script Updation--------------------------");
             System.out.println("\u001b[35m\033[1mInsert the Index No:\033[0m\n\u001b[36m\033[1m1.Add a Dialogue\t2.Delete a dialogue\t3.Update a dialogue\033[0m");
         
             System.out.println("\nEnter your choice");
@@ -149,11 +149,11 @@ public void menu()
                 {
                 this.addDialogue();
                 }
-                if(choice==2)
+                else if(choice==2)
                 {
                 this.removeDialogue();
                 }
-                if(choice==3)
+                else if(choice==3)
                 {
                 this.updateDialogue();
                 }
@@ -178,8 +178,7 @@ public void menu()
             System.out.println("Enter the index Number of item to be deleted");
             int choice=scn.nextInt();
 
-          System.out.println("line 3 has been deleted");
-         // script.remove(choice);
+         script.remove(choice);
             }
 
             
@@ -191,7 +190,6 @@ public void menu()
                 int choice=scn.nextInt();
                 System.out.println("Enter the new Dialogue");
                 String newDialouge=scn.next();
-                System.out.println("Hey is printed at line 2");
             }
         }
 

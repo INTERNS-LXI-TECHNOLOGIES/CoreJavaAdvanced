@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Info
+public class CharacterInfo
 {
 	ArrayList<movieInfo> mo =new ArrayList<movieInfo>();
 
@@ -18,7 +18,8 @@ public class Info
 					mo.add(new movieInfo("Errik Deten",38,20,"Best Villain"));
 		int choice=0;int i=0;
 		do
-		{					
+		{			
+			System.out.println("\n---------------------------Actors FAQ's---------------------------");
 			System.out.println("\u001b[36m\033[1mInsert the index No:\033[0m\n1.Age of Actors\t\t2.Awards Won\t\t3.Fact Check.");
 			Scanner scn=new Scanner(System.in);
 			choice=scn.nextInt();
@@ -38,8 +39,8 @@ public class Info
 				}
 				else if(choice==2)
 				{
-	 				Ageinfo agei=new Ageinfo(); 
-	 				Collections.sort(mo,agei);
+	 				Actorage actorage=new Actorage(); 
+	 				Collections.sort(mo,actorage);
 	 				System.out.println("|-Sl No:-"+"|------Name------|"+"------Awards Won-----|");
 
 	 				for (movieInfo movie: mo) 
