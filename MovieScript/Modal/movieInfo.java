@@ -1,4 +1,4 @@
-package com.lxisoft.Movies;
+package com.lxisoft.Modal;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
