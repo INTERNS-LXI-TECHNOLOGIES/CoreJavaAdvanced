@@ -26,9 +26,8 @@ public class Director
 			Buzz buzz=new Buzz();
 			Jessie jessie=new Jessie();
 			Sid sid=new Sid();
-
-	do
-		{
+while(choice<6)
+{
 			if(choice==1)
 			{
 				movie.title1();
@@ -43,18 +42,23 @@ public class Director
 				woodie.scriptDisplay();
 				jessie.scriptDisplay();
 				buzz.scriptDisplay();
-				sid.scriptDisplay();			
+				sid.scriptDisplay();
+				movie.movieDetails();
+			
 			}
 			else if(choice==4)
 			{
-				movie.title3();	    			
+				movie.title3();
+	    			
 			}
 			else if(choice==5)
 			{
-				movie.title3();	    			
+				movie.title4();	
+								movie.movieDetails();
+    			
 			}
 		
-		}while(choice<6);
+		}
 	}
 
 	public void screenPlay()
