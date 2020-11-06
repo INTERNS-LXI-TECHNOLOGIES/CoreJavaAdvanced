@@ -49,8 +49,12 @@ public class Director
 			{
 				movie.title3();	    			
 			}
+			else if(choice==5)
+			{
+				movie.title3();	    			
+			}
 		
-		}while(choice<5);
+		}while(choice<6);
 	}
 
 	public void screenPlay()
@@ -102,7 +106,7 @@ public class Director
 
         	movie.dialogue(script);
 	}
-    public void mi()
+    public void addActorInfo()
     {
 
 					movieinfo.add(new movieInfo("Tom Hanks",64,200,"Best Actor "));
@@ -123,7 +127,7 @@ public class Director
 				{
 					
 					Collections.sort(movieinfo);
-					movie.cast1();
+					movie.cast1(movieinfo);
 
 
 				}
@@ -131,16 +135,63 @@ public class Director
 				{
 	 				Actorage actorage=new Actorage(); 
 	 				Collections.sort(movieinfo,actorage);
-	 				movie.cast2();
+	 				movie.cast2(movieinfo);
 
 				}
 				else if (choice==3)
 				{
-					movie.cast3();
+					movie.cast3(movieinfo);
 
 				}
 		}while(choice<4);
 	}
+	public void dialogue(int choice)
+	{
+		do{
+		 if(choice==1)
+                {
+                this.addDialogue();
+                }
+                else if(choice==2)
+                {
+                this.removeDialogue();
+                }
+                else if(choice==3)
+                {
+                this.updateDialogue();
+                }
+                           }   while(choice<4);
+		}
+      
+                
+            
+        public void addDialogue()
+            {
+	    	System.out.println("Enter the Dialogue" );
+	    	Scanner scn=new Scanner(System.in);
+            String dialogue=scn.next();
+	          script.add(dialogue);
+   
+			}
+       	public void removeDialogue()
+       		{
+       		Scanner scn=new Scanner(System.in);
+
+            System.out.println("Enter the index Number of item to be deleted");
+            int choice=scn.nextInt();
+	        script.remove(choice);
+            }
+
+        public void  updateDialogue()
+        	{
+            	Scanner scn=new Scanner(System.in);
+
+                System.out.println("Enter the index number to be modified");
+                int choice=scn.nextInt();
+                System.out.println("Enter the new Dialogue");
+                String newDialouge=scn.next();
+            }
+	
 
 	public static void slowPrint(String message, long millisPerChar)
     		{

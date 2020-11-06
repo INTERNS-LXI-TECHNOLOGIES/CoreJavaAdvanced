@@ -16,6 +16,8 @@ public class Movie
 {
 				JFrame f;
 				Director director =new Director();
+												ArrayList<movieInfo> movieinfo =new ArrayList<movieInfo>();
+
 				private int choice=0;
 
 	public void movieDetails()
@@ -71,46 +73,54 @@ public class Movie
 						}
 		public void title3()
 						{
+													director.addActorInfo();
+
 							System.out.println("\n---------------------------Actors FAQ's---------------------------");
 							System.out.println("\u001b[36m\033[1mInsert the index No:\033[0m\n1.Age of Actors\t\t2.Awards Won\t\t3.Fact Check.");
 							Scanner scn=new Scanner(System.in);
 							choice=scn.nextInt();
 							director.cast(choice);
 						}
-		public void cast1()
+		public void title4()
 						{
-							director.mi();
-								ArrayList<movieInfo> movieinfo =new ArrayList<movieInfo>();
+							System.out.println("\n--------------------------Script Updation--------------------------");
+            				System.out.println("\u001b[35m\033[1mInsert the Index No:\033[0m\n\u001b[36m\033[1m1.Add a Dialogue\t2.Delete a dialogue\t3.Update a dialogue\033[0m");
+        
+            				System.out.println("\nEnter your choice");
+            				Scanner scanner=new Scanner(System.in);
+             				choice=scanner.nextInt();	
+             				director.dialogue(choice);
+						}
+		public void cast1(ArrayList<movieInfo> movieinfo)
+						{
 								int i=0;	
 							System.out.println("|-Sl No:-"+"|------Name------|"+"------Age------|");
-	 						for (movieInfo movie: movieinfo) 
+	 						for (movieInfo movies: movieinfo) 
 	 						{
-	 							System.out.println("|"+(i+1)+"\t"+" "+"|"+movie.getName()+"\t  |"+"\t "+movie.getAge()+"\t "+" "+"|");
+	 							System.out.println("|"+(i+1)+"\t"+" "+"|"+movies.getName()+"\t  |"+"\t "+movies.getAge()+"\t "+" "+"|");
 	 							 i++;
 	 						}
 	 							System.out.println("|-----------------------------------------|");
 
 						}
-		public void cast2()
+		public void cast2(ArrayList<movieInfo> movieinfo)
 						{
-							director.mi();
-								ArrayList<movieInfo> movieinfo =new ArrayList<movieInfo>();
+							director.addActorInfo();
 								int i=0;
 							System.out.println("|-Sl No:-"+"|------Name------|"+"------Awards Won-----|");
 
-	 						for (movieInfo movie: movieinfo) 
+	 						for (movieInfo movies: movieinfo) 
 							{
-	 							System.out.println("|"+(i+1)+"\t"+" "+"|"+movie.getName()+"\t  |"+movie.getawardName()+"   \t"+"|");
+	 							System.out.println("|"+(i+1)+"\t"+" "+"|"+movies.getName()+"\t  |"+movies.getawardName()+"   \t"+"|");
 	 							i++;
 
 							}
 								System.out.println("|-----------------------------------------------|");
 
 						}
-		public void cast3()
+		public void cast3(ArrayList<movieInfo> movieinfo)
 						{
-							director.mi();
-								ArrayList<movieInfo> movieinfo =new ArrayList<movieInfo>();
+							director.addActorInfo();
 															Scanner scn=new Scanner(System.in);
 
 
