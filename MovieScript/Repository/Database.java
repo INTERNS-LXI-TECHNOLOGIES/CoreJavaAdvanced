@@ -1,66 +1,15 @@
-package com.lxisoft.Control;
-import java.util.ArrayList;
-import java.util.List;
+package com.lxisoft.Repository;
 import java.util.Scanner;
 import java.util.Collections;
 import com.lxisoft.View.*;
 import com.lxisoft.Modal.*;
 import java.util.*;
 import java.io.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-public class Director
+public class Database
 {
-			ArrayList<String> script=new ArrayList<String>();
-			    		ArrayList<movieInfo> movieinfo =new ArrayList<movieInfo>();
-
-
-	public void scene(int choice)
-	{
-			Movie movie=new Movie();
-			Sheriff woodie=new Sheriff();
-			Buzz buzz=new Buzz();
-			Jessie jessie=new Jessie();
-			Sid sid=new Sid();
-while(choice<6)
-{
-			if(choice==1)
-			{
-				movie.title1();
-			}
-			else if(choice==2)
-			{
-				movie.title2();	    			
-			}
-			else if(choice==3)
-			{
-
-				woodie.scriptDisplay();
-				jessie.scriptDisplay();
-				buzz.scriptDisplay();
-				sid.scriptDisplay();
-				movie.movieDetails();
-			
-			}
-			else if(choice==4)
-			{
-				movie.title3();
-	    			
-			}
-			else if(choice==5)
-			{
-				movie.title4();	
-								movie.movieDetails();
-    			
-			}
-		
-		}
-	}
-
 	public void createFileScene1()
 	{
 		try{
@@ -72,7 +21,6 @@ while(choice<6)
 			writeData.write("\u001b[33m\033[1mJessie:\033[0mHelp ME guys 	kill this scumbag!!!.\n");	
             writeData.flush();
             writeData.close();
-            System.out.println("set");
         	}
         	catch (IOException e) 
         	{
@@ -184,7 +132,7 @@ while(choice<6)
 				FileWriter writeData = new FileWriter(("/home/karthik/MyJavaDirectory/src/com/lxisoft/Files/scene4.csv"));
         writeData.write("\u001b[31m\033[1mSid   :\033[0mNO!!!!......\n");		
 		writeData.write("\u001b[31m\033[1mSid   :\033[0mI am sorry BUzz i couldnt be a good brother for you	have a happy life.\n");	
-	writeData.write("\u001b[37m\033[1mBuzz  :\033[0mweeps ----.\n");
+		writeData.write("\u001b[37m\033[1mBuzz  :\033[0mweeps ----.\n");
             writeData.close();
         	}
         	catch (IOException e) 
@@ -244,108 +192,4 @@ while(choice<6)
             e.printStackTrace();
         	}
 	}
-
-    public void addActorInfo()
-    {
-
-					movieinfo.add(new movieInfo("Tom Hanks",64,200,"Best Actor "));
-					movieinfo.add(new movieInfo("Joan Cusack",57,75,"Best Actress"));
-					movieinfo.add(new movieInfo("Tim Allen",67,170,"Best Debut "));	
-					movieinfo.add(new movieInfo("Errik Deten",38,20,"Best Villain"));
-    } 
-	public void cast(int choice)
-	{
-	
-			
-		Movie movie=new Movie();
-
-
-		do
-		{
-		if(choice==1)
-				{
-					
-					Collections.sort(movieinfo);
-					movie.cast1(movieinfo);
-
-
-				}
-				else if(choice==2)
-				{
-	 				Actorage actorage=new Actorage(); 
-	 				Collections.sort(movieinfo,actorage);
-	 				movie.cast2(movieinfo);
-
-				}
-				else if (choice==3)
-				{
-					movie.cast3(movieinfo);
-
-				}
-		}while(choice<4);
-	}
-	public void dialogue(int choice)
-	{
-		do{
-		 if(choice==1)
-                {
-                this.addDialogue();
-                }
-                else if(choice==2)
-                {
-                this.removeDialogue();
-                }
-                else if(choice==3)
-                {
-                this.updateDialogue();
-                }
-                           }   while(choice<4);
-		}
-      
-                
-            
-        public void addDialogue()
-            {
-	    	System.out.println("Enter the Dialogue" );
-	    	Scanner scn=new Scanner(System.in);
-            String dialogue=scn.next();
-	          script.add(dialogue);
-   
-			}
-       	public void removeDialogue()
-       		{
-       		Scanner scn=new Scanner(System.in);
-
-            System.out.println("Enter the index Number of item to be deleted");
-            int choice=scn.nextInt();
-	        script.remove(choice);
-            }
-
-        public void  updateDialogue()
-        	{
-            	Scanner scn=new Scanner(System.in);
-
-                System.out.println("Enter the index number to be modified");
-                int choice=scn.nextInt();
-                System.out.println("Enter the new Dialogue");
-                String newDialouge=scn.next();
-            }
-	
-
-	public static void slowPrint(String message, long millisPerChar)
-    		{
-        		for (int i = 0; i < message.length(); i++)
-        		{
-            		System.out.print(message.charAt(i));
-
-            		try
-            		{
-                		Thread.sleep(millisPerChar);
-           			}
-            		catch (InterruptedException e)
-            		{
-                		e.printStackTrace();
-            		}
-        		}
-			}
-	}
+}

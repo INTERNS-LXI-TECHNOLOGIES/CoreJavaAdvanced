@@ -2,7 +2,7 @@ package com.lxisoft.View;
 import com.lxisoft.Test.TDD;
 import com.lxisoft.Control.*;
 import com.lxisoft.Modal.*;
-
+import com.lxisoft.Repository.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,9 +70,14 @@ public class Movie
 				        System.out.println("* __*****************");
 				        System.out.println("*|__|*|***|^^|**|**|*");
 				        System.out.println("*|__|*|'|*|^^|**|**|*");
+								Database database =new Database();
+						database.createFileScene1();
+						database.createFileScene2();
+						database.createFileScene3();
+						database.createFileScene4();
+						database.createFileScene5();
+						this.dialogue();
 
-						director.screenPlay();
-						director.createFile();
 						    		this.movieDetails();
 
 
@@ -187,74 +192,28 @@ public class Movie
 							}
 
 			
-	public void dialogue(ArrayList<String> script)
+	public void dialogue()
 						{
-							try{
-        							System.out.println("\u001b[35m\033[1mWoodie:\033[0m"+script.get(1));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[37m\033[1mBuzz  :\033[0m"+script.get(2));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[33m\033[1mJessie:\033[0m"+script.get(3));
-        							Thread.sleep(950);
+							Database database =new Database();
+        							database.readFileScene1();
         			this.villain1();
 
-        							System.out.println("\u001b[31m\033[1mSid   :\033[0m"+script.get(4));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[35m\033[1mWoodie:\033[0m"+script.get(5));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[31m\033[1mSid   :\033[0m"+script.get(6));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[33m\033[1mJessie:\033[0m"+script.get(7));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[31m\033[1mSid   :\033[0m"+script.get(8));
-       								Thread.sleep(950);
+	     							database.readFileScene2();
         			this.villain2();
 
-        							System.out.println("\u001b[31m\033[1mSid   :\033[0m"+script.get(9));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[33m\033[1mJessie:\033[0m"+script.get(10));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[35m\033[1mWoodie:\033[0m"+script.get(11));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[37m\033[1mBuzz  :\033[0m"+script.get(12));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[33m\033[1mJessie:\033[0m"+script.get(13));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[31m\033[1mSid   :\033[0m"+script.get(14));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[35m\033[1mWoodie:\033[0m"+script.get(15));
-       								 Thread.sleep(950);
-       								 System.out.println("\u001b[37m\033[1mBuzz  :\033[0m"+script.get(16));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[37m\033[1mBuzz  :\033[0m"+script.get(17));
-        							Thread.sleep(950);
+	      							database.readFileScene1();
+
         			this.villain3();
 
-        							System.out.println("\u001b[31m\033[1mSid   :\033[0m"+script.get(18));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[31m\033[1mSid   :\033[0m"+script.get(19));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[37m\033[1mBuzz  :\033[0m"+script.get(20));
-        							Thread.sleep(950);
+        							database.readFileScene1();
+
         			this.villain4();
 
-        							System.out.println("\u001b[35m\033[1mWoodie:\033[0m"+script.get(21));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[33m\033[1mJessie:\033[0m"+script.get(22));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[37m\033[1mBuzz  :\033[0m"+script.get(23));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[37m\033[1mBuzz  :\033[0m"+script.get(24));
-        							Thread.sleep(950);
-        							System.out.println("\u001b[33m\033[1mJessie:\033[0m"+script.get(25));
-        							Thread.sleep(950);
+        							database.readFileScene1();
 
         			this.villain5();
-    							}
-    							catch (InterruptedException e)
-            												{
-                												e.printStackTrace();
-            												}
+
+
             			}
 					public void villain1()
 										{
