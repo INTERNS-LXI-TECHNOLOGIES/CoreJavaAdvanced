@@ -14,10 +14,9 @@ public class Scriptwriter
 	
 
 		ArrayList<Script> script=new ArrayList<Script>();
-				Sqldata sq=new Sqldata();
 
 
-	public void scenePrint() throws Exception
+	public void scenePrint() 
 	{
 
 		script.add(new Script());
@@ -46,7 +45,7 @@ public class Scriptwriter
 
 		script.add(new Script());
 		script.get(6).setName("sid");
-		script.get(6).setDialogue("Before you strike me think for a second im your family and do u wish to take words from ur friends who doesnt value you.");
+		script.get(6).setDialogue("Before you strike me think for a mt im your family and do u wish to take words frm ur frnds.");
 
 		script.add(new Script());
 		script.get(7).setName("jessie");
@@ -54,7 +53,7 @@ public class Scriptwriter
 
 		script.add(new Script());
 		script.get(8).setName("sid");
-		script.get(8).setDialogue("Just think how they treated you being a soldier they never gave you the position everyone needs only woodie even this jeesie.");
+		script.get(8).setDialogue("Just think how they treated you being a soldier they never gave you the pstn.");
 
 		script.add(new Script());
 		script.get(9).setName("Woodie");
@@ -62,7 +61,7 @@ public class Scriptwriter
 				
 		script.add(new Script());
 		script.get(10).setName("sid");
-		script.get(10).setDialogue("I can't its my brother after all");
+		script.get(10).setDialogue("I cant its my brother after all");
 				
 		script.add(new Script());
 		script.get(11).setName("Woodie");
@@ -121,11 +120,43 @@ public class Scriptwriter
 		script.get(24).setDialogue("haha yeahh 	finally we r a family again.");
 		//this.databaseConnection();
 		//this.addToDatabase();
-		for(int i=0;i<script.size();i++)
+		this.sqlquery(); 
+	}
+	public void sqlquery()
+	{	
+					Sqldata sqldata=new Sqldata();
+			
+		int choice=0;
+
+		do
 		{
-		sq.addToDatabase(script.get(i));
-	}
-		sq.viewDatabase(script);
-	}
+			for(int i=0;i<25;i++)
+		{
+		sqldata.addToDatabase(script.get(i));
+			}
+		System.out.println("Press\n1.Add Dialogues to the database\n2.Search\n3.Delete");
+		Scanner scn =new Scanner(System.in);
+		choice=scn.nextInt();
+		if(choice==1)
+		{
+			sqldata.viewDatabase(script);
+		}
+		else if(choice==2)
+		{
+
+			System.out.println("Enter the actor to be searched");
+			String name=scn.next();
+			sqldata.searchDatabase(script,name);
+		}
+		else if(choice==3)
+		{
+						System.out.println("Enter the id to be Deleted");
+						choice=scn.nextInt();
+						sqldata.deletRecord(choice);	
+
+		}
+
+	}while(choice<4);
+}
 		
 }

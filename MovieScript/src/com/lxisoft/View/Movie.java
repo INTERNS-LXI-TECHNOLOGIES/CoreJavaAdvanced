@@ -24,7 +24,7 @@ public class Movie
 							{
 			Scanner scn=new Scanner(System.in);
 		 	f=new JFrame();   
-    		JOptionPane.showMessageDialog(f,"Insert the Index No:\n1.Statutary Notice  2.Start the movie  3.Character sketch  4.Actors Info  5.Update Dialogues");  
+    		JOptionPane.showMessageDialog(f,"Insert the Index No:\n1.Load from SQL Database  2.Start Movie Notice 3.Character sketch  4.Actors Info  5.Update Dialogues");  
 			choice=scn.nextInt();
 											while(choice<6){
 
@@ -33,9 +33,11 @@ public class Movie
 						}
 	public void title1()
 						{
-			String message = "This is a modified scene from the original movie \u001b[33m\033[1mToy Story\033[0m by \u001b[31m\033[1mPIXAR\033[0m.\nThe scene depicts a emotional scene where buzz inorder to rescue,\nhis girlfriend he cuts tie from his own evil brother.\n";
-    		director.slowPrint(message, 40);
-    		this.movieDetails();
+							Scriptwriter sw =new Scriptwriter();
+		sw.scenePrint();
+			//String message = "This is a modified scene from the original movie \u001b[33m\033[1mToy Story\033[0m by \u001b[31m\033[1mPIXAR\033[0m.\nThe scene depicts a emotional scene where buzz inorder to rescue,\nhis girlfriend he cuts tie from his own evil brother.\n";
+    		//director.slowPrint(message, 40);
+    		//this.movieDetails();
    						}
 	public void title2() throws Exception
 						{
