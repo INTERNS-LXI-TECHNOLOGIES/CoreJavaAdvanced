@@ -37,7 +37,7 @@ public class Movie
     		director.slowPrint(message, 40);
     		this.movieDetails();
    						}
-	public void title2()
+	public void title2() throws Exception
 						{
 					System.out.println("-----------------------------------------------------------------------------");
 					System.out.println("-----------------------------------------------------------------------------");
@@ -70,13 +70,15 @@ public class Movie
 				        System.out.println("* __*****************");
 				        System.out.println("*|__|*|***|^^|**|**|*");
 				        System.out.println("*|__|*|'|*|^^|**|**|*");
-								Database database =new Database();
+								/*Database database =new Database();
 						database.createFileScene1();
 						database.createFileScene2();
 						database.createFileScene3();
 						database.createFileScene4();
-						database.createFileScene5();
+						database.createFileScene5();*/
 						this.dialogue();
+						Scriptwriter sc = new Scriptwriter();
+						sc.scenePrint();
 
 						    		this.movieDetails();
 
