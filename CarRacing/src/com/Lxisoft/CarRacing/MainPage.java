@@ -1,9 +1,11 @@
 package com.Lxisoft.CarRacing;
+import com.Lxisoft.CarRacing.*;
 import java.util.*;
 
 public class  MainPage
 {
 	Scanner scanner=new Scanner(System.in);
+  Game game = new Game();
   public void intro()
 	{
 		System.out.println("\n\t\t-------------------------------------------\t");
@@ -29,12 +31,12 @@ public class  MainPage
         choice=scanner.nextInt();
         if(choice==1)
         {
-      	  game.carRacing   
+      	  game.carRacing();   
         }
         if(choice==2)
         {
              
-           car.carDetails();
+           //car.carDetails();
          
         }
         if(choice==3)

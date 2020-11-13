@@ -1,48 +1,34 @@
 package com.Lxisoft.CarRacing;
+import  com.Lxisoft.CarRacing.*;
 import java.util.*;
 
-public class  Car
+public class Car
 {
-	Scanner scanner=new Scanner(System.in);
-	ArrayList<String>  car= new ArrayList<>();
-	private float engineCC;
+	private int engineCC;
 	private String fuelType;
 	private int power;
+	private String brand;
+	private int efficiency;
+	private String name;
 
-	public void addCar()
+	public void setName(String name)
 	{
-		//for (i=0; i<10; i++)
-		//{
-		//	car.add;
-		//	engine.set
-		//}
-
-		car.add("Top Racers of the event ");
-		car.add("1. Lamborgini Gallardo");
-		car.add("2. Ford Mustag");
-		car.add("3. Chevrolet Camaro");
-		car.add("4. Chevrolet Corvette");
-		car.add("5. Mini Cooper Countryman");
-		car.add("6. Subaru WRX");
-		car.add("7. Volkswagen GTI");
-		car.add("8. Mazda MX-5 Miata");
-		car.add("9. Nissan 370Z");
-		car.add("10 BMW GTR M3");
-
-
+		this.name=name;
 	}
-
-	public void printCars()
+	public String getName()
 	{
+		return name;
 	}
-	public void setEngineCC(float engineCC)
+	public void setEngineCC(int engineCC)
 	{
 		this.engineCC=engineCC;	
 	}
-	public float getEngineCC()
+	public int getEngineCC()
 	{
 		return engineCC;
 	}
+
+
 	public void setFuelType(String fuelType)
 	{
 		this.fuelType=fuelType;
@@ -61,4 +47,31 @@ public class  Car
 	{
 		return power;
 	}
-	}
+
+
+    
+    public void setBrand(String brand)
+    {
+    	this.brand=brand;	
+    }
+    public String getBrand()
+    {
+    	return this.brand;
+    }
+    public void setEfficiency(int efficiency)
+    {
+    	this.efficiency=efficiency;
+    }
+    public int getEfficiency()
+    {
+    	return this.efficiency;
+    }
+}
+
+
+
+
+
+	
+
+
