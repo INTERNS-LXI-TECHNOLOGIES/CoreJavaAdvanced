@@ -24,6 +24,8 @@ public abstract class  Car implements Serializable
 
 	
 	public String name;
+		public String tyre;
+
 	public String engine;
 	public String winner;
 	public int power;
@@ -37,6 +39,14 @@ public abstract class  Car implements Serializable
 	public String getName()
 	{
 		return name;
+	}
+	public String getTyre()
+	{
+		return tyre;
+	}
+	public void setTyre(String tyre)
+	{
+		this.tyre=tyre;
 	}
 	public void setType(String engine)
 	{
