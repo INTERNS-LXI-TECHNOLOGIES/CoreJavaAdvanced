@@ -1,11 +1,10 @@
 package com.Lxisoft.Test;
-import com.Lxisoft.Moviescript.View.*;
+import com.Lxisoft.MovieScriptApp.Control.*;
 public class TDD
 {
-	public static void main (String [] args)
+	public static void main(String [] args)
 	{
-		View m = new View();
-		m.intro();
-		
+		MovieController controller = new MovieController();
+		controller.mainMenu();
 	}
 }
