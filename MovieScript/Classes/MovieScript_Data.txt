@@ -1,0 +1,3 @@
+Cast Details : 
+-------------------
+1. Name : FarisCharacter Type :- HeroCharacter Name :- rex2.Name : backerCharacter Type :- HeroinCharacter Name :- julie3.Name : hjCharacter Type :- ComedianCharacter Name :- mr.bean4.Name : qwCharacter Type :- Anti heroCharacter Name :- Prank
