@@ -5,6 +5,10 @@ import java.util.*;
 
 public class MovieView
 {
+  Cast hero = new Hero();
+  Cast heroine = new Heroine();
+  Cast antiHero = new Anti_Hero();
+  Cast comedian = new Comedian();
   public void intro()
     {
     	System.out.println("\n\t\t-------------------------------------------\t");
@@ -88,5 +92,63 @@ public class MovieView
     
 
   }
+  public void addHero(ArrayList<Hero> heroList)
+  {
+    Scanner castInputs = new Scanner(System.in);
+    heroList.add(new Hero());
+    System.out.println("Enter the Name Of Actor : ");
+    String name=castInputs.nextLine();
+    heroList.get(0).setName(name);
+    System.out.println("Enter the Character Type Of Actor : ");
+    String characterType=castInputs.nextLine();
+    heroList.get(0).setCharacterType(characterType);
+    System.out.println("Enter the Character Name of Hero");
+    String characterName=castInputs.nextLine();
+    heroList.get(0).setCharacterName(characterName);
+        
+  }
+  public void addHeroine(ArrayList<Heroine> heroineList)
+  {
+    Scanner heroineInput=new Scanner(System.in);
+    heroineList.add(new Heroine());
+    System.out.println("Enter the Name Of Actor : ");
+    String name=heroineInput.nextLine();
+    heroineList.get(0).setName(name);
+    System.out.println("Enter the Character Type Of Actor : ");
+    String characterType=heroineInput.nextLine();
+    heroineList.get(0).setCharacterType(characterType);
+    System.out.println("Enter the Character Name of Heroine");
+    String characterName=heroineInput.nextLine();
+    heroineList.get(0).setCharacterName(characterName);
+        
+  }
+  public void addAntiHero(ArrayList<Anti_Hero> antiHeroList)
+  {Scanner antiheroInput=new Scanner(System.in);
+    antiHeroList.add(new Anti_Hero());
+    System.out.println("Enter the Name Of Actor : ");
+        String name=antiheroInput.nextLine();
+        antiHeroList.get(0).setName(name);
+        System.out.println("Enter the Character Type Of Actor : ");
+        String characterType=antiheroInput.nextLine();
+        antiHeroList.get(0).setCharacterType(characterType);
+    System.out.println("Enter the Character Name of Heroine");
+        String characterName=antiheroInput.nextLine();
+        antiHeroList.get(0).setCharacterName(characterName);}
 
+
+
+public void addComedian(ArrayList<Comedian> comedianList)
+{
+  Scanner comedianInput=new Scanner(System.in);
+    comedianList.add(new Comedian());
+    System.out.println("Enter the Name Of Actor : ");
+    String name=comedianInput.nextLine();
+    comedianList.get(0).setName(name);
+    System.out.println("Enter the Character Type Of Actor : ");
+    String characterType=comedianInput.nextLine();
+    comedianList.get(0).setCharacterType(characterType);
+    System.out.println("Enter the Character Name of Heroine");
+    String characterName=comedianInput.nextLine();
+    comedianList.get(0).setCharacterName(characterName);
+}
 }
