@@ -1,4 +1,4 @@
-package com.lxisoft.Control;
+package com.lxisoft.Model;
 public interface Heroine
 {
 	

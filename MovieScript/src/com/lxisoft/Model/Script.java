@@ -1,5 +1,9 @@
 package com.lxisoft.Model;
-import com.lxisoft.Control.Hero;
+import com.lxisoft.View.Movie;
+import com.lxisoft.Control.Controler;
+import com.lxisoft.Model.Hero;
+import com.lxisoft.Model.Heroine;
+import com.lxisoft.Model.Villan;
 public abstract class Script
 {
 	private String name1;

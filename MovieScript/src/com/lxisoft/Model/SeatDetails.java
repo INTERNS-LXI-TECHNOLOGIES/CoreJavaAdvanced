@@ -1,5 +1,6 @@
 package com.lxisoft.Model;
-import com.lxisoft.View.Doctor;
+import com.lxisoft.View.Movie;
+import com.lxisoft.Control.*;
 import java.util.List;
 import java.util.Collections;
 public class SeatDetails implements Comparable<SeatDetails>
@@ -36,20 +37,4 @@ public class SeatDetails implements Comparable<SeatDetails>
 		return 1;
 	    return -1;
 	}
-	 public void dialoguAndScenes()
-            {
-                  System.out.print("           MOVIE STARTS           ");
-                  System.out.print("\n");
-                System.out.print("          --------------          ");
-                System.out.print("\n");
-                System.out.print("\n");
-                System.out.print("\n");
-                System.out.print("\n");
-                  Director  director = new Director();
-                  director.creatFilesSceneDialogue1();
-                  director.creatFilesSceneDialogue2();
-                  director.creatFilesSceneDialogue3();
-              director.sceneDialogue(); 
-              movie.playList();
-            }
 }

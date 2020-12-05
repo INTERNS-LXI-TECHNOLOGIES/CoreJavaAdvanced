@@ -1,11 +1,26 @@
 package com.lxisoft.View;
+import com.lxisoft.Model.SeatDetails;
+import com.lxisoft.Model.Script;
+import com.lxisoft.Model.Tintumone;
+import com.lxisoft.Model.Katakadarajan;
+import com.lxisoft.Model.Dundumole;
+import com.lxisoft.Control.Controler;
 import java.util.Scanner;
+import java.util.List;
+import java.util.Collections;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 public class Movie
 {
-	Scanner scanner = new Scanner(System.in);
+	Controler control = new Controler();
+
 	public void movieDetails()
 	{
 	  System.out.print("----------------------------------------------------------------------------------------------------------------------------------");
@@ -43,6 +58,7 @@ public class Movie
   }
       public boolean ticket()
      {
+     	Scanner scanner = new Scanner(System.in);
       System.out.print("ENTER THE AGE : ( ABOVE 20 YEARS ONLY ) ");
       System.out.print("\n");
       int ag=scanner.nextInt();
@@ -70,6 +86,7 @@ public class Movie
 	}
 	public void playList()
 	{
+		Scanner scanner = new Scanner(System.in);
 		System.out.print("           DETAILS OF THE MOVIES           ");
 		System.out.print("\n");
 		System.out.print("          -----------------------          ");
@@ -99,13 +116,23 @@ public class Movie
         }
 		else if(num==2)
 			{
-				SeatNumber seat = new SeatNumber();
-				seat.Details();
+				this.detailsofSeatDetails();
 				this.playList(); 
 			}
 		else if(num==3)
 		{
-	      seatD.dialoguAndScenes();
+			System.out.print("           MOVIE STARTS           ");
+            System.out.print("\n");
+            System.out.print("          --------------          ");
+            System.out.print("\n");
+            System.out.print("\n");
+            System.out.print("\n");
+            System.out.print("\n");
+	      this.scenes();
+	      this.creatFilesSceneDialogue1();
+          this.creatFilesSceneDialogue2();
+          this.creatFilesSceneDialogue3();
+          this.playList();
 		}
         else if (num==4)
         {
@@ -118,6 +145,7 @@ public class Movie
     }
     public void regux()
        {
+       	    Scanner scanner = new Scanner(System.in);
             System.out.print("\n");
         	System.out.print("\n");
         	System.out.print("\n");
@@ -205,6 +233,236 @@ public class Movie
 			}
 			this.playList();
         }
+    
+	public void detailsofSeatDetails()
+	{
         
-	
+        control.seatDetails();     
+       	System.out.print("\n"+" NAME OF THE PERSON IS "+movie.getName()+"\n"+" BLOCK IS "+movie.getBlock()+"\n"+" SEAT NUMBER IS "+movie.getseatNumber());
+       	System.out.print("\n");
+      	System.out.print("\n");
+      	System.out.print("\n");
+      	System.out.print("\n");
+    
+	} 
+		
+	public void creatFilesSceneDialogue1()
+	{
+      try
+      {
+       File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
+       FileWriter filewriter = new FileWriter(file);
+       BufferedWriter writer = new BufferedWriter(filewriter);
+       writer.write("\n Tintumone : njna tintu sneham ulavar tintumoneen vilikum");
+       writer.write("\n Dundumole : ano!,njan dundumole");
+       writer.write("\n Tintumone : evidayan vide kutiyude");
+       writer.write("\n Dundumole : vide evide aduth tane ane");
+       writer.write("\n Tintumone : eth arane ?");
+       writer.write("\n Dundumole : arayila kore neram ayii enthe penale ane");
+       writer.write("\n Tintumone : arayile pene enthina kutiye nokunath");
+       writer.write("\n Dundumole : arayila....... ! ");
+       writer.flush();
+       writer.close();
+      } 
+      catch(IOException e)
+      {
+      	e.printStackTrace();
+      }
+      this.readFileSceneDialogue1();
+	}
+	public void readFileSceneDialogue1()
+	{
+		try
+		{
+			Scanner scanner = new Scanner(System.in);
+			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt"));
+			String a = scanner.next();
+			while((a=buffer.readLine()) != null)
+			{
+				System.out.print("\n"+a+"\n");
+			} 
+			buffer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+		public void creatFilesSceneDialogue2()
+	{
+      try
+      {
+      	File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
+       FileWriter filewriter = new FileWriter(file);
+       BufferedWriter writer = new BufferedWriter(filewriter);
+       writer.write("\n Tintumone : ninamk enthada vendath");
+       writer.write("\n Katakadarajan : enik vendathe ok ne tharuvoo ne ara divama onu poda sondum pani nokii poko ninak rajane seric arayilaa over kalicha petile  avum pokunam evidun ketoda kilunth cheka Haa ha ha .....");
+       writer.write("\n Tintumone : edaaaa.........");
+       writer.write("\n Katakadarajan : enthada vadanaaa..............");
+       writer.write("\n Dundumole : ayooo vendaa adii onumm undakanda...........");
+       writer.flush();
+       writer.close();
+      } 
+      catch(IOException e)
+      {
+      	e.printStackTrace();
+      }
+      this.readFileSceneDialogue2();
+	}
+	public void readFileSceneDialogue2()
+	{
+		try
+		{
+			Scanner scanner = new Scanner(System.in);
+			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt"));
+			String a=scanner.next();
+			while((a=buffer.readLine()) != null)
+			{
+				System.out.print("\n"+a+"\n");
+			} 
+			buffer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public void creatFilesSceneDialogue3()
+	{
+      try
+      {
+      	File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
+       FileWriter filewriter = new FileWriter(file);
+       BufferedWriter writer = new BufferedWriter(filewriter);
+       writer.write("\n Tintumone : eni melal evide kandupokaruth ketodaaa");
+       writer.write("\n Katakadarajan : nine njan pene edutolada..........");
+       writer.write("\n Dundumole : va pokam vitekee namak pokam tintuuu");
+       writer.flush();
+       writer.close();
+      } 
+      catch(IOException e)
+      {
+      	e.printStackTrace();
+      }
+      this.readFileSceneDialogue3();
+	}
+	public void readFileSceneDialogue3()
+	{
+		try
+		{
+			Scanner scanner = new Scanner(System.in);
+			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt"));
+			String a=scanner.next();
+			while((a=buffer.readLine()) != null)
+			{
+				System.out.print("\n"+a+"\n");
+			} 
+			buffer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+   public void scenes()
+   {
+   	    control.sceneDialogue();
+   	    System.out.print("\n");
+		System.out.print("           SCENCE 1 : TINTU AND DUNDU MEETING FOR FIRST TIME           ");
+		System.out.print("\n");
+		System.out.print("          ---------------------------------------------------          ");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("Tintumone : "+script.get(0).getDialogue1()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue1());
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("Tintumone : "+script.get(0).getDialogue2()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue2());
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("Tintumone : "+script.get(0).getDialogue3()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue3());
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("Tintumone : "+script.get(0).getDialogue4()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue4());
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("           SCENCE 2 : TINTU AND RAJAN MEETING AND ARJUMENT SCENE           ");
+		System.out.print("\n");
+		System.out.print("          -------------------------------------------------------          ");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("Tintumone : "+script.get(0).getDialogue5()+"\n"+"\n"+"Katakadarajan : "+script.get(2).getDialogue1());
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("Tintumone : "+script.get(0).getDialogue6()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue5()+"\n"+"\n"+"Katakadarajan : "+script.get(2).getDialogue2());
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("           SCENCE 3 : END SCENE FIGHT OVER           ");
+		System.out.print("\n");
+		System.out.print("          ---------------------------------          ");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("Tintumone : "+script.get(0).getDialogue7()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue6()+"\n"+"\n"+"Katakadarajan : "+script.get(2).getDialogue3());
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("             END \n            SUBAM           ");
+		System.out.print("\n");
+		System.out.print("          ---------          ");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("\n");
+	  System.out.print("----------------------------------------------------------------------------------------------------------------------------------");
+      System.out.print("\n");
+      System.out.print("-                                                   ARUMELATHA LOGATHE RAJAV                                                     -");
+      System.out.print("\n");
+      System.out.print("-                                                  --------------------------                                                    -");
+      System.out.print("\n");
+      System.out.print("-                                                                                                                                -");
+      System.out.print("\n");
+      System.out.print("-                                                                                                                                -");
+      System.out.print("\n");
+      System.out.print("-                                                                                                                                -");
+      System.out.print("\n");
+      System.out.print("-                                                                                                                                -");
+      System.out.print("\n");
+      System.out.print("-                                                                                                                                -");
+      System.out.print("\n");
+      System.out.print("-       DIRECTED BY  : ADDICTES                                                                                                  -");
+      System.out.print("\n");
+      System.out.print("-       PRODUCED BY  : ROBO                                                                                                      -");
+      System.out.print("\n");
+      System.out.print("-       SCRIPT WRITTEN BY : GOPALAN(ETHAPETU EDUKUNU GOPALAN)                                                                    -");
+      System.out.print("\n");
+      System.out.print("-       HERO OF THE FILM : SUPER STAR SAROJ KUMAR AS TINTUMONE                                                                   -");
+      System.out.print("\n");
+      System.out.print("-       HEROINE OF THE FILM : BEAUTY QUEEN SARASAMA ANDARJANUM AS DUNDUMOLE                                                      -");
+      System.out.print("\n");
+      System.out.print("-       VILLAN OF THE FILM : SUGUNAN P.P AS KATAKADARAJAN                                                                        -");
+      System.out.print("\n");
+      System.out.print("-                                                                                                                                -");
+      System.out.print("\n");
+      System.out.print("-                                                                                                                                -");
+      System.out.print("\n");
+      System.out.print("-                                                                                                                                -");
+      System.out.print("\n");
+      System.out.print("-                                                                                                                                -");
+      System.out.print("\n");
+      System.out.print("-                                                                                                                                -");
+      System.out.print("\n");
+      System.out.print("----------------------------------------------------------------------------------------------------------------------------------");
+      System.out.print("\n"); 
+
+	}
 }
