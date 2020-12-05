@@ -18,6 +18,11 @@ public class MovieView
    		System.out.println("\t\t---------------- Faris --------------------\t");
    		System.out.println("\t\t-------------------------------------------\t");
    	}
+    public void mainMenu()
+    {
+      System.out.println("\n________________________");
+      System.out.println("\n\n1. Director  \n\n2. Movie Script \n\n3. Casts \n\n Press 0 for Exit \n");
+    }
 
   public void directorActions()
   {
@@ -73,5 +78,15 @@ public class MovieView
     System.out.println("Successfully Exported to File");
   }
 
+  public void credits()
+  {
+    System.out.println("-------Credits-----------");
+    System.out.println("-------------------------");
+    System.out.println("Designed and Scripted By ");
+    System.out.println("--------  Faris  --------");
+    System.out.println("-------------------------");
+    
+
+  }
 
 }

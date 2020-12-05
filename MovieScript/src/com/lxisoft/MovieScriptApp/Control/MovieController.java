@@ -24,8 +24,7 @@ public class MovieController
 		int choice=0;
 		do
 		{
-			System.out.println("\n________________________");
-        	System.out.println("\n\n1. Director  \n\n2. Movie Script \n\n3. Casts \n\n Press 0 for Exit \n");
+			movie.mainMenu();
         	choice=scanner.nextInt();
         	if(choice==1)
         	{
@@ -38,7 +37,7 @@ public class MovieController
         	}
         	if(choice==3)
         	{
-        		//this.credits();
+        		movie.credits();
         	}
         	else if(choice==0)
         	{
