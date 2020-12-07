@@ -1,10 +1,10 @@
 package com.lxisoft.View;
+import com.lxisoft.Control.Controler;
 import com.lxisoft.Model.SeatDetails;
 import com.lxisoft.Model.Script;
 import com.lxisoft.Model.Tintumone;
 import com.lxisoft.Model.Katakadarajan;
 import com.lxisoft.Model.Dundumole;
-import com.lxisoft.Control.Controler;
 import java.util.Scanner;
 import java.util.List;
 import java.util.Collections;
@@ -19,7 +19,6 @@ import java.io.FileReader;
 import java.io.IOException;
 public class Movie
 {
-	Controler control = new Controler();
 
 	public void movieDetails()
 	{
@@ -55,6 +54,7 @@ public class Movie
       System.out.print("\n");
       System.out.print("\n");
       System.out.print("\n"); 
+      this.playList();
   }
       public boolean ticket()
      {
@@ -86,6 +86,7 @@ public class Movie
 	}
 	public void playList()
 	{
+		Controler control = new Controler();
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("           DETAILS OF THE MOVIES           ");
 		System.out.print("\n");
@@ -116,7 +117,7 @@ public class Movie
         }
 		else if(num==2)
 			{
-				this.detailsofSeatDetails();
+				control.seatDetails();
 				this.playList(); 
 			}
 		else if(num==3)
@@ -128,7 +129,7 @@ public class Movie
             System.out.print("\n");
             System.out.print("\n");
             System.out.print("\n");
-	      this.scenes();
+	      control.sceneDialogue();
 	      this.creatFilesSceneDialogue1();
           this.creatFilesSceneDialogue2();
           this.creatFilesSceneDialogue3();
@@ -137,6 +138,7 @@ public class Movie
         else if (num==4)
         {
            this.regux();
+           this.playList();
         }
 	    	else 
 			{
@@ -230,27 +232,28 @@ public class Movie
 				System.out.print("\n");
 				System.out.print("\n");
 				System.out.print("\n");
-			}
-			this.playList();
+			}	
         }
     
-	public void detailsofSeatDetails()
+	public void detailsofSeatDetails(ArrayList<SeatDetails> seatD)
 	{
         
-        control.seatDetails();     
-       	System.out.print("\n"+" NAME OF THE PERSON IS "+movie.getName()+"\n"+" BLOCK IS "+movie.getBlock()+"\n"+" SEAT NUMBER IS "+movie.getseatNumber());
-       	System.out.print("\n");
-      	System.out.print("\n");
-      	System.out.print("\n");
-      	System.out.print("\n");
-    
+          
+        for(SeatDetails movie : seatD)
+        {
+           System.out.print("\n"+" NAME OF THE PERSON IS "+movie.getName()+"\n"+" BLOCK IS "+movie.getBlock()+"\n"+" SEAT NUMBER IS "+movie.getseatNumber());
+           System.out.print("\n");
+      	   System.out.print("\n");
+      	   System.out.print("\n");
+      	   System.out.print("\n");
+        }   
 	} 
 		
 	public void creatFilesSceneDialogue1()
 	{
       try
       {
-       File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
+       File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
        FileWriter filewriter = new FileWriter(file);
        BufferedWriter writer = new BufferedWriter(filewriter);
        writer.write("\n Tintumone : njna tintu sneham ulavar tintumoneen vilikum");
@@ -275,7 +278,7 @@ public class Movie
 		try
 		{
 			Scanner scanner = new Scanner(System.in);
-			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt"));
+			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt"));
 			String a = scanner.next();
 			while((a=buffer.readLine()) != null)
 			{
@@ -292,7 +295,7 @@ public class Movie
 	{
       try
       {
-      	File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
+      	File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
        FileWriter filewriter = new FileWriter(file);
        BufferedWriter writer = new BufferedWriter(filewriter);
        writer.write("\n Tintumone : ninamk enthada vendath");
@@ -314,7 +317,7 @@ public class Movie
 		try
 		{
 			Scanner scanner = new Scanner(System.in);
-			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt"));
+			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt"));
 			String a=scanner.next();
 			while((a=buffer.readLine()) != null)
 			{
@@ -332,7 +335,7 @@ public class Movie
 	{
       try
       {
-      	File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt");
+      	File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
        FileWriter filewriter = new FileWriter(file);
        BufferedWriter writer = new BufferedWriter(filewriter);
        writer.write("\n Tintumone : eni melal evide kandupokaruth ketodaaa");
@@ -352,7 +355,7 @@ public class Movie
 		try
 		{
 			Scanner scanner = new Scanner(System.in);
-			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\scr\\com\\lxisoft\\File\\file.txt"));
+			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt"));
 			String a=scanner.next();
 			while((a=buffer.readLine()) != null)
 			{
@@ -365,9 +368,9 @@ public class Movie
 			e.printStackTrace();
 		}
 	}
-   public void scenes()
+   public void scenes(ArrayList<Script> script)
    {
-   	    control.sceneDialogue();
+   	    
    	    System.out.print("\n");
 		System.out.print("           SCENCE 1 : TINTU AND DUNDU MEETING FOR FIRST TIME           ");
 		System.out.print("\n");

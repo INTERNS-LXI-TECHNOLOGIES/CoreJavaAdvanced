@@ -1,6 +1,5 @@
 package com.lxisoft.Control;
 import com.lxisoft.View.Movie;
-import com.lxisoft.Control.*;
 import com.lxisoft.Model.SeatDetails;
 import com.lxisoft.Model.Script;
 import com.lxisoft.Model.Tintumone;
@@ -11,25 +10,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 public class Controler
 {
+      Movie movie = new Movie();
+     ArrayList<SeatDetails> seatD = new ArrayList<SeatDetails>();
+     ArrayList<Script> script = new ArrayList<Script>();
       	
 	public void seatDetails()
 	{
-       ArrayList<SeatDetails> seatD = new ArrayList<SeatDetails>();
        seatD.add(new SeatDetails(" ADARSH "," A BLOCK ",11));
        seatD.add(new SeatDetails(" SREEJITH "," A BLOCK ",10));
        seatD.add(new SeatDetails(" ABHINAVE "," A BLOCK ",7));
        seatD.add(new SeatDetails(" AJITH "," A BLOCK ",9));
        seatD.add(new SeatDetails(" ABHISHEK "," A BLOCK ",8));
 
-    Collections.sort(seatD);
-       for(SeatDetails movie : seatD)
-       {
-       	movie.detailsofSeatDetails();
-       }
+       Collections.sort(seatD);
+       	movie.detailsofSeatDetails(seatD);       
 	} 
       public void sceneDialogue()
       {
-            ArrayList<Script> script = new ArrayList<Script>();
+            
             script.add(new Tintumone());
             script.get(0).setDialogue1("njna tintu sneham ulavar tintumoneen vilikum");
             script.get(0).setDialogue2("evidayan vide kutiyude");
@@ -54,6 +52,6 @@ public class Controler
             script.get(2).setDialogue1("enik vendathe ok ne tharuvoo ne ara divama onu poda sondum pani nokii poko ninak rajane seric arayilaa over kalicha petile  avum pokunam evidun ketoda kilunth cheka Haa ha ha .....");
             script.get(2).setDialogue2("enthada vadanaaa..............");
             script.get(2).setDialogue3("nine njan pene edutolada..........");
-            movie.scenes();
+            movie.scenes(script);
    }
 }
