@@ -8,6 +8,13 @@ import com.lxisoft.Model.Dundumole;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 public class Controler
 {
       Movie movie = new Movie();
@@ -54,4 +61,108 @@ public class Controler
             script.get(2).setDialogue3("nine njan pene edutolada..........");
             movie.scenes(script);
    }
+   public void creatFilesSceneDialogue1()
+      {
+      try
+      {
+       File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
+       FileWriter writer = new FileWriter(file);
+             writer.write("\n Tintumone : "+script.get(0).getDialogue1()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue1());
+             writer.write("\n Tintumone : "+script.get(0).getDialogue2()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue2());
+             writer.write("\n Tintumone : "+script.get(0).getDialogue3()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue3());
+             writer.write("\n Tintumone : "+script.get(0).getDialogue4()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue4());
+       writer.flush();
+       writer.close();
+      } 
+      catch(IOException e)
+      {
+        e.printStackTrace();
+      }
+      this.readFileSceneDialogue1();
+      }
+      public void readFileSceneDialogue1()
+      {
+            try
+            {
+                  FileReader buffer = new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
+                  Scanner scanner = new Scanner(buffer);
+                  while(scanner.hasNextLine())
+                  {
+                        System.out.print("\n"+scanner.nextLine()+"\n");
+                  } 
+                  buffer.close();
+            }
+            catch (IOException e)
+            {
+                  e.printStackTrace();
+            }
+      }
+ public void creatFilesSceneDialogue2()
+      {
+      try
+      {
+       File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
+       FileWriter writer = new FileWriter(file);
+             writer.write("\n Tintumone : "+script.get(0).getDialogue5()+"\n"+"\n"+"Katakadarajan : "+script.get(2).getDialogue1());
+             writer.write("\n Tintumone : "+script.get(0).getDialogue6()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue5()+"\n"+"\n"+"Katakadarajan : "+script.get(2).getDialogue2());
+       writer.flush();
+       writer.close();
+      } 
+      catch(IOException e)
+      {
+        e.printStackTrace();
+      }   
+         this.readFileSceneDialogue2();
+      }
+      public void readFileSceneDialogue2()
+      {
+            try
+            {
+                  FileReader buffer = new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
+                  Scanner scanner = new Scanner(buffer);
+                  while(scanner.hasNextLine())
+                  {
+                     System.out.print("\n"+scanner.nextLine()+"\n");   
+                  } 
+                  buffer.close();
+            }
+            catch (IOException e)
+            {
+                  e.printStackTrace();
+            }
+      }
+
+      public void creatFilesSceneDialogue3()
+      {
+      try
+      {
+       File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
+       FileWriter writer = new FileWriter(file);
+            writer.write("\n Tintumone : "+script.get(0).getDialogue7()+"\n"+"\n"+"Dundumole : "+script.get(1).getDialogue6()+"\n"+"\n"+"Katakadarajan : "+script.get(2).getDialogue3());
+       writer.flush();
+       writer.close();
+      } 
+      catch(IOException e)
+      {
+        e.printStackTrace();
+      }
+      this.readFileSceneDialogue3();
+      }
+      public void readFileSceneDialogue3()
+      {
+            try
+            {
+                  FileReader buffer = new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
+                  Scanner scanner = new Scanner(buffer);
+                  while(scanner.hasNextLine())
+                  {
+                         System.out.print("\n"+scanner.nextLine()+"\n");
+                  } 
+                  buffer.close();
+            }
+            catch (IOException e)
+            {
+                  e.printStackTrace();
+            }
+      }
 }

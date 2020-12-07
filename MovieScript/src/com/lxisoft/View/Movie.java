@@ -7,16 +7,16 @@ import com.lxisoft.Model.Katakadarajan;
 import com.lxisoft.Model.Dundumole;
 import java.util.Scanner;
 import java.util.List;
-import java.util.Collections;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Movie
 {
 
@@ -130,9 +130,9 @@ public class Movie
             System.out.print("\n");
             System.out.print("\n");
 	      control.sceneDialogue();
-	      this.creatFilesSceneDialogue1();
-          this.creatFilesSceneDialogue2();
-          this.creatFilesSceneDialogue3();
+	      control.creatFilesSceneDialogue1();
+          control.creatFilesSceneDialogue2();
+          control.creatFilesSceneDialogue3();
           this.playList();
 		}
         else if (num==4)
@@ -248,126 +248,6 @@ public class Movie
       	   System.out.print("\n");
         }   
 	} 
-		
-	public void creatFilesSceneDialogue1()
-	{
-      try
-      {
-       File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
-       FileWriter filewriter = new FileWriter(file);
-       BufferedWriter writer = new BufferedWriter(filewriter);
-       writer.write("\n Tintumone : njna tintu sneham ulavar tintumoneen vilikum");
-       writer.write("\n Dundumole : ano!,njan dundumole");
-       writer.write("\n Tintumone : evidayan vide kutiyude");
-       writer.write("\n Dundumole : vide evide aduth tane ane");
-       writer.write("\n Tintumone : eth arane ?");
-       writer.write("\n Dundumole : arayila kore neram ayii enthe penale ane");
-       writer.write("\n Tintumone : arayile pene enthina kutiye nokunath");
-       writer.write("\n Dundumole : arayila....... ! ");
-       writer.flush();
-       writer.close();
-      } 
-      catch(IOException e)
-      {
-      	e.printStackTrace();
-      }
-      this.readFileSceneDialogue1();
-	}
-	public void readFileSceneDialogue1()
-	{
-		try
-		{
-			Scanner scanner = new Scanner(System.in);
-			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt"));
-			String a = scanner.next();
-			while((a=buffer.readLine()) != null)
-			{
-				System.out.print("\n"+a+"\n");
-			} 
-			buffer.close();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-	}
-		public void creatFilesSceneDialogue2()
-	{
-      try
-      {
-      	File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
-       FileWriter filewriter = new FileWriter(file);
-       BufferedWriter writer = new BufferedWriter(filewriter);
-       writer.write("\n Tintumone : ninamk enthada vendath");
-       writer.write("\n Katakadarajan : enik vendathe ok ne tharuvoo ne ara divama onu poda sondum pani nokii poko ninak rajane seric arayilaa over kalicha petile  avum pokunam evidun ketoda kilunth cheka Haa ha ha .....");
-       writer.write("\n Tintumone : edaaaa.........");
-       writer.write("\n Katakadarajan : enthada vadanaaa..............");
-       writer.write("\n Dundumole : ayooo vendaa adii onumm undakanda...........");
-       writer.flush();
-       writer.close();
-      } 
-      catch(IOException e)
-      {
-      	e.printStackTrace();
-      }
-      this.readFileSceneDialogue2();
-	}
-	public void readFileSceneDialogue2()
-	{
-		try
-		{
-			Scanner scanner = new Scanner(System.in);
-			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt"));
-			String a=scanner.next();
-			while((a=buffer.readLine()) != null)
-			{
-				System.out.print("\n"+a+"\n");
-			} 
-			buffer.close();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-	}
-
-	public void creatFilesSceneDialogue3()
-	{
-      try
-      {
-      	File file = new File("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt");
-       FileWriter filewriter = new FileWriter(file);
-       BufferedWriter writer = new BufferedWriter(filewriter);
-       writer.write("\n Tintumone : eni melal evide kandupokaruth ketodaaa");
-       writer.write("\n Katakadarajan : nine njan pene edutolada..........");
-       writer.write("\n Dundumole : va pokam vitekee namak pokam tintuuu");
-       writer.flush();
-       writer.close();
-      } 
-      catch(IOException e)
-      {
-      	e.printStackTrace();
-      }
-      this.readFileSceneDialogue3();
-	}
-	public void readFileSceneDialogue3()
-	{
-		try
-		{
-			Scanner scanner = new Scanner(System.in);
-			BufferedReader buffer = new BufferedReader(new FileReader("D:\\javaworks\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\File\\file.txt"));
-			String a=scanner.next();
-			while((a=buffer.readLine()) != null)
-			{
-				System.out.print("\n"+a+"\n");
-			} 
-			buffer.close();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-	}
    public void scenes(ArrayList<Script> script)
    {
    	    
