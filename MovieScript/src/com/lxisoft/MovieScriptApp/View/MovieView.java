@@ -21,7 +21,8 @@ public class MovieView
    		System.out.println("\t\t------- Scripted by -----------------------\t");
    		System.out.println("\t\t---------------- Faris --------------------\t");
    		System.out.println("\t\t-------------------------------------------\t");
-   	}
+   	  System.out.println(" ")
+      }
     public void mainMenu()
     {
       System.out.println("\n________________________");
