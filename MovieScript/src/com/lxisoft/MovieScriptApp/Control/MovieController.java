@@ -17,6 +17,7 @@ public class MovieController
 	ArrayList<Comedian>comedianList = new ArrayList<Comedian>();
 	MovieView movie = new MovieView();
 	File file= new File();
+  MysqlDatabase database = new MysqlDatabase();
 	public void mainMenu()
 	{
 		movie.intro();
@@ -76,8 +77,12 @@ public class MovieController
 
         	if(choice==5)
         	{
-        		this.exportToFile(heroList,heroineList,antiHeroList,comedianList );
+        		database.addToDatabase();
         	}
+          if(choice==6)
+          {
+            database.printDatabase(cast);
+          }
         	else if(choice==0)
         	{
         		System.out.println(" ");
