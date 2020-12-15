@@ -77,11 +77,11 @@ public class MovieController
 
         	if(choice==5)
         	{
-        		database.addToDatabase();
+        		database.createDatabaseConnection();
         	}
           if(choice==6)
           {
-            database.printDatabase(cast);
+            //database.printDatabase();
           }
         	else if(choice==0)
         	{
