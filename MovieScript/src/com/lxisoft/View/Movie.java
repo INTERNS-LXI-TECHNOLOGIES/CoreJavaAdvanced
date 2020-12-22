@@ -1,10 +1,7 @@
 package com.lxisoft.View;
-import com.lxisoft.Control.Controler;
-import com.lxisoft.Model.SeatDetails;
-import com.lxisoft.Model.Script;
-import com.lxisoft.Model.Tintumone;
-import com.lxisoft.Model.Katakadarajan;
-import com.lxisoft.Model.Dundumole;
+import com.lxisoft.Control.*;
+import com.lxisoft.repository.*;
+import com.lxisoft.Model.*;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
@@ -16,9 +13,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 public class Movie
 {
+	Controler control = new Controler();
 
 	public void movieDetails()
 	{
@@ -86,7 +83,7 @@ public class Movie
 	}
 	public void playList()
 	{
-		Controler control = new Controler();
+		
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("           DETAILS OF THE MOVIES           ");
 		System.out.print("\n");
@@ -100,7 +97,7 @@ public class Movie
 		System.out.print("\n");
 		System.out.print("\n");
 		System.out.print("\n");
-		System.out.print(" 1. TICKET \n 2. SEAT NUMBER AND DETAILS \n 3. MOVIE START \n 4. Q AND A ");
+		System.out.print(" 1. TICKET \n 2. SEAT NUMBER AND DETAILS \n 3. MOVIE START \n 4. Q AND A  \n 5. SQLDATA");
 		System.out.print("\n");
 		System.out.print("\n");
 		System.out.print("\n");
@@ -140,10 +137,58 @@ public class Movie
            this.regux();
            this.playList();
         }
+        else if (num==5)
+        {
+        	this.sqldata();
+        	this.playList();
+        }
 	    	else 
 			{
 				System.out.print("invalid choice ");
 			}
+    }
+    public void sqldata()
+    {
+    	Scanner scanner = new Scanner(System.in);
+    	System.out.print("\n 1. DELETE  \n 2. VIEW \n 3. SEARCH \n 4. ADD DATA TO THE TABLE  ");
+        	System.out.print("\n");
+		    System.out.print("\n");
+		    System.out.print("\n");
+		    System.out.print("ENTER THE NUMBER : ");
+		    int choice = scanner.nextInt();
+		    System.out.print("\n");
+		    System.out.print("\n");
+		    System.out.print("\n");
+		    System.out.print("\n");
+		    if(choice==1)
+		    {
+		    	System.out.println("Enter The ID To Delete\t: ");
+		        int deleteId = scanner.nextInt();
+		        control.delete(deleteId); 
+		        this.sqldata();
+		    }
+		    else if(choice==2)
+		    {
+		    	control.view();
+		    	this.sqldata();
+		    }
+		    else if(choice==3)
+		    {
+		    	 System.out.print("Enter The Name Of The Actor To Search : ");
+                 String name = scanner.next();
+		    	 control.search(name);
+		    	 this.sqldata();
+		    }
+		    else if(choice==4)
+		    {
+		    	control.add();
+		    	this.sqldata();
+		    }
+		    else 
+			{
+				System.out.print("invalid choice ");
+			}
+			this.playList();
     }
     public void regux()
        {
@@ -348,4 +393,5 @@ public class Movie
       System.out.print("\n"); 
 
 	}
+	
 }

@@ -1,6 +1,6 @@
 package com.lxisoft.Model;
 import com.lxisoft.View.Movie;
-import com.lxisoft.Control.*;
+import com.lxisoft.Control.Controler;
 import java.util.List;
 import java.util.Collections;
 public class SeatDetails implements Comparable<SeatDetails>

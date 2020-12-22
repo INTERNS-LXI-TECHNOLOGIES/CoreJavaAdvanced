@@ -6,6 +6,7 @@ import com.lxisoft.Model.Heroine;
 import com.lxisoft.Model.Villan;
 public abstract class Script
 {
+	private String name0;
 	private String name1;
 	private String name2;
 	private String name3;
@@ -14,8 +15,15 @@ public abstract class Script
 	private String name6;
 	private String name7;
 
-    public abstract void scriptPlay();
-
+    public abstract void scriptPlay(); 
+    public void setName(String name)
+    {
+    	this.name0 = name;
+    }
+    public String getName()
+    {
+    	return name0;
+    }
 	public void setDialogue1(String name)
 	{
 		this.name1= name;

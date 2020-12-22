@@ -1,4 +1,4 @@
-package com.lxisoft.Test;    
+package com.lxisoft.Test;   
 import com.lxisoft.View.Movie;
 import java.io.File;
 import java.io.IOException;

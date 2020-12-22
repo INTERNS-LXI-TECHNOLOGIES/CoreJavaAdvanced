@@ -1,10 +1,7 @@
 package com.lxisoft.Control;
+import com.lxisoft.repository.Movierepository;
 import com.lxisoft.View.Movie;
-import com.lxisoft.Model.SeatDetails;
-import com.lxisoft.Model.Script;
-import com.lxisoft.Model.Tintumone;
-import com.lxisoft.Model.Katakadarajan;
-import com.lxisoft.Model.Dundumole;
+import com.lxisoft.Model.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,9 +14,10 @@ import java.io.IOException;
 import java.util.Scanner;
 public class Controler
 {
-      Movie movie = new Movie();
      ArrayList<SeatDetails> seatD = new ArrayList<SeatDetails>();
      ArrayList<Script> script = new ArrayList<Script>();
+     Movierepository mo = new Movierepository();
+
       	
 	public void seatDetails()
 	{
@@ -30,12 +28,13 @@ public class Controler
        seatD.add(new SeatDetails(" ABHISHEK "," A BLOCK ",8));
 
        Collections.sort(seatD);
+       Movie movie = new Movie();
        	movie.detailsofSeatDetails(seatD);       
 	} 
       public void sceneDialogue()
-      {
-            
+      {  
             script.add(new Tintumone());
+            script.get(0).setName("Tintumone");
             script.get(0).setDialogue1("njna tintu sneham ulavar tintumoneen vilikum");
             script.get(0).setDialogue2("evidayan vide kutiyude");
             script.get(0).setDialogue3("eth arane ?");
@@ -47,6 +46,7 @@ public class Controler
 
 
             script.add(new Dundumole());
+            script.get(1).setName("Dundumole");
             script.get(1).setDialogue1("ano!,njan dundumole");
             script.get(1).setDialogue2("vide evide aduth tane ane");
             script.get(1).setDialogue3("arayila kore neram ayii enthe penale ane");
@@ -56,9 +56,11 @@ public class Controler
 
 
             script.add(new Katakadarajan());
+            script.get(2).setName("Katakadarajan");
             script.get(2).setDialogue1("enik vendathe ok ne tharuvoo ne ara divama onu poda sondum pani nokii poko ninak rajane seric arayilaa over kalicha petile  avum pokunam evidun ketoda kilunth cheka Haa ha ha .....");
             script.get(2).setDialogue2("enthada vadanaaa..............");
             script.get(2).setDialogue3("nine njan pene edutolada..........");
+            Movie movie = new Movie(); 
             movie.scenes(script);
    }
    public void creatFilesSceneDialogue1()
@@ -164,5 +166,24 @@ public class Controler
             {
                   e.printStackTrace();
             }
-      }
+      } 
+     public void delete(int deleteId)
+     {
+      mo.deleteRecord(deleteId);  
+     }
+     public void search(String name)
+     {
+      mo.searchDatabase(name);
+     }
+     public void add()
+     {
+      for(int i =0;i<=2;i++)
+      {
+           mo.addToDatabase(script.get(i)); 
+      }  
+     }
+     public void view()
+     {
+      mo.viewDatabase(script);
+     }
 }
