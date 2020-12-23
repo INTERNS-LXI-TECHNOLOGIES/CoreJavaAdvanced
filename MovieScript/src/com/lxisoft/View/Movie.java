@@ -85,6 +85,7 @@ public class Movie
 	{
 		
 		Scanner scanner = new Scanner(System.in);
+		System.out.print("\n");
 		System.out.print("           DETAILS OF THE MOVIES           ");
 		System.out.print("\n");
 		System.out.print("          -----------------------          ");
@@ -130,6 +131,7 @@ public class Movie
 	      control.creatFilesSceneDialogue1();
           control.creatFilesSceneDialogue2();
           control.creatFilesSceneDialogue3();
+          control.add();
           this.playList();
 		}
         else if (num==4)
@@ -150,7 +152,7 @@ public class Movie
     public void sqldata()
     {
     	Scanner scanner = new Scanner(System.in);
-    	System.out.print("\n 1. DELETE  \n 2. VIEW \n 3. SEARCH \n 4. ADD DATA TO THE TABLE  ");
+    	System.out.print("\n 1. DELETE  \n 2. VIEW \n 3. SEARCH ");
         	System.out.print("\n");
 		    System.out.print("\n");
 		    System.out.print("\n");
@@ -178,11 +180,6 @@ public class Movie
                  String name = scanner.next();
 		    	 control.search(name);
 		    	 this.sqldata();
-		    }
-		    else if(choice==4)
-		    {
-		    	control.add();
-		    	this.sqldata();
 		    }
 		    else 
 			{

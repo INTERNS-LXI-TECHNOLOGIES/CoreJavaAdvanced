@@ -69,7 +69,7 @@ public class Movierepository
                 String dialogue5 = rs.getString("dialogue5");
                 String dialogue6 = rs.getString("dialogue6");
                 String dialogue7 = rs.getString("dialogue7");
-                System.out.println(id + "," + actor + "," + dialogue1 + "," + dialogue2 + "," + dialogue3+ "," + dialogue4 + "," + dialogue5 + ","  + dialogue6 + "," + dialogue7);
+                System.out.println(id+") "+actor+":"+"\n"+"    "+dialogue1+"\n"+"    "+dialogue2+"\n"+"    "+dialogue3+"\n"+"    "+dialogue4+"\n"+ "    "+dialogue5+"\n"+ "    "+dialogue6+"\n"+ "    "+dialogue7);
         }
       stmt.close();
       con.close();
@@ -99,7 +99,7 @@ public class Movierepository
                 String dialogue5 = rs.getString("dialogue5");
                 String dialogue6 = rs.getString("dialogue6");
                 String dialogue7 = rs.getString("dialogue7");
-                System.out.println( id + "," + actor + "," + dialogue1 + "," + dialogue2 + "," + dialogue3+ "," + dialogue4 + "," + dialogue5 + ","  + dialogue6 + "," + dialogue7);
+                System.out.println(id+") "+actor+":"+"\n"+"    "+dialogue1+"\n"+"    "+dialogue2+"\n"+"    "+dialogue3+"\n"+"    "+dialogue4+"\n"+ "    "+dialogue5+"\n"+ "    "+dialogue6+"\n"+ "    "+dialogue7);
         }
       stmt.close();
       con.close();
