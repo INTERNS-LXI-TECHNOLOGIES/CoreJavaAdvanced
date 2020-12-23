@@ -81,7 +81,7 @@ public class MovieController
         	}
           if(choice==6)
           {
-            //database.printDatabase();
+            database.printDatabase();
           }
         	else if(choice==0)
         	{

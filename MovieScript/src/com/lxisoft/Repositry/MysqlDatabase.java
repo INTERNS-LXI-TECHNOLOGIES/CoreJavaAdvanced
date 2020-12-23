@@ -7,19 +7,19 @@ import java.util.*;
 public class MysqlDatabase
 {
 	ArrayList<CastDetails> cast = new ArrayList<CastDetails>();
-	//CastDetails cs = new CastDetails();
+	CastDetails cs = new CastDetails();
 	Connection con = null;
 	ResultSet rs= null;
 	Statement stmt = null;
 	PreparedStatement ps = null;;
 	int row;
 	
-	public void createDatabaseConnection()
+	public void createDatabaseConnection() throws SQLException
 	{
-			//Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/MovieScript","root","98467691")
-			//String sql = "INSERT INTO CastDetails (Name, Role)VALUES('Faris','Hero')";
-			//Statement statement = connection.createStatement();
-			//int rows = statement.executeUpdate(sql);
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/MovieScript","root","98467691");
+			String sql = "INSERT INTO CastDetails (Name, Role)VALUES('Faris','Hero')";
+			Statement statement = connection.createStatement();
+			int rows = statement.executeUpdate(sql);
 
 
 		try
@@ -27,9 +27,9 @@ public class MysqlDatabase
 			Class.forName("com.mysql.jdbc.Driver");
 			try{
 				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/MovieScript","root","98467691");	
-				String sql="SELECT * FROM CastDetails";
+				String sqlQuery="SELECT * FROM CastDetails";
 				stmt = con.createStatement();
-				rs = stmt.executeQuery(sql);
+				rs = stmt.executeQuery(sqlQuery);
 				
 				while(rs.next()){
 				
@@ -45,8 +45,8 @@ public class MysqlDatabase
 		}
 		catch(ClassNotFoundException e)
 		{
-			System.out.println("Database Connected");
-			//e.printStackTrace();
+			//System.out.println("Database Connected");
+			e.printStackTrace();
 		}
 
 	}
@@ -67,9 +67,9 @@ public class MysqlDatabase
 			e.printStackTrace();
 		}
 		return row;
-	}
+	}*/
 
-	public void printDatabase()
+	public void printDatabase() throws SQLException
 	{
 			createDatabaseConnection();
 		try
@@ -77,13 +77,13 @@ public class MysqlDatabase
 			String sql  = "select * from CastDetails" ;
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
-			//int i = 0;
+			int i = 0;
 			while(rs.next())
 			{
-				//cast.add(i,new CastDetails());
-				//cast.get(i).setName(rs.getString("Name"));
-				//cast.get(i).setRole(rs.getString("Role"));
-				//i++;
+				cast.add(i,new CastDetails());
+				cast.get(i).setName(rs.getString("Name"));
+				cast.get(i).setRole(rs.getString("Role"));
+				i++;
 				String name=rs.getString("Name");
 				String role=rs.getString("Role"); 		
 			}
@@ -94,5 +94,5 @@ public class MysqlDatabase
 		}
 		
 	
-	}*/
+	}
 }
