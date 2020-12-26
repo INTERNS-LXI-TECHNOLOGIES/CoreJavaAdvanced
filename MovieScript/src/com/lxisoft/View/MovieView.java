@@ -1,6 +1,7 @@
-package com.Lxisoft.MovieScriptApp.View;
-import com.Lxisoft.MovieScriptApp.Control.*;
-import com.Lxisoft.MovieScriptApp.Model.*;
+package com.Lxisoft.View;
+import com.Lxisoft.Control.*;
+import com.Lxisoft.Model.*;
+import com.Lxisoft.View.*;
 import java.util.*;
 
 public class MovieView

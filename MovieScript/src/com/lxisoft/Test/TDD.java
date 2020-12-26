@@ -1,5 +1,5 @@
 package com.Lxisoft.Test;
-import com.Lxisoft.MovieScriptApp.Control.*;
+import com.Lxisoft.Control.*;
 public class TDD
 {
 	public static void main(String [] args)

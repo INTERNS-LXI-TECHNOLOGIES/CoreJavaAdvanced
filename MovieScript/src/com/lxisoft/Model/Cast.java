@@ -1,4 +1,4 @@
-package com.Lxisoft.MovieScriptApp.Model;
+package com.Lxisoft.Model;
 public class Cast
 {
 	private String name;

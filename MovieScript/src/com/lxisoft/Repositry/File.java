@@ -1,7 +1,7 @@
 package com.Lxisoft.Repositry;
-import com.Lxisoft.MovieScriptApp.Control.*;
-import com.Lxisoft.MovieScriptApp.View.*;
-import com.Lxisoft.MovieScriptApp.Model.*;
+import com.Lxisoft.Control.*;
+import com.Lxisoft.View.*;
+import com.Lxisoft.Model.*;
 import java.io.*;
 import java.util.*;
 public class File

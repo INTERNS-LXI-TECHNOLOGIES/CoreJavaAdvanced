@@ -1,4 +1,4 @@
-package com.Lxisoft.MovieScriptApp.Model;
+package com.Lxisoft.Model;
 public class Heroine extends Cast 
 {
 	private String characterName;

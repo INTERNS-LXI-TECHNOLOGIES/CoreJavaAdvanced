@@ -1,8 +1,9 @@
-package com.Lxisoft.MovieScriptApp.Control;
-import com.Lxisoft.MovieScriptApp.View.*;
-import com.Lxisoft.MovieScriptApp.Model.*;
+package com.Lxisoft.Control;
+import com.Lxisoft.View.*;
+import com.Lxisoft.Model.*;
 import com.Lxisoft.Repositry.*;
 import java.util.*;
+import java.sql.*;
 public class MovieController
 {
 	Cast casting = new Cast();
@@ -17,7 +18,7 @@ public class MovieController
 	ArrayList<Comedian>comedianList = new ArrayList<Comedian>();
 	MovieView movie = new MovieView();
 	File file= new File();
-  MysqlDatabase database = new MysqlDatabase();
+  Database database = new Database();
 	public void mainMenu()
 	{
 		movie.intro();
@@ -49,7 +50,7 @@ public class MovieController
 		while(choice>0);
 	}
 	
-	public void directorMenu()
+	public void directorMenu() 
 	{
 
 		Scanner directorInputs = new Scanner(System.in);
@@ -81,7 +82,7 @@ public class MovieController
         	}
           if(choice==6)
           {
-            database.printDatabase();
+            database.printDatabase(heroList,casting);
           }
         	else if(choice==0)
         	{

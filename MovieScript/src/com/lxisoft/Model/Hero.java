@@ -1,5 +1,5 @@
-package com.Lxisoft.MovieScriptApp.Model;
-public class Anti_Hero extends Cast 
+package com.Lxisoft.Model;
+public class Hero extends Cast 
 {
 	private String charactername;
 	private String dialogues;
@@ -24,5 +24,5 @@ public class Anti_Hero extends Cast
 		return dialogues;
 	}
 
-		
+
 }
