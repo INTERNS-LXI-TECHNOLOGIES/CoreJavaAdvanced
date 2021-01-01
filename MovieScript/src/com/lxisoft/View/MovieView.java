@@ -158,4 +158,44 @@ public void addComedian(ArrayList<Comedian> comedianList)
     String characterName=comedianInput.nextLine();
     comedianList.get(0).setCharacterName(characterName);
 }
+public void updatedbHero(ArrayList<Hero> heroList)
+{
+  Scanner heroInput = new Scanner(System.in);
+  System.out.println("Enter the Name Hero to be updated");
+  String heroName = heroInput.nextLine();
+  heroList.get(0).setName(heroName);
+  System.out.println("Enter the CharacterName of Hero In the Movie");
+  String herocharName = heroInput.nextLine();
+  heroList.get(0).setCharacterName(herocharName);
+}
+public void updatedbHeroine(ArrayList<Heroine> heroineList)
+{
+  Scanner heroineInput = new Scanner(System.in);
+  System.out.println("Enter the Name of Heroine to be updated");
+  String heroineName = heroineInput.nextLine();
+  heroineList.get(0).setName(heroineName);
+  System.out.println("Enter the CharacterName of Hero In the Movie");
+  String heroinecharName = heroineInput.nextLine();
+  heroineList.get(0).setCharacterName(heroinecharName);
+}
+public void updatedbAntiHero(ArrayList<Anti_Hero> antiHeroList)
+{
+  Scanner antiheroInput = new Scanner(System.in);
+  System.out.println("Enter the Name of Ant_Hero to be updated");
+  String antiheroName = antiheroInput.nextLine();
+  antiHeroList.get(0).setName(antiheroName);
+  System.out.println("Enter the CharacterName of Anti_Hero In the Movie");
+  String antiherocharName = antiheroInput.nextLine();
+  antiHeroList.get(0).setCharacterName(antiherocharName); 
+}
+public void updatedbComedian(ArrayList<Comedian> comedianList)
+{
+  Scanner comedianInput = new Scanner(System.in);
+  System.out.println("Enter the Name of Comedian to be updated");
+  String comedianName = comedianInput.nextLine();
+  comedianList.get(0).setName(comedianName);
+  System.out.println("Enter the CharacterName of Hero In the Movie");
+  String comediancharName = comedianInput.nextLine();
+  comedianList.get(0).setCharacterName(comediancharName);
+}
 }

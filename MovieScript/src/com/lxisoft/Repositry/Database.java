@@ -1,6 +1,7 @@
 package com.Lxisoft.Repositry;
 import com.Lxisoft.Control.*;
 import com.Lxisoft.Model.*;
+import com.Lxisoft.View.*;
 import java.sql.*;
 import java.util.*;
 import java.io.*;
@@ -13,7 +14,8 @@ public class Database
 	Statement statement = null;
 	PreparedStatement preparedstatement = null;;
 	int row;
-	ArrayList updateInfo = new ArrayList();
+	MovieView movie = new MovieView();
+	//ArrayList updateInfo = new ArrayList();
 	
 	public void createDatabaseConnection()
 	{
@@ -86,13 +88,7 @@ public class Database
 			if(input .equals("Hero"))
 			{
 			
-			Scanner heroInput = new Scanner(System.in);
-			System.out.println("Enter the Name Hero to be updated");
-			String heroName = heroInput.nextLine();
-			heroList.get(0).setName(heroName);
-			System.out.println("Enter the CharacterName of Hero In the Movie");
-			String herocharName = heroInput.nextLine();
-			heroList.get(0).setCharacterName(herocharName); 
+			movie.updatedbHero(heroList); 
 			String sql  = "UPDATE CastDetails SET Name='"+heroList.get(0).getName()+"', WHERE Role ='Hero'";
 			statement = connection.createStatement();
 			row = statement.executeUpdate(sql);
@@ -104,13 +100,7 @@ public class Database
 
 			if(input .equals("Heroine"))
 			{
-			Scanner heroineInput = new Scanner(System.in);
-			System.out.println("Enter the Name of Heroine to be updated");
-			String heroineName = heroineInput.nextLine();
-			heroineList.get(0).setName(heroineName);
-			System.out.println("Enter the CharacterName of Hero In the Movie");
-			String heroinecharName = heroineInput.nextLine();
-			heroineList.get(0).setCharacterName(heroinecharName); 
+			 movie.updatedbHeroine(heroineList);
 			String sql  = "UPDATE CastDetails SET Name='"+heroineList.get(0).getName()+"' WHERE Role ='Heroine'";
 			statement = connection.createStatement();
 			row = statement.executeUpdate(sql);
@@ -121,13 +111,7 @@ public class Database
 			}
 			if(input .equals("AntiHero"))
 			{
-			Scanner antiheroInput = new Scanner(System.in);
-			System.out.println("Enter the Name of Ant_Hero to be updated");
-			String antiheroName = antiheroInput.nextLine();
-			antiHeroList.get(0).setName(antiheroName);
-			System.out.println("Enter the CharacterName of Anti_Hero In the Movie");
-			String antiherocharName = antiheroInput.nextLine();
-			antiHeroList.get(0).setCharacterName(antiherocharName); 
+			movie.updatedbAntiHero(antiHeroList);
 			String sql  = "UPDATE CastDetails SET Name='"+antiHeroList.get(0).getName()+"' WHERE Role ='AntiHero'";
 			statement = connection.createStatement();
 			row = statement.executeUpdate(sql);
@@ -138,13 +122,7 @@ public class Database
 			}
 			if(input .equals("Comedian"))
 			{
-			Scanner comedianInput = new Scanner(System.in);
-			System.out.println("Enter the Name of Comedian to be updated");
-			String comedianName = comedianInput.nextLine();
-			comedianList.get(0).setName(comedianName);
-			System.out.println("Enter the CharacterName of Hero In the Movie");
-			String comediancharName = comedianInput.nextLine();
-			comedianList.get(0).setCharacterName(comediancharName); 
+			 movie.updatedbComedian(comedianList);
 			String sql  = "UPDATE CastDetails SET Name='"+comedianList.get(0).getName()+"' WHERE Role ='comedian'";
 			statement = connection.createStatement();
 			row = statement.executeUpdate(sql);
