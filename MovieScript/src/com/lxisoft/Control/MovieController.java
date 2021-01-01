@@ -78,12 +78,17 @@ public class MovieController
 
         	if(choice==5)
         	{
-        		database.createDatabaseConnection();
+        		file.createFile(heroList,heroineList,antiHeroList,comedianList);
         	}
           if(choice==6)
           {
-            database.printDatabase(heroList,casting);
+            file.readFile(cast);
           }
+          if (choice==7)
+          {
+            this.databaseMenu(heroList,heroineList,antiHeroList,comedianList);
+          }
+          
         	else if(choice==0)
         	{
         		System.out.println(" ");
@@ -92,6 +97,37 @@ public class MovieController
 		}
 		while(choice>0);
 	}
+    public void databaseMenu(ArrayList<Hero> heroList, ArrayList<Heroine> heroineList, ArrayList<Anti_Hero> antiHeroList, ArrayList<Comedian> comedianList)
+    {
+        Scanner databaseInput = new Scanner(System.in);
+        int choice=0;
+        movie.databaseAction();
+       do
+       { 
+        choice=databaseInput.nextInt();
+        if(choice==1)
+          {
+            database.addToDatabase(heroList,heroineList,antiHeroList,comedianList);
+          }
+          if(choice==2)
+          {
+            database.deletefromDatabase();
+          }
+          if(choice==3)
+          {
+            database.updateDatabase(heroList,heroineList,antiHeroList,comedianList);
+          }
+          if(choice==4)
+          {
+            database.printDatabase();
+          }
+          else if(choice==0)
+          {
+            System.out.println(" ");
+          }
+        }
+        while(choice>0);
+    }
 
 
 	/*public void addCast()

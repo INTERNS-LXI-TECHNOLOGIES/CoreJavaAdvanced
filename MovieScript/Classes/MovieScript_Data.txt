@@ -1,3 +1,6 @@
 Cast Details : 
 -------------------
-1. Name : FarisCharacter Type :- HeroCharacter Name :- rex2.Name : backerCharacter Type :- HeroinCharacter Name :- julie3.Name : hjCharacter Type :- ComedianCharacter Name :- mr.bean4.Name : qwCharacter Type :- Anti heroCharacter Name :- Prank
+1. Name : FarisCharacter Type :- HeroCharacter Name :- Bin Backer
+2.Name : MeghaCharacter Type :- HeroineCharacter Name :- Akhash
+3.Name : BallalCharacter Type :- ComedianCharacter Name :- Devan
+4.Name : SanthanmCharacter Type :- ComedianCharacter Name :- san

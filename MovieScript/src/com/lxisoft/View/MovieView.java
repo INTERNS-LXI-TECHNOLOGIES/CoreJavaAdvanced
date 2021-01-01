@@ -35,8 +35,13 @@ public class MovieView
     System.out.println(" ");
     System.out.println("Welcome Mr.Director");
     System.out.println("\n________________________");
-    System.out.println("\n\n1. Add Hero \n\n2. Add Heroine \n\n3. Add Anti_Hero\n\n4. Add Comedian\n\n5. Export Details of Casts to File \n\n6. Import From File \n\n Press 0 for Exit \n");
+    System.out.println("\n\n1. Add Hero \n\n2. Add Heroine \n\n3. Add Anti_Hero\n\n4. Add Comedian\n\n5. Export Details of Casts to File \n\n6. Import From File \n\n7. Databse Operations \n\n Press 0 for Exit \n");
     
+  }
+  public void databaseAction()
+  {
+    System.out.println("\n________________________");
+    System.out.println("\n\n1. Add To Database \n\n2. Delete From Database \n\n3. Update Database\n\n4. PrintDatabase \n\n Press 0 for Exit \n");
   }
 
 
@@ -133,7 +138,7 @@ public class MovieView
         System.out.println("Enter the Character Type Of Actor : ");
         String characterType=antiheroInput.nextLine();
         antiHeroList.get(0).setCharacterType(characterType);
-    System.out.println("Enter the Character Name of Heroine");
+    System.out.println("Enter the Character Name of Anti_Hero");
         String characterName=antiheroInput.nextLine();
         antiHeroList.get(0).setCharacterName(characterName);}
 
@@ -149,7 +154,7 @@ public void addComedian(ArrayList<Comedian> comedianList)
     System.out.println("Enter the Character Type Of Actor : ");
     String characterType=comedianInput.nextLine();
     comedianList.get(0).setCharacterType(characterType);
-    System.out.println("Enter the Character Name of Heroine");
+    System.out.println("Enter the Character Name of Comedian");
     String characterName=comedianInput.nextLine();
     comedianList.get(0).setCharacterName(characterName);
 }

@@ -14,18 +14,18 @@ public class File
             Writer writeStream = new BufferedWriter(writeData);
             for(int i=0; i<heroList.size(); i++)
             {
-              writeStream.write("Cast Details : \n-------------------\n1. Name : "+heroList.get(i).getName()+"Character Type :- "+heroList.get(i).getCharacterType()+"Character Name :- "+heroList.get(i).getCharacterName());}
+              writeStream.write("Cast Details : \n-------------------\n1. Name : "+heroList.get(i).getName()+"Character Type :- "+heroList.get(i).getCharacterType()+"Character Name :- "+heroList.get(i).getCharacterName()+"\n");}
               for(int i=0; i<heroineList.size(); i++)
             { 
-              writeStream.write("2.Name : "+heroineList.get(i).getName()+"Character Type :- "+heroineList.get(i).getCharacterType()+"Character Name :- "+heroineList.get(i).getCharacterName());
+              writeStream.write("2.Name : "+heroineList.get(i).getName()+"Character Type :- "+heroineList.get(i).getCharacterType()+"Character Name :- "+heroineList.get(i).getCharacterName()+"\n");
              }
               for(int i=0; i<comedianList.size(); i++)
             {
-             writeStream.write("3.Name : "+comedianList.get(i).getName()+"Character Type :- "+comedianList.get(i).getCharacterType()+"Character Name :- "+comedianList.get(i).getCharacterName());             
+             writeStream.write("3.Name : "+comedianList.get(i).getName()+"Character Type :- "+comedianList.get(i).getCharacterType()+"Character Name :- "+comedianList.get(i).getCharacterName()+"\n");             
             }
              for(int i=0; i<heroList.size(); i++)
             {
-              writeStream.write("4.Name : "+antiHeroList.get(i).getName()+"Character Type :- "+antiHeroList.get(i).getCharacterType()+"Character Name :- "+antiHeroList.get(i).getCharacterName());             
+              writeStream.write("4.Name : "+antiHeroList.get(i).getName()+"Character Type :- "+antiHeroList.get(i).getCharacterType()+"Character Name :- "+antiHeroList.get(i).getCharacterName()+"\n");             
             }
             
             writeStream.flush();
@@ -38,7 +38,7 @@ public class File
         }
       }
 
-/*public void readFile(ArrayList<Cast> cast); 
+public void readFile(ArrayList<Cast> cast)
   {
     
   try{
@@ -57,5 +57,5 @@ public class File
             e.printStackTrace();
         }
 
-    }*/
+    }
 }
