@@ -1,11 +1,13 @@
 package com.Lxisoft.View;
 import com.Lxisoft.Model.*;
+import com.Lxisoft.Repositry.*;
 import java.util.*;
+import java.sql.*;
 
 public class ContactAppView
 {
-	Contact contact = new Contact();
 	
+	Contact contact = new Contact();
 	public void intro()
 	{
     	System.out.println("\n\t\t-------------------------------------------\t");
@@ -26,38 +28,38 @@ public class ContactAppView
       System.out.println("\n\n1. Add Contacts  \n\n2. Update Contacts \n\n3. Delete Contacts \n\n4. PrintDatabase \n\n Press 0 for Exit \n");
 
     }
-    public void addContacts(ArrayList<Contact> addContact)
+    public void addContacts()
     {
     	Scanner addInput = new Scanner(System.in);
     	//System.out.println("Enter Number of contacts to be Added");
     	//int input=addInput.nextInt();
     		//for(int i=0; i<input; i++)
     	//{
-    		addContact.add(new Contact());
-    		Scanner add_contact = new Scanner(System.in);
+    		//addContact.add(new Contact());
+    		//Scanner add_contact = new Scanner(System.in);
     		System.out.println("Enter First Name ");
-    		String fname=add_contact.nextLine();
-    		addContact.get(0).setFirstName(fname);
+    		String fname=addInput.nextLine();
+    		//addContact.get(0).setFirstName(fname);
     		
     		System.out.println("Enter Last Name");
-    		String lName=add_contact.nextLine();
-    		addContact.get(0).setLastName(lName);
+    		String lName=addInput.nextLine();
+    		//addContact.get(0).setLastName(lName);
     		
     		System.out.println("Enter Email");
-    		String email = 	add_contact.nextLine();
-    		addContact.get(0).setEmail(email);
+    		String email = 	addInput.nextLine();
+    		//addContact.get(0).setEmail(email);
 
     		System.out.println("Enter Contact Number");
-    		String phNo=add_contact.nextLine();
-    		addContact.get(0).setContactNumber(phNo);
+    		String phNo=addInput.nextLine();
+    		//addContact.get(0).setContactNumber(phNo);
 
-
-    	//}
+    		//}
+    	
     }
     
 
 
-	public void updateContact(ArrayList<Contact> addContact)
+	/*public void updateContact(ArrayList<Contact> addContact)
 	{
 		Scanner update = new Scanner(System.in);
 		int i=0;
@@ -77,5 +79,5 @@ public class ContactAppView
     	String phNo=update.nextLine();
     	addContact.get(i).setContactNumber(phNo);		 
 
-	}
+	}*/
 }

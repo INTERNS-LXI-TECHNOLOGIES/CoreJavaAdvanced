@@ -9,7 +9,7 @@ public class ContactAppController
 	ContactAppView contactView = new ContactAppView();
 	Contact contact = new Contact();
 	ArrayList<Contact> addContact= new ArrayList<Contact>();
-	Database database = new Database();
+	MysqlRepositry database = new MysqlRepositry();
 	
 	public void mainMenu()
 	{
@@ -22,11 +22,11 @@ public class ContactAppController
 			choice= mainMenuInput.nextInt();
 			if(choice==1)
 			{
-				this.addContacts(addContact);
+				this.addContacts();
 			}
 			if(choice==2)
 			{
-				this.updateContacts(addContact);
+				this.updateContacts();
 			}
 			if(choice==3)
 			{
@@ -44,17 +44,17 @@ public class ContactAppController
 		}
 		while(choice>0);
 	}
-	public void addContacts(ArrayList<Contact> addContact)
+	public void addContacts()
 	{
-		database.addContacts(addContact);
+		database.addContacts();
 	}
 	public void deleteContact()
 	{
 		database.deleteContact();
 	}
-	public void updateContacts(ArrayList<Contact> addContact)
+	public void updateContacts()
 	{
-		database.updateContact(addContact);
+		database.updateContact();
 	}
 	public void printDatabase()
 	{

@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.*;
 import java.io.*;
 
-public class Database
+public class MysqlRepositry
 {
 	Connection connection =null;
 	ResultSet result = null;
@@ -44,15 +44,35 @@ public class Database
 			System.out.println("Database Is Not Connected To Database Due To ClassNotFoundException");
 		}
 	}
-	public void addContacts(ArrayList<Contact> addContact)
+	public void addContacts()
     {
-    	createDatabaseConnection();
-    	contactview.addContacts(addContact);
+    	//createDatabaseConnection();
+    	//contactview.addContacts();
     	int i=0;
     	try
     	{
-    		preparedstatement = connection.prepareStatement("INSERT INTO ContactInfo (First_Name,Last_Name,Email, Contact_Number) VALUES ('"+addContact.get(i).getFirstName()+"','"+addContact.get(i).getLastName()+"','"+addContact.get(i).getEmail()+"','"+addContact.get(i).getContactNumber()+"')");
+    		Scanner add_contact = new Scanner(System.in);
+    		System.out.println("Enter First Name ");
+    		String fname=add_contact.nextLine();
+    		//preparedstatement = connection.prepareStatement("INSERT INTO ContactInfo (First_Name) VALUES ('"+contactview.fname+"')");
+			//row = preparedstatement.executeUpdate();
+
+    		System.out.println("Enter Last Name");
+    		String lName=add_contact.nextLine();
+    		///preparedstatement = connection.prepareStatement("INSERT INTO ContactInfo (Last_Name) VALUES ('"+lName+"')");
+			
+ 			
+ 			System.out.println("Enter Email");
+    		String email = 	add_contact.nextLine();
+    		//preparedstatement = connection.prepareStatement("INSERT INTO ContactInfo (Email) VALUES ('"+email+"')");
+			//row = preparedstatement.executeUpdate();
+
+	 	    System.out.println("Enter Contact Number");
+    		String phNo=add_contact.nextLine();
+    		preparedstatement = connection.prepareStatement("INSERT INTO ContactInfo (First_Name,Last_Name,Email,Contact_Number) VALUES ('"+fname+"','"+lName+"','"+email+"','"+phNo+"')");
 			row = preparedstatement.executeUpdate();
+
+
 			preparedstatement.close();
 			connection.close();    	
 			if(row>0)
@@ -63,21 +83,37 @@ public class Database
     	}
     	catch(SQLException e)
     	{
-    		System.out.println("Database is not Connected Due to SQLException");
+    		e.printStackTrace();
+    		//System.out.println("Database is not Connected Due to SQLException");
     	}
 
     }
-    public void updateContact(ArrayList<Contact> addContact)
+    public void updateContact()
     {
     	createDatabaseConnection();
 
     	Scanner updateinfo = new Scanner(System.in);
 		System.out.println("Enter the index number to update");
-		int i=updateinfo.nextInt();
-		contactview.updateContact(addContact);
+		int j=updateinfo.nextInt();
+
+		
 		try
 		{
-			preparedstatement = connection.prepareStatement("UPDATE ContactInfo SET First_Name='"+addContact.get(0).getFirstName()+"',  Last_Name='"+addContact.get(0).getLastName()+"', Email='"+addContact.get(0).getFirstName()+"', Contact_Number='"+addContact.get(0).getFirstName()+"' WHERE id ='"+i+"'");
+		Scanner update = new Scanner(System.in);
+		int i=0;
+		System.out.println("Enter First Name to be updated");
+    	String fname=update.nextLine();
+    		
+    	System.out.println("Enter Last Name");
+    	String lName=update.nextLine();
+    		
+    	System.out.println("Enter Email");
+    	String email = update.nextLine();
+
+    	System.out.println("Enter Contact Number");
+    	String phNo= update.nextLine();	
+			
+			preparedstatement = connection.prepareStatement("UPDATE ContactInfo SET First_Name='"+fname+"',  Last_Name='"+lName+"', Email='"+email+"', Contact_Number='"+phNo+"' WHERE id ='"+j+"'");
 			row = preparedstatement.executeUpdate();
 			preparedstatement.close();
 			connection.close();
