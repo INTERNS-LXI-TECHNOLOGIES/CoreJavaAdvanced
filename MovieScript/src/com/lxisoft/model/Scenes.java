@@ -1,6 +1,6 @@
-package com.lxisoft.view;
+package com.lxisoft.model;
 import com.lxisoft.model.*;
-//import com.lxisoft.actors.*;
+import com.lxisoft.view.*;
 import java.util.*;
 import java.io.*;
 public class Scenes{
@@ -29,8 +29,7 @@ public class Scenes{
 		script1.get(3).setDialogue2("\n S.I       : Rand pereyum pidich Jeepil kettadoo...\n");
 		script1.get(3).setDialogue3("\n S.I       : AAha!!...Selectionu pona vazhi aano...enna vaa namakk stationil keri chaya kudichit povaam\n");
 		script1.get(3).setDialogue4("\n S.I       : Poyii Jeepil kerada...!!!\n");
-	}
-	public void printScene1(){
+		
 		try{
 			File file = new File("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
     		FileWriter fileWriter = new FileWriter(file);
@@ -61,6 +60,9 @@ public class Scenes{
 	    catch (IOException e) {
 	    	e.printStackTrace();
 	    }
+	}
+	public void printScene1(){
+		
 
 		try{
 			//Scanner scan = new Scanner(System.in);
@@ -99,8 +101,7 @@ public class Scenes{
 		script2.get(2).setDialogue2("\n Vikraman  : Athum ok pakshey ee peru oru Gumm illa C.I.D.Moolamkuzhiyil Sahadevan\n");
 		script2.get(2).setDialogue3("\n Vikraman  : Venda enna C.I.D.Moolam ennu mathy....\n");
 		script2.get(2).setDialogue4("\n Vikraman  : MOOSA ath kollam oru Resam okke ind\n");
-	}
-	public void printScene2(){
+
 		try{
 			File file = new File("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
 		    FileWriter fileWriter = new FileWriter(file);
@@ -130,6 +131,9 @@ public class Scenes{
 		catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	public void printScene2(){
+		
 		try{
 			Scanner scan = new Scanner(System.in);
 			BufferedReader buffReader = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv"));
@@ -181,8 +185,7 @@ public class Scenes{
 		script3.get(3).setDialogue3("\n S.I       : Venda aa 10paisa aliyan vecho baaki enik thanoode..!!\n");
 		script3.get(3).setDialogue4("\n S.I       : Aliyaaa....!!!!\n");
 		script3.get(3).setDialogue5("\n S.I       : Podaa...\n");
-	}
-	public void printScene3(){
+
 		try{
 			File file = new File("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
 		    FileWriter fileWriter = new FileWriter(file);
@@ -231,6 +234,9 @@ public class Scenes{
     	catch (IOException e) {
     		e.printStackTrace();
     	}
+		
+	}
+	public void printScene3(){
 		try{
 			Scanner scan = new Scanner(System.in);
 			BufferedReader buffReader = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaFoundational\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv"));

@@ -1,7 +1,7 @@
-package com.lxisoft.controller;
+package com.lxisoft.view;
 import com.lxisoft.model.*;
 import com.lxisoft.view.*;
-//import com.lxisoft.theater.Theater;
+import com.lxisoft.controller.Controller;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,19 +11,16 @@ public class Movies{
 	String genere;// = "Comedy";
 	Scenes scene = new Scenes();
 	Theater theatr = new Theater();
+	Controller controller = new Controller();
 	ArrayList<Cast> cast = new ArrayList<Cast>();
 	public Movies(){
 		movieName = "C.I.D MOOSA";
 	    director = "Jhony Antony";
 	    genere = "Comedy";
-	    this.setCast();
+	    controller.setCast(cast);
 	}
 	public void movieOptions(){
-		Moosa moosa = new Moosa();
-    	Meena meena = new Meena();
-	    Kochunni kochu = new Kochunni();
-    	Vikraman vikram = new Vikraman();
-    	AliyanSI si = new AliyanSI();
+		
 		Scanner s = new Scanner(System.in);
 		int option;
 		do{
@@ -33,75 +30,26 @@ public class Movies{
 		    	this.setMovie();
 		    }
 		    else if(option == 2){
-		    	//this.setCast();
+		    	
 		    	this.printCast();
-		    	int yN;
-		    	do{
-		    		System.out.println("Do you like to read about charectors 1.Yes 0.No");
-		    	    yN = s.nextInt();
-		    		if(yN==1){
-		    		    this.printActors();
-		    		    System.out.println("\nSelect the serial number to view the descriptions");
-		    		    int sno = s.nextInt();
-		    		    switch(sno){
-		    			    case 1:
-		    			    System.out.println("Actor Brief : ");
-		        			meena.actorBrief();
-		    	    		System.out.println("Charactor Brief : ");
-		         			meena.charectorBrief();
-		        			break;
-		    	    		case 2:
-		         			System.out.println("Actor Brief : ");
-		    		    	moosa.actorBrief();
-		    	    		System.out.println("Charactor Brief : ");
-		        			moosa.charectorBrief();
-		    	    		break;
-		    		    	case 3:
-		         			System.out.println("Actor Brief : ");
-		    		    	kochu.actorBrief();
-		    	    		System.out.println("Charactor Brief : ");
-		    			    kochu.charectorBrief();
-		    		    	break;
-		    			    case 4:
-		    			    System.out.println("Actor Brief : ");
-		    			    si.actorBrief();
-		    			    System.out.println("Charactor Brief : ");
-		    			    si.charectorBrief();
-		    			    break;
-		    	     		case 5:
-		    		    	System.out.println("Actor Brief : ");
-		    			    vikram.actorBrief();
-		    	    		System.out.println("Charactor Brief : ");
-		    		    	vikram.charectorBrief();
-		    		    	break;
-		    	    		default:
-		    		    	System.out.println("Something went wrong");
-		    	    	}
-		        	}
-		    	}while(yN != 0); 
+		    	
+		        int yN;
+        		do{
+	   	        	System.out.println("Do you like to read about charectors 1.Yes 0.No");
+	   	            yN = s.nextInt();
+	   	            if(yN == 1){
+	   	            	this.printActors();
+	   	            	controller.viewCast();
+	   	            }
+		         	 
+		        }while(yN != 0);
 		    }
 		    else if(option == 3){
 		    	theatr.seatSelection();
 		    }
 		}while(option != 0);
 	}  
-	public void setCast(){
-		cast.add(new Cast());
-		cast.get(0).setName("Dileep");
-		cast.get(0).setAge(38);
-		cast.add(new Cast());
-		cast.get(1).setName("Jagathy_Sreekumar");
-		cast.get(1).setAge(53);
-		cast.add(new Cast());
-		cast.get(2).setName("Harisree_Asokan");
-		cast.get(2).setAge(41);
-		cast.add(new Cast());
-		cast.get(3).setName("Cochin_Haneefa");
-		cast.get(3).setAge(56);
-		cast.add(new Cast());
-		cast.get(4).setName("Bhavana");
-		cast.get(4).setAge(24);
-	}
+	
 	public void printActors(){
 		System.out.println("+------+-----------------------------------------------+");
 		System.out.println("| SNo  |                   Name                        |");

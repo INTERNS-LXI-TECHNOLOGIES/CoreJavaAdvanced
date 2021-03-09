@@ -1,4 +1,4 @@
-package com.lxisoft.model;
+package com.lxisoft.view;
 import com.lxisoft.model.*;
 //import com.lxisoft.actors.*;
 public class Moosa extends Script implements Actors{

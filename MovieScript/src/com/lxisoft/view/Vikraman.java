@@ -1,4 +1,4 @@
-package com.lxisoft.model;
+package com.lxisoft.view;
 import com.lxisoft.model.*;
 //import com.lxisoft.movie.*;
 public class Vikraman extends Script implements Actors{
