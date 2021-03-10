@@ -29,8 +29,7 @@ public class Controller{
 	}
 	
 	public void viewCast(){
-		Scanner s = new Scanner(System.in);
-   		
+		Scanner s = new Scanner(System.in);	
    		System.out.println("\nSelect the serial number to view the descriptions");
    		int sno = s.nextInt();
    		switch(sno){

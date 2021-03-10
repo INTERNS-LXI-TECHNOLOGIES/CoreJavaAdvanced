@@ -6,9 +6,9 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class Movies{
-	String movieName;// = "C.I.D MOOSA";
-	String director;// = "Jhony Antony";
-	String genere;// = "Comedy";
+	String movieName;
+	String director;
+	String genere;
 	Scenes scene = new Scenes();
 	Theater theatr = new Theater();
 	Controller controller = new Controller();
