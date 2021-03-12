@@ -83,9 +83,9 @@ public class Scenes{
 	public void setScene2(){
 		script2.add(new Moosa());
 		script2.get(0).setDialogue0("\n Sahadevan : Mamante kadam veetyathum Detective agency thodangyathokke valare pettannayirunnu\n");
-		script2.get(0).setDialogue1("\n Sahadevan : Dhe nee aa costume azhichu veche....njan aplale paranjatha ivanu onnum kodkanda nnu\n");
+		script2.get(0).setDialogue1("\n Sahadevan : Dhe nee aa costume azhichu veche....njan apale paranjatha ivanu onnum kodkanda nnu\n");
 		script2.get(0).setDialogue2("\n Sahadevan : korachu veriety aayale aalukal sredhikkullu....\n");
-		script2.get(0).setDialogue3("\n Sahadevan : MoolamKuzhi lu  thott kalikaruth...!!\n");
+		script2.get(0).setDialogue3("\n Sahadevan : Moolamkuzhi lu  thott kalikaruth...!!\n");
 		script2.get(0).setDialogue4("\n Sahadevan : IDEA...!!! Moolamkuzhuiyile \"MOOyum\" Sahadevanle \"SAAyum\" \n");
 		script2.get(0).setDialogue5("\n Sahadevan : Eda ninne..!!! Poyke nee poyke...");
 		script2.get(0).setDialogue6("\n Sahadevan : Vikrametta... Moolamkuzhuiyile \"MOOyum\" Sahadevanle \"SAAyum\" \n");

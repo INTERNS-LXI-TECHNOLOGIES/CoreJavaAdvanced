@@ -15,13 +15,13 @@ public class Controller{
 		cast.get(0).setName("Dileep");
 		cast.get(0).setAge(38);
 		cast.add(new Cast());
-		cast.get(1).setName("Jagathy_Sreekumar");
+		cast.get(1).setName("Jagathy Sreekumar");
 		cast.get(1).setAge(53);
 		cast.add(new Cast());
-		cast.get(2).setName("Harisree_Asokan");
+		cast.get(2).setName("Harisree Asokan");
 		cast.get(2).setAge(41);
 		cast.add(new Cast());
-		cast.get(3).setName("Cochin_Haneefa");
+		cast.get(3).setName("Cochin Haneefa");
 		cast.get(3).setAge(56);
 		cast.add(new Cast());
 		cast.get(4).setName("Bhavana");
@@ -64,7 +64,7 @@ public class Controller{
    	    	vikram.charectorBrief();
    	    	break;
    	   		default:
-  	    	System.out.println("Something went wrong");
+  	    	System.out.println("Wrong Option");
    	   	}
     } 
 }

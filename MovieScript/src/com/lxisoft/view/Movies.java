@@ -103,7 +103,7 @@ public class Movies{
 		System.out.println("                                        Scene-3                                          ");
 		System.out.println("                                       ---------                                         ");
 		System.out.println("+---------------------------------------------------------------------------------------+");
-		System.out.println(" Moosa and team chases an insane man and after long hardwork to capture him they came to\n know he is just a maniac.");
+		System.out.println(" Moosa and team chases an insane man and after long hardwork to capture him and then they \n came to know he is just a maniac.");
 		
 		System.out.println("\n+---------------------------------------------------------------------------------------+\n Scene-3 Begins");
 		this.slowPrint();
