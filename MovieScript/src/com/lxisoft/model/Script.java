@@ -3,6 +3,7 @@ import com.lxisoft.model.*;
 //import com.lxisoft.actors.*;
 import java.util.*;
 public abstract class Script{
+	String charector;
 	String dialogue0;
 	String dialogue1;
 	String dialogue2;
@@ -14,6 +15,12 @@ public abstract class Script{
 	String dialogue8;
 	String dialogue9;
 	String dialogue10;
+	public void setName(String name){
+		this.charector = name;
+	}
+	public String getName(){
+		return charector;
+	}
 	public void setDialogue0(String dialogue){
 		this.dialogue0 = dialogue;
 	}
