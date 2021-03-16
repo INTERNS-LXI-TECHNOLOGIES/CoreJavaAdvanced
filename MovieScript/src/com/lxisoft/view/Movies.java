@@ -24,7 +24,7 @@ public class Movies{
 		Scanner s = new Scanner(System.in);
 		int option;
 		do{
-		    System.out.println("Press   1.View Script   2.View Cast   3.Book Tickets    0.Exit");
+		    System.out.println("Press   1.View Script   2.View Cast   3.Book Tickets   4.Database  0.Exit");
 		    option = s.nextInt();
 		    if(option == 1){
 		    	this.setMovie();
@@ -46,6 +46,11 @@ public class Movies{
 		    }
 		    else if(option == 3){
 		    	theatr.seatSelection();
+		    }
+		    else if(option == 4){
+		    	System.out.println("Press  1.Add to Database  ");
+		    	int p = s.nextInt();
+		    	controller.addData();
 		    }
 		}while(option != 0);
 	}  
@@ -77,7 +82,7 @@ public class Movies{
 		System.out.println("|    Plot   : The adventures of a private detective CID Moosa, who's luck and wit helps |");
 		System.out.println("|             him to solve the cases.                                                   |");
 		System.out.println("+---------------------------------------------------------------------------------------+");
-		System.out.println("+---------------------------------------------------------------------------------------+");
+		/*System.out.println("+---------------------------------------------------------------------------------------+");
 		System.out.println("                                        Scene-1                                          ");
 		System.out.println("                                       ---------                                         ");
 		System.out.println("+---------------------------------------------------------------------------------------+");
@@ -97,11 +102,11 @@ public class Movies{
 		System.out.println("\n+---------------------------------------------------------------------------------------+\n Scene-2 Begins");
 		this.slowPrint();
 		scene.setScene2();
-		scene.printScene2();
+		scene.printScene2();*/
 		System.out.println("\n+---------------------------------------------------------------------------------------+");
 		System.out.println("+---------------------------------------------------------------------------------------+");
-		System.out.println("                                        Scene-3                                          ");
-		System.out.println("                                       ---------                                         ");
+		System.out.println("                                        Main Scene                                          ");
+		System.out.println("                                       ------------                                         ");
 		System.out.println("+---------------------------------------------------------------------------------------+");
 		System.out.println(" Moosa and team chases an insane man and after long hardwork to capture him and then they \n came to know he is just a maniac.");
 		

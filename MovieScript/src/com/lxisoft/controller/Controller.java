@@ -2,6 +2,7 @@ package com.lxisoft.controller;
 import com.lxisoft.controller.Controller;
 import com.lxisoft.model.*;
 import com.lxisoft.view.*;
+import com.lxisoft.repository.*;
 import java.util.*;
 public class Controller{
 	Moosa moosa = new Moosa();
@@ -9,6 +10,7 @@ public class Controller{
     Kochunni kochu = new Kochunni();
    	Vikraman vikram = new Vikraman();
    	AliyanSI si = new AliyanSI();
+   	MovieScript ms = new MovieScript();
    	
 	public void setCast(ArrayList<Cast> cast){
 		cast.add(new Cast());
@@ -66,5 +68,9 @@ public class Controller{
    	   		default:
   	    	System.out.println("Wrong Option");
    	   	}
+    }
+    public void addData(){
+    	Scenes scenes = new Scenes();
+    	scenes.addDatabase();
     } 
 }

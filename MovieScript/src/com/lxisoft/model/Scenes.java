@@ -1,13 +1,14 @@
 package com.lxisoft.model;
 import com.lxisoft.model.*;
 import com.lxisoft.view.*;
+import com.lxisoft.repository.*;
 import java.util.*;
 import java.io.*;
 public class Scenes{
-	ArrayList<Script> script1 = new ArrayList<Script>();
-	ArrayList<Script> script2 = new ArrayList<Script>();
+	//ArrayList<Script> script1 = new ArrayList<Script>();
+	//ArrayList<Script> script2 = new ArrayList<Script>();
 	ArrayList<Script> script3 = new ArrayList<Script>();
-	public void setScene1(){
+	/*public void setScene1(){
 		script1.add(new Moosa());
 		script1.get(0).setName("\n Sahadevan");
 		script1.get(0).setDialogue0(" Da Thorappa odaruth....nikkadaa\n");
@@ -155,7 +156,7 @@ public class Scenes{
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 	public void setScene3(){
 		script3.add(new Moosa());
 		script3.get(0).setName("\n Sahadevan");
@@ -244,8 +245,11 @@ public class Scenes{
     	}
     	catch (IOException e) {
     		e.printStackTrace();
-    	}
-		
+    	}		
+	}
+	public void addDatabase(){
+		MovieScript ms = new MovieScript();
+		ms.addToDatabase(script3);
 	}
 	public void printScene3(){
 		try{
