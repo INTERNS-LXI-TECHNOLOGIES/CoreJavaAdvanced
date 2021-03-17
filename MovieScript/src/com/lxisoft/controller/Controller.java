@@ -15,18 +15,23 @@ public class Controller{
 	public void setCast(ArrayList<Cast> cast){
 		cast.add(new Cast());
 		cast.get(0).setName("Dileep");
+		//cast.get(0).setCharectorName("Sahadevan");
 		cast.get(0).setAge(38);
 		cast.add(new Cast());
 		cast.get(1).setName("Jagathy Sreekumar");
+		cast.get(1).setCharectorName("S.I.Peethambaran");
 		cast.get(1).setAge(53);
 		cast.add(new Cast());
 		cast.get(2).setName("Harisree Asokan");
+		cast.get(2).setCharectorName("Thorappan Kochunni");
 		cast.get(2).setAge(41);
 		cast.add(new Cast());
 		cast.get(3).setName("Cochin Haneefa");
+		cast.get(3).setCharectorName("Vikraman");
 		cast.get(3).setAge(56);
 		cast.add(new Cast());
 		cast.get(4).setName("Bhavana");
+		cast.get(4).setCharectorName("Meena");
 		cast.get(4).setAge(24);
 	}
 	
@@ -69,8 +74,13 @@ public class Controller{
   	    	System.out.println("Wrong Option");
    	   	}
     }
-    public void addData(){
+    public void addData(int p,ArrayList<Cast> cast){
     	Scenes scenes = new Scenes();
-    	scenes.addDatabase();
+    	if(p==1){
+    		ms.addToDatabase(cast);
+    	}
+    	else if(p==2){
+    		ms.deleteFromDatabase();
+    	}
     } 
 }

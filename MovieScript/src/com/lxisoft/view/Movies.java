@@ -48,9 +48,9 @@ public class Movies{
 		    	theatr.seatSelection();
 		    }
 		    else if(option == 4){
-		    	System.out.println("Press  1.Add to Database  ");
+		    	System.out.println("Press  1.Add to Database  2.Delete from Database");
 		    	int p = s.nextInt();
-		    	controller.addData();
+		    	controller.addData(p,cast);
 		    }
 		}while(option != 0);
 	}  
@@ -82,7 +82,7 @@ public class Movies{
 		System.out.println("|    Plot   : The adventures of a private detective CID Moosa, who's luck and wit helps |");
 		System.out.println("|             him to solve the cases.                                                   |");
 		System.out.println("+---------------------------------------------------------------------------------------+");
-		/*System.out.println("+---------------------------------------------------------------------------------------+");
+		System.out.println("+---------------------------------------------------------------------------------------+");
 		System.out.println("                                        Scene-1                                          ");
 		System.out.println("                                       ---------                                         ");
 		System.out.println("+---------------------------------------------------------------------------------------+");
@@ -102,7 +102,7 @@ public class Movies{
 		System.out.println("\n+---------------------------------------------------------------------------------------+\n Scene-2 Begins");
 		this.slowPrint();
 		scene.setScene2();
-		scene.printScene2();*/
+		scene.printScene2();
 		System.out.println("\n+---------------------------------------------------------------------------------------+");
 		System.out.println("+---------------------------------------------------------------------------------------+");
 		System.out.println("                                        Main Scene                                          ");

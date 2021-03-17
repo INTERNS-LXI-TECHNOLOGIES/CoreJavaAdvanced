@@ -5,10 +5,10 @@ import com.lxisoft.repository.*;
 import java.util.*;
 import java.io.*;
 public class Scenes{
-	//ArrayList<Script> script1 = new ArrayList<Script>();
-	//ArrayList<Script> script2 = new ArrayList<Script>();
+	ArrayList<Script> script1 = new ArrayList<Script>();
+	ArrayList<Script> script2 = new ArrayList<Script>();
 	ArrayList<Script> script3 = new ArrayList<Script>();
-	/*public void setScene1(){
+	public void setScene1(){
 		script1.add(new Moosa());
 		script1.get(0).setName("\n Sahadevan");
 		script1.get(0).setDialogue0(" Da Thorappa odaruth....nikkadaa\n");
@@ -156,47 +156,47 @@ public class Scenes{
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 	public void setScene3(){
 		script3.add(new Moosa());
 		script3.get(0).setName("\n Sahadevan");
-		script3.get(0).setDialogue0("\n Sahadevan : Eda Thorappa ninak onnnu sahayichoode daa\n");
-		script3.get(0).setDialogue1("\n Sahadevan : Avan verum oru pottan alley...\n");
-		script3.get(0).setDialogue2("\n Sahadevan : Enna vikremetta namukk avane pidikoodam\n");
-		script3.get(0).setDialogue3("\n Sahadevan : Shey...ivane njan innu kollum, eda Thorappa ingane aanel njan ninne police karkku pidichu kodukkum nokkiko\n");
-		script3.get(0).setDialogue4("\n Sahadevan : Adangi ninna ninakku kollam\n");
-		script3.get(0).setDialogue5("\n Sahadevan : Nammude oro neekangalum valare sookshichayirikanam....\n");
-		script3.get(0).setDialogue6("\n Sahadevan : Hey...!!! Da ivan aa theevara vaadhi alle CM ne kollan sremichavan\n");
-		script3.get(0).setDialogue7("\n Sahadevan : Aa pottan potte namuk ivane mathy...!!!\n");
-		script3.get(0).setDialogue8("\n Sahadevan : Thank You Sir thank u very much\n");
-		script3.get(0).setDialogue9("\n Sahadevan : Atheenu 10paisa polum therilla\n");
-		script3.get(0).setDialogue10("\n Sahadevan : GOOD Bye....!!!\n");
+		script3.get(0).setDialogue0("\n Eda Thorappa ninak onnnu sahayichoode daa\n");
+		script3.get(0).setDialogue1("\n Avan verum oru pottan alley...\n");
+		script3.get(0).setDialogue2("\n Enna vikremetta namukk avane pidikoodam\n");
+		script3.get(0).setDialogue3("\n Shey...ivane njan innu kollum, eda Thorappa ingane aanel njan ninne police karkku pidichu kodukkum nokkiko\n");
+		script3.get(0).setDialogue4("\n Adangi ninna ninakku kollam\n");
+		script3.get(0).setDialogue5("\n Nammude oro neekangalum valare sookshichayirikanam....\n");
+		script3.get(0).setDialogue6("\n Hey...!!! Da ivan aa theevara vaadhi alle CM ne kollan sremichavan\n");
+		script3.get(0).setDialogue7("\n Aa pottan potte namuk ivane mathy...!!!\n");
+		script3.get(0).setDialogue8("\n Thank You Sir thank u very much\n");
+		script3.get(0).setDialogue9("\n Atheenu 10paisa polum therilla\n");
+		script3.get(0).setDialogue10("\nGOOD Bye....!!!\n");
 		script3.add(new Kochunni());
 		script3.get(1).setName("\n Kochunni ");
-		script3.get(1).setDialogue0("\n Kochunni  : Detective company thodangi irkkan thogeet kore divasayii...oru case polum veranillaloo\n");
-		script3.get(1).setDialogue1("\n Kochunni  : Aynu pidikitta pulliye evde poyi pidikkan aanu\n");
-		script3.get(1).setDialogue2("\n Kochunni  : Ambada pulusoo...ingane aanel njan illa tta\n");
-		script3.get(1).setDialogue3("\n Kochunni  : Aaa angu chellu avan pidikkan ninnu therum...\n");
-		script3.get(1).setDialogue4("\n Kochunni  : Oo Sire anisarikkame...\n");
-		script3.get(1).setDialogue5("\n Kochunni  : Aa!! adhe idh avan thanne Sahadeva pidicho avane...\n");
-		script3.get(1).setDialogue6("\n Kochunni  : Vikrametta vilikk Police ne...\n");
+		script3.get(1).setDialogue0("\n Detective company thodangi irkkan thogeet kore divasayii...oru case polum veranillaloo\n");
+		script3.get(1).setDialogue1("\n Aynu pidikitta pulliye evde poyi pidikkan aanu\n");
+		script3.get(1).setDialogue2("\n Ambada pulusoo...ingane aanel njan illa tta\n");
+		script3.get(1).setDialogue3("\n Aaa angu chellu avan pidikkan ninnu therum...\n");
+		script3.get(1).setDialogue4("\n Oo Sire anisarikkame...\n");
+		script3.get(1).setDialogue5("\n Aa!! adhe idh avan thanne Sahadeva pidicho avane...\n");
+		script3.get(1).setDialogue6("\n Vikrametta vilikk Police ne...\n");
 		script3.add(new Vikraman());
 		script3.get(2).setName("\n Vikraman ");
-		script3.get(2).setDialogue0("\n Vikraman  : Sahadeva namakk oru pidikitta pulliye pidich kodtha nalla publicity kitoole...\n");
-		script3.get(2).setDialogue1("\n Vikraman  : Kitty...!!! Annu bomb beeshany ullavadem avan indayirunnu sammelana chadangilum avan indayirunnu\n");
-		script3.get(2).setDialogue2("\n Vikraman  : Avan pottane pole abhinayikunnathanu...alland CM pona stalathokke thokkum kond chellan avanendha Pottanaa\n");
-		script3.get(2).setDialogue3("\n Vikraman  : Dhe ponu avan...Sahadeva Change...alla Chasee\n");
-		script3.get(2).setDialogue4("\n Vikraman  : Da dhe aa pottane Mental hospitalille vandeelu aalkaru vanu pidichond ponu....\n");
-		script3.get(2).setDialogue5("\n Vikraman  : Sir ithupolathe chetta parupadikal kanikkum ennu Sahadevan paranjirunnu...\n athukond media kare okke nerthey vilich kuttavaliyem kond Moosa DIG nerit kaanan poyitund\n");
-		script3.get(2).setDialogue6("\n Vikraman  : Chammi poyalle Sire...\n");
+		script3.get(2).setDialogue0("\n Sahadeva namakk oru pidikitta pulliye pidich kodtha nalla publicity kitoole...\n");
+		script3.get(2).setDialogue1("\n Kitty...!!! Annu bomb beeshany ullavadem avan indayirunnu sammelana chadangilum avan indayirunnu\n");
+		script3.get(2).setDialogue2("\n Avan pottane pole abhinayikunnathanu...alland CM pona stalathokke thokkum kond chellan avanendha Pottanaa\n");
+		script3.get(2).setDialogue3("\n Dhe ponu avan...Sahadeva Change...alla Chasee\n");
+		script3.get(2).setDialogue4("\n Da dhe aa pottane Mental hospitalille vandeelu aalkaru vanu pidichond ponu....\n");
+		script3.get(2).setDialogue5("\n Sir ithupolathe chetta parupadikal kanikkum ennu Sahadevan paranjirunnu...\n athukond media kare okke nerthey vilich kuttavaliyem kond Moosa DIG nerit kaanan poyitund\n");
+		script3.get(2).setDialogue6("\n Chammi poyalle Sire...\n");
 		script3.add(new AliyanSI());
 		script3.get(3).setName("\n S.I      ");
-		script3.get(3).setDialogue0("\n S.I       : Well done ee Samstanam thedi kond irikkunna oru andharashtra kuttavaliye aanu ningal pidikoodyath...\n");
-		script3.get(3).setDialogue1("\n S.I       : Pakshey ithinte credit njan ningakk theraan pokunnilla...\n");
-		script3.get(3).setDialogue2("\n S.I       : Aliya aliyaa...ninte pengale ketyappo 1 roopa polum streedhanam thannitilla ippoo kityathinte pakuthi engilum enk theruoo...\n");
-		script3.get(3).setDialogue3("\n S.I       : Venda aa 10paisa aliyan vecho baaki enik thanoode..!!\n");
-		script3.get(3).setDialogue4("\n S.I       : Aliyaaa....!!!!\n");
-		script3.get(3).setDialogue5("\n S.I       : Podaa...\n");
+		script3.get(3).setDialogue0("\n Well done ee Samstanam thedi kond irikkunna oru andharashtra kuttavaliye aanu ningal pidikoodyath...\n");
+		script3.get(3).setDialogue1("\n Pakshey ithinte credit njan ningakk theraan pokunnilla...\n");
+		script3.get(3).setDialogue2("\n Aliya aliyaa...ninte pengale ketyappo 1 roopa polum streedhanam thannitilla ippoo kityathinte pakuthi engilum enk theruoo...\n");
+		script3.get(3).setDialogue3("\n Venda aa 10paisa aliyan vecho baaki enik thanoode..!!\n");
+		script3.get(3).setDialogue4("\n Aliyaaa....!!!!\n");
+		script3.get(3).setDialogue5("\n Podaa...\n");
 
 		try{
 			File file = new File("C:\\Users\\user\\Desktop\\CoreJava\\CoreJavaAdvanced\\MovieScript\\src\\com\\lxisoft\\repository\\script.csv");
@@ -236,7 +236,7 @@ public class Scenes{
     		writer.write(script3.get(3).getName()+" : "+script3.get(3).getDialogue2());
     		writer.write(script3.get(0).getName()+" : "+script3.get(0).getDialogue9());
     		writer.write(script3.get(3).getName()+" : "+script3.get(3).getDialogue3());
-    		writer.write(script3.get(0).getName()+" : "+script3.get(0).getDialogue10());
+    	    writer.write(script3.get(0).getName()+" : "+script3.get(0).getDialogue10());
     		writer.write(script3.get(3).getName()+" : "+script3.get(3).getDialogue4());
     		writer.write(script3.get(2).getName()+" : "+script3.get(2).getDialogue6());
     		writer.write(script3.get(3).getName()+" : "+script3.get(3).getDialogue5());
@@ -247,10 +247,10 @@ public class Scenes{
     		e.printStackTrace();
     	}		
 	}
-	public void addDatabase(){
+	/*public void addDatabase(){
 		MovieScript ms = new MovieScript();
 		ms.addToDatabase(script3);
-	}
+	}*/
 	public void printScene3(){
 		try{
 			Scanner scan = new Scanner(System.in);
