@@ -15,13 +15,13 @@ public class CastList{
 	public void databaseConnection(){
 		
 		try{
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			try{
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/castslist","root","abi@1003"); 
-			}
-			catch(SQLException e){
-				e.printStackTrace();
-			}
+		    Class.forName("com.mysql.cj.jdbc.Driver");
+	    	try{
+		        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/castslist","root","abi@1003"); 
+		    }
+		    catch(SQLException e){
+		        e.printStackTrace();
+		    }
 		}
 		catch(ClassNotFoundException e){
 			e.printStackTrace();
@@ -33,11 +33,13 @@ public class CastList{
 		try{
 		
 			for(int i=0;i<cast.size();i++){
-				ps = con.prepareStatement("insert into actors(name,charector) values('"+cast.get(i).getName()+"','"+cast.get(i).getCharectorName()+"'')");
-                row = ps.executeUpdate();
-                ps.close();
-                con.close();
+				System.out.println("Name : "+cast.get(i).getName()+" Charector : "+cast.get(i).getCharectorName());
+				ps = con.prepareStatement("insert into actors(id,name,charector) values('"+i+"','"+cast.get(i).getName()+"','"+cast.get(i).getCharectorName()+"')");
+                row = ps.executeUpdate();  
 			}
+			ps.close();
+            con.close();
+            this.showDatabase();
            // if(row > 1){
             //	System.out.println("New item added");
            // }
@@ -46,15 +48,40 @@ public class CastList{
 			e.printStackTrace();
 		}
 	}
+	public void showDatabase(){
+		this.databaseConnection();
+		try{
+			stmnt = con.createStatement();
+			rs = stmnt.executeQuery("select * from actors");
+
+			while(rs.next()){
+				int id = rs.getInt("id");
+				String rName = rs.getString("name");
+				String cName = rs.getString("charector");
+
+				System.out.println("  ID       : "+id+"\n  Name     : "+rName+"\n Character : "+cName);
+			}
+			rs.close();
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
 	public void deleteFromDatabase(){
 		this.databaseConnection();
 		try{
+			stmnt = con.createStatement();
+			
 			Scanner sc = new Scanner(System.in);
-			System.out.println("Enter the name of the actor to be deleted ");
-			String delete = sc.nextLine();
+			System.out.println("Enter the S.No of the actor to be deleted ");
+			int delete = sc.nextInt();
 
-			String command = "DELETE FROM actors WHERE name='"+delete+"'";
-			ps = con.prepareStatement(command);
+			stmnt.executeUpdate("delete from actors where id ='"+delete+"'");
+
+			System.ou.println("Deleted 1 row ");
+			this.showDatabase();
+			//String command = "delete from actors where name='"+delete+"'";
+			//ps = con.prepareStatement("'delete from actors where id ='"+delete+"'");
 		}
 		catch(SQLException e){
 			e.printStackTrace();

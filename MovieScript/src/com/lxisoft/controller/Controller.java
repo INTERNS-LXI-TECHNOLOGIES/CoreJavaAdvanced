@@ -10,12 +10,12 @@ public class Controller{
     Kochunni kochu = new Kochunni();
    	Vikraman vikram = new Vikraman();
    	AliyanSI si = new AliyanSI();
-   	MovieScript ms = new MovieScript();
+   	CastList ms = new CastList();
    	
 	public void setCast(ArrayList<Cast> cast){
 		cast.add(new Cast());
 		cast.get(0).setName("Dileep");
-		//cast.get(0).setCharectorName("Sahadevan");
+		cast.get(0).setCharectorName("Sahadevan");
 		cast.get(0).setAge(38);
 		cast.add(new Cast());
 		cast.get(1).setName("Jagathy Sreekumar");
@@ -80,7 +80,13 @@ public class Controller{
     		ms.addToDatabase(cast);
     	}
     	else if(p==2){
+    		ms.showDatabase();
+    	}
+    	else if(p==3){
     		ms.deleteFromDatabase();
+    	}
+    	else{
+    		System.out.println("Wrong Option");
     	}
     } 
 }

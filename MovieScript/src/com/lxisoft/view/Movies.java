@@ -48,9 +48,12 @@ public class Movies{
 		    	theatr.seatSelection();
 		    }
 		    else if(option == 4){
-		    	System.out.println("Press  1.Add to Database  2.Delete from Database");
-		    	int p = s.nextInt();
-		    	controller.addData(p,cast);
+		    	int p;
+		    	do{
+		    		System.out.println("Press  1.Add to Database   2.View Database   3.Delete Database   0.Exit");
+		        	p = s.nextInt();
+		        	controller.addData(p,cast);
+		    	}while(p != 0);
 		    }
 		}while(option != 0);
 	}  
