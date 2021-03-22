@@ -1,0 +1,11 @@
+Create a Hospital Management app with three 3 roles - Patient,Manager,Doctor
+Patient should be able to view the doctors list and should be able to book their respective Doctor,
+Manager should be able to do CRUD on the doctor's list.Doctor name ,specilization and available time should be provided,
+Doctor should be able to update his/her details.
+
+Requirements:
+
+Usage of arrays, interface and packages is necessary.
+Use mysql/file as the database
+
+

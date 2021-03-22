@@ -1,2 +1,0 @@
-Contact app displays contacts which consists contact details like name and phone number.
-Users are able to delete, update and create new contacts.
