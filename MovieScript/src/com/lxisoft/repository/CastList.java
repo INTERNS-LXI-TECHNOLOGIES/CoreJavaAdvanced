@@ -78,7 +78,7 @@ public class CastList{
 
 			stmnt.executeUpdate("delete from actors where id ='"+delete+"'");
 
-			System.ou.println("Deleted 1 row ");
+			System.out.println("Deleted 1 row ");
 			this.showDatabase();
 			//String command = "delete from actors where name='"+delete+"'";
 			//ps = con.prepareStatement("'delete from actors where id ='"+delete+"'");

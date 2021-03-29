@@ -2,7 +2,7 @@ package com.lxisoft.model;
 import com.lxisoft.model.*;
 //import com.lxisoft.actors.*;
 import java.util.*;
-public abstract class Script{
+public class Script{
 	String charector;
 	String dialogue0;
 	String dialogue1;
