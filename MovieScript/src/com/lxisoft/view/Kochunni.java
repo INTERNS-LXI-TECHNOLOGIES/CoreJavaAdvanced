@@ -1,7 +1,7 @@
 package com.lxisoft.view;
 import com.lxisoft.model.*;
 //import com.lxisoft.movie.*;
-public class Kochunni extends Script implements Actors{
+public class Kochunni extends Script implements Actors,Comedian{
 	public void actorBrief(){
 		System.out.println("+----------------------------------------------------------------+");
 		System.out.println("|                      Harisree Asokan                           |");

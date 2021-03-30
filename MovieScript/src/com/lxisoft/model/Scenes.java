@@ -170,7 +170,7 @@ public class Scenes{
 		script3.get(0).setDialogue7("\n Aa pottan potte namuk ivane mathy...!!!\n");
 		script3.get(0).setDialogue8("\n Thank You Sir thank u very much\n");
 		script3.get(0).setDialogue9("\n Atheenu 10paisa polum therilla\n");
-		script3.get(0).setDialogue10("\nGOOD Bye....!!!\n");
+		script3.get(0).setDialogue10("\n GOOD Bye....!!!\n");
 		script3.add(new Kochunni());
 		script3.get(1).setName("\n Kochunni ");
 		script3.get(1).setDialogue0("\n Detective company thodangi irkkan thogeet kore divasayii...oru case polum veranillaloo\n");

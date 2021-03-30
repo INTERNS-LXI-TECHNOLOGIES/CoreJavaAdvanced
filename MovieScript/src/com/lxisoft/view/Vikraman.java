@@ -1,7 +1,7 @@
 package com.lxisoft.view;
 import com.lxisoft.model.*;
 //import com.lxisoft.movie.*;
-public class Vikraman extends Script implements Actors{
+public class Vikraman extends Script implements Actors,Comedian{
 	public void actorBrief(){
 		System.out.println("+----------------------------------------------------------------+");
 		System.out.println("|                       Cochin Haneefa                           |");
@@ -14,7 +14,7 @@ public class Vikraman extends Script implements Actors{
 	}
 	public void charectorBrief(){
 		System.out.println("+----------------------------------------------------------------+");
-		System.out.println("|                      Vikraman Poice                            |");
+		System.out.println("|                      Vikraman Police                           |");
 		System.out.println("|                    -------------------                         |");
 		System.out.println("| Vikraman is a lazy and unmatured Police officer who gets often |");
 		System.out.println("| suspended for his lazy charector and letting the people escape |");
