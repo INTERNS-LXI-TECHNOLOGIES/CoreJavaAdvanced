@@ -1,7 +1,7 @@
 package com.lxisoft.view;
 import com.lxisoft.model.*;
 //import com.lxisoft.movie.*;
-public class Meena extends Script implements Actors,Heroine{
+public class Meena extends Script implements Actors{
 	public void actorBrief(){
 		System.out.println("+----------------------------------------------------------------+");
 		System.out.println("|                          Bhavana                               |");

@@ -88,5 +88,12 @@ public class Controller{
     	else{
     		System.out.println("Wrong Option");
     	}
+    }
+    public void sceneSelection(int option){
+      Dialogues dialogue = new Dialogues();
+      switch(option){
+        case 1:
+        dialogue.getActionSequence();
+      }
     } 
 }

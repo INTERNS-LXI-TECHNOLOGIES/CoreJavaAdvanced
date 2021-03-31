@@ -24,7 +24,7 @@ public class Movies{
 		Scanner s = new Scanner(System.in);
 		int option;
 		do{
-		    System.out.println("Press   1.View Script   2.View Cast   3.Book Tickets   4.Database  0.Exit");
+		    System.out.println("Press   1.View Script   2.View Cast   3.Book Tickets   4.Database   5.Scenes   0.Exit");
 		    option = s.nextInt();
 		    if(option == 1){
 		    	this.setMovie();
@@ -54,6 +54,14 @@ public class Movies{
 		        	p = s.nextInt();
 		        	controller.addData(p,cast);
 		    	}while(p != 0);
+		    }
+		    else if(option == 5){
+		    	int e;
+		    	do{
+		    		System.out.println("Select the scene  1.Action  2.Romance  3.Comedy  0.Exit");
+		    		e = s.nextInt();
+		    		controller.sceneSelection(e);
+		    	}while(e != 0);
 		    }
 		}while(option != 0);
 	}  
