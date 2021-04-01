@@ -47,24 +47,44 @@ public class Controller{
        		meena.charectorBrief();
         	break;
    	   		case 2:
+          if(moosa instanceof Hero){
+            System.out.println("---------------------------------------------------------------");
+            System.out.println("-----------------He is the hero of the movie-------------------");
+            System.out.println("---------------------------------------------------------------");
+          }
     		System.out.println("Actor Brief : ");
    	    	moosa.actorBrief();
        		System.out.println("Charactor Brief : ");
    			moosa.charectorBrief();
    	   		break;
    	    	case 3:
+          if(kochu instanceof Comedian){
+            System.out.println("--------------------------------------------------------------");
+            System.out.println("--------------He is the comedian of the movie-----------------");
+            System.out.println("--------------------------------------------------------------");
+          }
     		System.out.println("Actor Brief : ");
    	    	kochu.actorBrief();
    	   		System.out.println("Charactor Brief : ");
    		    kochu.charectorBrief();
    	    	break;
    		    case 4:
+          if(si instanceof Villain){
+            System.out.println("---------------------------------------------------------------");
+            System.out.println("---------------He is the Villain of the movie------------------");
+            System.out.println("---------------------------------------------------------------");
+          }
    		    System.out.println("Actor Brief : ");
    		    si.actorBrief();
    		    System.out.println("Charactor Brief : ");
    		    si.charectorBrief();
    		    break;
    	   		case 5:
+          if(vikram instanceof Comedian){
+            System.out.println("--------------------------------------------------------------");
+            System.out.println("---------------He is the comedian of the movie----------------");
+            System.out.println("--------------------------------------------------------------");
+          }
    	    	System.out.println("Actor Brief : ");
    		    vikram.actorBrief();
    	   		System.out.println("Charactor Brief : ");
@@ -94,6 +114,11 @@ public class Controller{
       switch(option){
         case 1:
         dialogue.getActionSequence();
+        break;
+        case 2:
+        dialogue.getComediSequence();
+        break;
+        
       }
     } 
 }

@@ -22,4 +22,39 @@ public class Kochunni extends Script implements Actors,Comedian{
 		System.out.println("| in C.I.D Moosa as Moosa's assistant.                           |");
 		System.out.println("+----------------------------------------------------------------+");
 	}
+	String cName;
+	String dialogue1;
+	String dialogue2;
+	String dialogue3;
+	String dialogue4;
+	public void setName(String name){
+		this.cName = name;
+	}
+	public String getName(){
+		return cName;
+	}
+	public void setDialogue1(String dialogue){
+		this.dialogue1 = dialogue;
+	}
+	public String getDialogue1(){
+		return dialogue1;
+	}
+	public void setDialogue2(String dialogue){
+		this.dialogue2 = dialogue;
+	}
+	public String getDialogue2(){
+		return dialogue2;
+	}
+	public void setDialogue3(String dialogue){
+		this.dialogue3 = dialogue;
+	}
+	public String getDialogue3(){
+		return dialogue3;
+	}
+	public void setDialogue4(String dialogue){
+		this.dialogue4 = dialogue;
+	}
+	public String getDialogue4(){
+		return dialogue4;
+	}
 }

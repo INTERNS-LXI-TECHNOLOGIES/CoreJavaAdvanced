@@ -58,9 +58,16 @@ public class Movies{
 		    else if(option == 5){
 		    	int e;
 		    	do{
-		    		System.out.println("Select the scene  1.Action  2.Romance  3.Comedy  0.Exit");
+		    		System.out.println("Select the scene  1.Action  2.Comedy  0.Exit");
 		    		e = s.nextInt();
-		    		controller.sceneSelection(e);
+		    		if(e == 1){
+		    			this.actionScene();
+		    			controller.sceneSelection(e);
+		    		}
+		    		else if(e == 2){
+		    			this.comediScene();
+		    			controller.sceneSelection(e);
+		    		}
 		    	}while(e != 0);
 		    }
 		}while(option != 0);
@@ -139,5 +146,19 @@ public class Movies{
 		catch(InterruptedException e){
 			e.printStackTrace();
 		}
+	}
+	public void actionScene(){
+		System.out.println("+----------------------------------------------------------------------------------------+");
+		System.out.println("|       Sahadevan get arrested by the SI for a false case and locks him in jail          |");
+		System.out.println("|       When he pleed to get him out as he have to attend his police selection           |");
+		System.out.println("|       test the SI rejects his pleed and insult him.                                    |");
+		System.out.println("+----------------------------------------------------------------------------------------+\n\n");
+	}
+	public void comediScene(){
+		System.out.println("+----------------------------------------------------------------------------------------+");
+		System.out.println("|       Sahadevan and his friends Kochunni and Vikraman starts a detective agency        |");
+		System.out.println("|       and sits infront of the office and discuss about their future plans on           |");
+		System.out.println("|       getting new cases and also fights on the name of the agency.                     |");
+		System.out.println("+----------------------------------------------------------------------------------------+\n\n");
 	}
 }
