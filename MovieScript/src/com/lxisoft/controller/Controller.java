@@ -1,5 +1,5 @@
 package com.lxisoft.controller;
-import com.lxisoft.controller.Controller;
+import com.lxisoft.controller.*;
 import com.lxisoft.model.*;
 import com.lxisoft.view.*;
 import com.lxisoft.repository.*;

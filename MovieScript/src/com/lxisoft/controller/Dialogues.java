@@ -1,4 +1,4 @@
-package com.lxisoft.model;
+package com.lxisoft.controller;
 import com.lxisoft.model.*;
 import com.lxisoft.view.*;
 import java.util.*;
