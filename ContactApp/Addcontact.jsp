@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Added contact</title>
 </head>
 <body>
 	<%@ page import="java.sql.*" %>
@@ -14,17 +14,21 @@
 	    Class.forName("com.mysql.cj.jdbc.Driver");
 	    
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/contactapp","root","abi@1003");
-        PreparedStatement ps = con.prepeareStatement("insert into contacts(name,number,email) values('"+cname+"','"+num+"','"+mail+"')");
+        //out.println(cname+"  "+num+"  "+mail);
+        PreparedStatement ps = con.prepareStatement("insert into contacts(name,number,email) values('"+cname+"','"+num+"','"+mail+"')");
         int row = ps.executeUpdate();
         
-        out.println("Contact addded");	    
+        out.print("\nContact addded");	    
     }
     catch(Exception e){
         e.printStackTrace();
     }
     
     %>
-    <br/><br/>
+    <br>
+    <br>
     <a href="Addcontact.html">Add_contact</a>
+    <br>
+    <a href="index.html">Log_out</a>
 </body>
 </html>
