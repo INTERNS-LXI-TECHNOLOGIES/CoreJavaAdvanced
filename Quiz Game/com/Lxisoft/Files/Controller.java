@@ -38,16 +38,16 @@ public void passOrFail(){
 
 public Controller(){
     
-     questions.add(new Question("what is java?", "its a car", "its an oop Language", "its a coffee", 1));
-     questions.add (new Question("what is cat?", "its a car", "its a Language", "its an animal",2));
-     questions.add(new Question("what is bmw?", "its a brand", "its a car", "its a bike",3));
-     questions.add (new Question("what is football", "its a ball", "its an oop", "its a coffee",3));
-     questions.add(new Question("what is java?", "its a car", "its an oop Language", "its a coffee",1));
-     questions.add (new Question("what is water?", "its a H20", "its an oop rock", "its a coffee",2));
-     questions.add(new Question("what is a car?", "its a car", "its an oop Language", "its a coffee",2));
-     questions.add (new Question("what is pythin", "its a car", "its an oop Language", "its a coffee",3));
-     questions.add(new Question("what is a book?", "its a car", "its an oop Language", "its a coffee",1));
-     questions.add (new Question("what is what", "its a a", "its an oop a", "its a coffee",1));
+     questions.add(new Question("Goat of Football?", "C.Ronaldo", "Z.Zidane", "L.messi",1));
+     questions.add (new Question("Best Footall Club", "Real Madrid", "Bayern", "Liverpool",3));
+     questions.add (new Question("Fastest Animal?", "Lion", "Puma", "Cheetah",3));
+     questions.add(new Question("Goat of Midfielder?", "Zidane", "Ozil", "Modric",1));
+     questions.add (new Question("Footall Club with Most Champions League", "Real Madrid", "Bayern", "AC Milan",3));
+     questions.add (new Question("what kind of liquid is water?", "H20", "its kind of a gel", "coffee",1));
+     questions.add(new Question("Which club has most trophies?", "Real Madrid", "Bayern", "Man.Utd",1));
+     questions.add(new Question("Player with most Goals in History?", "C.Ronaldo", "Pele", "L.messi",1));
+     questions.add(new Question("what is java?", "its a car", "its an oop Language", "its a coffee", 2));
+     questions.add (new Question("what is football", "its a ball", "its an oop", "its a Game",3));
 
   
  } 

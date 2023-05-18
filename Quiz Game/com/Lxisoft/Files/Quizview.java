@@ -35,11 +35,8 @@ public void showIntro(){
 
     
     public void scoreDetails(){
-      System.out.println("you got "+ controller.userscore+" out of "+ controller.loadQuestions().size() +" Right answers");
-
-      System.out.println("your score is " + controller.userscore);
-
-      System.out.println("you have "+ controller.percent+"% right answers");
+      System.out.println("you got "+ controller.userscore+" out of "+ controller.loadQuestions().size() +" Right answers\n");
+      System.out.println("you have "+ controller.percent+"% right answers\n");
       controller.passOrFail();
      }
     
